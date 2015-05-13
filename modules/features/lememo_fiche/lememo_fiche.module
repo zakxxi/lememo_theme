@@ -1,0 +1,69 @@
+<?php
+/**
+ * @file
+ * Code for the lememo_fiche feature.
+ */
+
+include_once 'lememo_fiche.features.inc';
+
+/**
+ * Implements hook_form_alter().
+ *
+ * Clean the contact form and add some information that may be needed when
+ * sending the mail.
+ */
+function lememo_fiche_form_contact_site_form_alter(&$form, &$form_state, $form_id) {
+  $form['subject']['#required'] = false;
+  $form['subject']['#access'] = false;
+  $form['copy']['#access'] = false;
+  $form['actions']['submit']['#value'] = 'Envoyer une demande de devis';
+  array_push($form['#submit'], 'lememo_fiche_form_contact_site_form_submit');
+}
+
+function lememo_fiche_form_contact_site_form_submit(&$form, &$form_state) {
+  $form_state['redirect'] = $form_state['complete form']['#action'];
+}
+
+/**
+ * Implements hook_block_info().
+ *
+ * Declare a block with the contact form.
+ */
+function lememo_fiche_block_info() {
+  $blocks = array();
+
+  if (module_exists('contact')) {
+    $blocks['contact_site'] = array(
+      'info' => t('Site-wide contact form'),
+      'cache' => DRUPAL_NO_CACHE,
+    );
+  }
+
+  return $blocks;
+}
+
+/**
+ * Implements hook_block_view().
+ *
+ * Create a block with the contact form.
+ */
+function lememo_fiche_block_view($delta = '') {
+  $block = array();
+  switch ($delta) {
+    case 'contact_site':
+      if (user_access('access site-wide contact form') && module_exists('contact')) {
+        if (!flood_is_allowed('contact', variable_get('contact_hourly_threshold', 20))) {
+          $content = t("You cannot send more than %number messages per hour. Please try again later.", array('%number' => variable_get('contact_hourly_threshold', 3)));
+        }
+        else {
+          module_load_include('inc', 'contact', 'contact.pages');
+          $content = drupal_get_form('contact_site_form');
+        }
+
+        $block['subject'] = '<none>';
+        $block['content']['form'] = $content;
+        return $block;
+      }
+      break;
+  }
+}
