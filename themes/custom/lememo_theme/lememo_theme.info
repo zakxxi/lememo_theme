@@ -2,7 +2,14 @@ name = Le Memo
 description = Le memo api theme based on Foundation 5
 version = 0.0.0
 core = 7.x
+
+# Add stylesheets
+stylesheets[all][] = css/normalize.css
+stylesheets[all][] = css/foundation.css
 stylesheets[all][] = style.css
+
+# Add javascript files
+styles[] = js/modernizr.js 
 
 regions[header_left] = Left Header
 regions[header_right] = Right Header
