@@ -29,8 +29,8 @@ function lememo_fiche_image_default_styles() {
       1 => array(
         'name' => 'image_scale_and_crop',
         'data' => array(
-          'width' => 1024,
-          'height' => 335,
+          'width' => 2000,
+          'height' => 330,
         ),
         'weight' => 1,
       ),
@@ -65,7 +65,7 @@ function lememo_fiche_node_info() {
       'base' => 'node_content',
       'description' => '',
       'has_title' => '1',
-      'title_label' => t('Title'),
+      'title_label' => t('Titre'),
       'help' => '',
     ),
   );

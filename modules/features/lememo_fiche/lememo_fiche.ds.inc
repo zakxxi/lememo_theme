@@ -18,7 +18,7 @@ function lememo_fiche_ds_field_settings_info() {
   $ds_fieldsetting->view_mode = 'full';
   $ds_fieldsetting->settings = array(
     'contact_form' => array(
-      'weight' => '8',
+      'weight' => '9',
       'label' => 'hidden',
       'format' => 'default',
     ),
@@ -31,6 +31,21 @@ function lememo_fiche_ds_field_settings_info() {
         'wrapper' => 'h1',
         'class' => '',
       ),
+    ),
+    'comments' => array(
+      'weight' => '8',
+      'label' => 'hidden',
+      'format' => 'default',
+    ),
+    'lememo_fiche_cover_image' => array(
+      'weight' => '0',
+      'label' => 'hidden',
+      'format' => 'default',
+    ),
+    'lememo_fiche_share_this' => array(
+      'weight' => '4',
+      'label' => 'hidden',
+      'format' => 'default',
     ),
   );
   $export['node|fiche|full'] = $ds_fieldsetting;
@@ -74,52 +89,64 @@ function lememo_fiche_ds_layout_settings_info() {
   $ds_layout->entity_type = 'node';
   $ds_layout->bundle = 'fiche';
   $ds_layout->view_mode = 'full';
-  $ds_layout->layout = 'ds_2col_stacked';
+  $ds_layout->layout = 'lememo_node_display';
   $ds_layout->settings = array(
     'regions' => array(
-      'header' => array(
-        0 => 'field_cover',
+      'top' => array(
+        0 => 'lememo_fiche_cover_image',
+      ),
+      'header_society_left' => array(
         1 => 'field_logo',
+      ),
+      'header_society_right' => array(
         2 => 'title',
         3 => 'field_city',
-        4 => 'field_code_postal',
+      ),
+      'header_sharethis' => array(
+        4 => 'lememo_fiche_share_this',
+      ),
+      'header_resume' => array(
+        5 => 'field_description_short',
       ),
       'left' => array(
-        5 => 'field_description_short',
         6 => 'field_pictures',
         7 => 'field_description_long',
+        8 => 'comments',
       ),
       'right' => array(
-        8 => 'contact_form',
-        9 => 'field_siret',
-        10 => 'field_tva',
+        9 => 'contact_form',
+        10 => 'field_siret',
+        11 => 'field_tva',
       ),
-      'footer' => array(
-        11 => 'field_company',
+      'bottom' => array(
         12 => 'field_position',
       ),
     ),
     'fields' => array(
-      'field_cover' => 'header',
-      'field_logo' => 'header',
-      'title' => 'header',
-      'field_city' => 'header',
-      'field_code_postal' => 'header',
-      'field_description_short' => 'left',
+      'lememo_fiche_cover_image' => 'top',
+      'field_logo' => 'header_society_left',
+      'title' => 'header_society_right',
+      'field_city' => 'header_society_right',
+      'lememo_fiche_share_this' => 'header_sharethis',
+      'field_description_short' => 'header_resume',
       'field_pictures' => 'left',
       'field_description_long' => 'left',
+      'comments' => 'left',
       'contact_form' => 'right',
       'field_siret' => 'right',
       'field_tva' => 'right',
-      'field_company' => 'footer',
-      'field_position' => 'footer',
+      'field_position' => 'bottom',
     ),
     'classes' => array(),
     'wrappers' => array(
-      'header' => 'div',
+      'top' => 'div',
+      'header_society_left' => 'div',
+      'header_society_right' => 'div',
+      'header_sharethis' => 'div',
+      'header_resume' => 'div',
       'left' => 'div',
       'right' => 'div',
-      'footer' => 'div',
+      'bottom' => 'div',
     ),
     'layout_wrapper' => 'div',
     'layout_attributes' => '',

@@ -1,21 +1,29 @@
 name = Le Memo
 description = Le memo api theme based on Foundation 5
-version = 0.0.0
+version = 7.x-0.1
 core = 7.x
 
-# Add stylesheets
+; Add stylesheets
 stylesheets[all][] = css/normalize.css
 stylesheets[all][] = css/foundation.css
 stylesheets[all][] = style.css
 
-# Add javascript files
-styles[] = js/modernizr.js 
+; Add javascript files
+scripts[] = js/modernizr.js
 
-regions[header_left] = Left Header
-regions[header_right] = Right Header
+; Define regions
+regions[page_top] = Page Top
 regions[help] = Help
 regions[content] = Content
-regions[footer_left] = Left Footer
-regions[footer_center] = Center Footer
-regions[footer_right] = Right Footer
+regions[footer_left] = Footer Left
+regions[footer_center] = Footer Center
+regions[footer_right] = Footer Right
+regions[footer_bottom] = Footer Bottom
 regions[page_bottom] = Page Bottom
+
+; Define features
+features[] = logo
+features[] = favicon
+
+; Define settings
+settings[lememo_theme_backlink] = http://www.lememo.com/annuaire

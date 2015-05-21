@@ -67,3 +67,60 @@ function lememo_fiche_block_view($delta = '') {
       break;
   }
 }
+
+/**
+ * Implements hook_ds_fields_info().
+ * création d'un champ DS pour charger l'image de couverture dans un champ extra
+ */
+function lememo_fiche_ds_fields_info($entity_type) {
+  $fields = array();
+
+  $fields['node']['lememo_fiche_cover_image'] = array(
+    'title' => t('Cover image'),
+    'field_type' => DS_FIELD_TYPE_FUNCTION,
+    'function' => 'lememo_fiche_ds_field_cover_image',
+  );
+
+    $fields['node']['lememo_fiche_share_this'] = array(
+    'title' => t('Share this'),
+    'field_type' => DS_FIELD_TYPE_FUNCTION,
+    'function' => 'lememo_fiche_ds_field_share_this',
+  );
+
+
+  if (isset($fields[$entity_type])) {
+    return array($entity_type => $fields[$entity_type]);
+  }
+  return;
+} 
+
+/**
+ * Render the field.
+ */
+function lememo_fiche_ds_field_cover_image($field) {
+
+  // récupère le champ
+  $field_cover = $field['entity']->field_cover;
+  // récupère l'URI de l'image
+  $img_uri = $field_cover['und'][0]['uri'];
+  $img_cover_url = image_style_url('cover', $img_uri);
+
+  $output = '<div class="societe-cover-image" style="background: url(\'' . $img_cover_url  . '\') no-repeat center;"></div>';
+
+return $output;
+}
+
+/**
+ * Render the field.
+ */
+function lememo_fiche_ds_field_share_this($field) {
+
+  $output = '<!-- SHARETHIS ELEMENTS -->                         
+            <span class=\'st_facebook_large\' displaytext=\'Facebook\'></span>
+            <span class=\'st_print_large\' displaytext=\'Print\'></span>
+            <span class=\'st_email_large\' displaytext=\'Email\'></span>
+            <span class=\'st_twitter_large\' displaytext=\'Tweet\'></span>
+            <span class=\'st_googleplus_large\' displaytext=\'Google +\'></span>
+            <!-- END OF SHARETHIS ELEMENTS -->';
+return $output;
+}

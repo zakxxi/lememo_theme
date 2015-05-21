@@ -1,6 +1,8 @@
 name = lememo_fiche
 core = 7.x
 package = Features
+version = 7.x-0.2
+project = lememo_fiche
 dependencies[] = contact
 dependencies[] = ctools
 dependencies[] = ds
@@ -13,6 +15,7 @@ dependencies[] = geofield_map
 dependencies[] = image
 dependencies[] = menu
 dependencies[] = migrate_ui
+dependencies[] = node
 dependencies[] = number
 dependencies[] = path
 dependencies[] = strongarm
