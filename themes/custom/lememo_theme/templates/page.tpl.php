@@ -15,11 +15,16 @@
             </div>
         </div>
 
+<?php if ($node->type != 'fiche'): ?>
+<div class = "row">
+    <?php print render($page['content']); ?>
+</div>
 
-<?php print render($page['content']); ?>
-
+<?php else: ?>
+    <?php print render($page['content']); ?>
+<?php endif; ?>
 <!-- PAGE FOOTER-->
-<div class="bg-color">
+<div class="footer">
             <div class="row">
 
             	<?php if ($page['footer_left']): ?>

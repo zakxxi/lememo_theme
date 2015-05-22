@@ -23,16 +23,19 @@ LEMEMO CSS / DEV VERSION
     background-color: lightgray;
 }
 
-.societe-block-map {
-    display: block;
-    min-height: 230px;
-}
-
-.drupal-footer {
-    display: block;
-    min-height: 100px;
-}
-
 .bg-color {
     background-color: gray;
+}
+
+.footer {
+        background-color: lightgray;
+
+}
+
+.filter-wrapper {
+    display: none;
+}
+
+.comment {
+    border: 1px solid gray;
 }

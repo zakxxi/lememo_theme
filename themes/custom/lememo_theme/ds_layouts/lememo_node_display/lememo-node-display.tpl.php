@@ -36,7 +36,7 @@
 
 <div class = "bg-color">
     <<?php print $header_resume_wrapper; ?> class="row <?php print $header_resume_classes; ?>">
-      <div class ="columns medium-8">
+      <div class ="columns medium-7 medium-offset-1">
         <?php print $header_resume; ?>
       </div>
 

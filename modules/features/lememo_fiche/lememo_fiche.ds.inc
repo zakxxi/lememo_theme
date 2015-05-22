@@ -18,12 +18,17 @@ function lememo_fiche_ds_field_settings_info() {
   $ds_fieldsetting->view_mode = 'full';
   $ds_fieldsetting->settings = array(
     'contact_form' => array(
-      'weight' => '9',
+      'weight' => '10',
       'label' => 'hidden',
       'format' => 'default',
+      'formatter_settings' => array(
+        'ft' => array(
+          'func' => 'theme_ds_field_minimal',
+        ),
+      ),
     ),
     'title' => array(
-      'weight' => '2',
+      'weight' => '3',
       'label' => 'hidden',
       'format' => 'default',
       'formatter_settings' => array(
@@ -33,7 +38,7 @@ function lememo_fiche_ds_field_settings_info() {
       ),
     ),
     'comments' => array(
-      'weight' => '8',
+      'weight' => '9',
       'label' => 'hidden',
       'format' => 'default',
     ),
@@ -43,9 +48,44 @@ function lememo_fiche_ds_field_settings_info() {
       'format' => 'default',
     ),
     'lememo_fiche_share_this' => array(
-      'weight' => '4',
+      'weight' => '5',
       'label' => 'hidden',
       'format' => 'default',
+    ),
+    'field_description_long' => array(
+      'formatter_settings' => array(
+        'ft' => array(
+          'func' => 'theme_ds_field_expert',
+          'lb-col' => TRUE,
+          'lbw' => 1,
+          'lbw-el' => 'h2',
+        ),
+      ),
+    ),
+    'field_siret' => array(
+      'formatter_settings' => array(
+        'ft' => array(
+          'func' => 'theme_ds_field_expert',
+          'lb-col' => TRUE,
+          'lbw' => 1,
+          'lbw-el' => 'h3',
+        ),
+      ),
+    ),
+    'field_tva' => array(
+      'formatter_settings' => array(
+        'ft' => array(
+          'func' => 'theme_ds_field_expert',
+          'lb' => 'TVA Intra',
+          'lb-el' => 'h3',
+          'lb-col' => TRUE,
+        ),
+      ),
+    ),
+    'field_vote' => array(
+      'formatter_settings' => array(
+        'ft' => array(),
+      ),
     ),
   );
   $export['node|fiche|full'] = $ds_fieldsetting;
@@ -99,32 +139,34 @@ function lememo_fiche_ds_layout_settings_info() {
         1 => 'field_logo',
       ),
       'header_society_right' => array(
-        2 => 'title',
-        3 => 'field_city',
+        2 => 'field_vote',
+        3 => 'title',
+        4 => 'field_city',
       ),
       'header_sharethis' => array(
-        4 => 'lememo_fiche_share_this',
+        5 => 'lememo_fiche_share_this',
       ),
       'header_resume' => array(
-        5 => 'field_description_short',
+        6 => 'field_description_short',
       ),
       'left' => array(
-        6 => 'field_pictures',
-        7 => 'field_description_long',
-        8 => 'comments',
+        7 => 'field_pictures',
+        8 => 'field_description_long',
+        9 => 'comments',
       ),
       'right' => array(
-        9 => 'contact_form',
-        10 => 'field_siret',
-        11 => 'field_tva',
+        10 => 'contact_form',
+        11 => 'field_siret',
+        12 => 'field_tva',
       ),
       'bottom' => array(
-        12 => 'field_position',
+        13 => 'field_position',
       ),
     ),
     'fields' => array(
       'lememo_fiche_cover_image' => 'top',
       'field_logo' => 'header_society_left',
+      'field_vote' => 'header_society_right',
       'title' => 'header_society_right',
       'field_city' => 'header_society_right',
       'lememo_fiche_share_this' => 'header_sharethis',

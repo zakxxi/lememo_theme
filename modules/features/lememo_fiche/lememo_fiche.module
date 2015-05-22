@@ -125,3 +125,30 @@ function lememo_fiche_ds_field_share_this($field) {
             <!-- END OF SHARETHIS ELEMENTS -->';
 return $output;
 }
+
+/**
+ * Custom comments buttons
+ */
+
+function lememo_fiche_form_comment_form_alter(&$form, &$form_state) {
+
+  // Only show the save button if comment previews are optional or if we are
+  // already previewing the submission.
+  $form['actions'] = array('#type' => 'actions');
+  $form['actions']['submit'] = array(
+    '#type' => 'submit', 
+    '#value' => t('Save'), 
+    '#access' => ($comment->cid && user_access('administer comments')) || variable_get('comment_preview_' . $node->type, DRUPAL_OPTIONAL) != DRUPAL_REQUIRED || isset($form_state['comment_preview']), 
+    '#weight' => 20,
+    '#attributes'=> array('class' => array('button small')),
+
+  );
+  $form['actions']['preview'] = array(
+    '#type' => 'submit', 
+    '#value' => t('Preview'), 
+    '#access' => (variable_get('comment_preview_' . $node->type, DRUPAL_OPTIONAL) != DRUPAL_DISABLED), 
+    '#weight' => 19, 
+    '#submit' => array('comment_form_build_preview'),
+    '#attributes'=> array('class' => array('button small secondary')),
+);
+}
