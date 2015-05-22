@@ -48,3 +48,9 @@
 
             </div>
         </div>
+
+ <!-- SHARETHIS SCRIPTS -->
+
+ <?php print theme_get_setting('lememo_theme_sharethis_js')?>
+
+<!-- END OF SHARETHIS SCRIPTS -->

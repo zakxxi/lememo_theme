@@ -2,6 +2,7 @@
 LEMEMO CSS / DEV VERSION
 */
 
+
 .societe-cover-image {
     display: block;
     min-height: 330px;
@@ -9,11 +10,17 @@ LEMEMO CSS / DEV VERSION
 }
 
 .societe-block-info {
-	margin-top: -100px;
+    margin-top: -100px;
 }
 
-.contact-block-devis {
-	margin-top: -100px;
+.share-this-block {
+    margin-top: 100px;
+ 
+}
+
+.field-name-contact-form {
+    margin-top: -100px;
+    background-color: lightgray;
 }
 
 .societe-block-map {
@@ -27,8 +34,5 @@ LEMEMO CSS / DEV VERSION
 }
 
 .bg-color {
-	background-color: gray;
+    background-color: gray;
 }
-
-.bg-white {
-	background-color: rgba(255,255,0,0.5);

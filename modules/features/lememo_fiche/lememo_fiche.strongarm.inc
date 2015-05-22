@@ -35,7 +35,7 @@ function lememo_fiche_strongarm() {
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'ds_extras_field_template';
-  $strongarm->value = 0;
+  $strongarm->value = 1;
   $export['ds_extras_field_template'] = $strongarm;
 
   $strongarm = new stdClass();
@@ -120,6 +120,13 @@ function lememo_fiche_strongarm() {
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
+  $strongarm->name = 'jquery_update_jquery_version';
+  $strongarm->value = '1.10';
+  $export['jquery_update_jquery_version'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
   $strongarm->name = 'menu_options_fiche';
   $strongarm->value = array();
   $export['menu_options_fiche'] = $strongarm;
@@ -176,6 +183,13 @@ function lememo_fiche_strongarm() {
     'favicon_upload' => '',
   );
   $export['theme_bartik_settings'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'theme_default';
+  $strongarm->value = 'lememo_theme';
+  $export['theme_default'] = $strongarm;
 
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */

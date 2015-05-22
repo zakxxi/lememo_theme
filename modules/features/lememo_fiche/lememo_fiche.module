@@ -17,6 +17,7 @@ function lememo_fiche_form_contact_site_form_alter(&$form, &$form_state, $form_i
   $form['subject']['#access'] = false;
   $form['copy']['#access'] = false;
   $form['actions']['submit']['#value'] = 'Envoyer une demande de devis';
+  $form['actions']['submit']['#attributes'] = array('class' => array('button expand'));
   array_push($form['#submit'], 'lememo_fiche_form_contact_site_form_submit');
 }
 

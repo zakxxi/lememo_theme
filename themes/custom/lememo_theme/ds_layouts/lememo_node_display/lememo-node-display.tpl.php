@@ -16,26 +16,33 @@
       <?php print $top; ?>
     </<?php print $top_wrapper; ?>>
 
-    <div class ="societe-block-info row">
+    <div class ="row">
 
-      <<?php print $header_society_left_wrapper; ?> class="columns small-6 <?php print $header_society_left_classes; ?>">
-        <?php print $header_society_left; ?>
-      </<?php print $header_society_left_wrapper; ?>>
+      <div class ="societe-block-info">
+        <<?php print $header_society_left_wrapper; ?> class="columns small-6 medium-3 medium-offset-1 <?php print $header_society_left_classes; ?>">
+          <?php print $header_society_left; ?>
+        </<?php print $header_society_left_wrapper; ?>>
+        <<?php print $header_society_right_wrapper; ?> class="columns small-6 medium-4 end<?php print $header_society_right_classes; ?>">
+          <?php print $header_society_right; ?>
+        </<?php print $header_society_right_wrapper; ?>>    
+      </div>
+    
 
-      <<?php print $header_society_right_wrapper; ?> class="columns small-6 <?php print $header_society_right_classes; ?>">
-        <?php print $header_society_right; ?>
-      </<?php print $header_society_right_wrapper; ?>>    
+    <<?php print $header_sharethis_wrapper; ?> class="share-this-block columns medium-4 right text-right <?php print $header_sharethis_classes; ?>">
+        <?php print $header_sharethis; ?>
+    </<?php print $header_sharethis_wrapper; ?>>
 
     </div>
 
-    <<?php print $header_sharethis_wrapper; ?> class="row <?php print $header_sharethis_classes; ?>">
-      <?php print $header_sharethis; ?>
-    </<?php print $header_sharethis_wrapper; ?>>
-
+<div class = "bg-color">
     <<?php print $header_resume_wrapper; ?> class="row <?php print $header_resume_classes; ?>">
-      <?php print $header_resume; ?>
+      <div class ="columns medium-8">
+        <?php print $header_resume; ?>
+      </div>
+
     </<?php print $header_resume_wrapper; ?>>
 
+</div>
     <div class = "row">
 
       <<?php print $left_wrapper; ?> class="columns medium-8 <?php print $left_classes; ?>">
