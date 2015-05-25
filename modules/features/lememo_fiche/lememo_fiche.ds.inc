@@ -82,6 +82,11 @@ function lememo_fiche_ds_field_settings_info() {
       'label' => 'hidden',
       'format' => 'default',
     ),
+    'lememo_fiche_block_gallery' => array(
+      'weight' => '0',
+      'label' => 'hidden',
+      'format' => 'default',
+    ),
     'field_description_long' => array(
       'formatter_settings' => array(
         'ft' => array(
@@ -170,28 +175,28 @@ function lememo_fiche_ds_layout_settings_info() {
   $ds_layout->layout = 'lememo_node_display';
   $ds_layout->settings = array(
     'regions' => array(
-      'top' => array(
-        0 => 'lememo_fiche_cover_image',
-      ),
-      'header_society_left' => array(
-        1 => 'field_logo',
-      ),
-      'header_society_right' => array(
-        2 => 'lememo_fiche_btn_coord',
-        3 => 'field_vote',
-        4 => 'title',
-        5 => 'field_city',
-      ),
-      'header_sharethis' => array(
-        6 => 'lememo_fiche_share_this',
-      ),
-      'header_resume' => array(
-        7 => 'field_description_short',
-      ),
       'left' => array(
-        8 => 'field_pictures',
+        0 => 'lememo_fiche_block_gallery',
         9 => 'field_description_long',
         10 => 'comments',
+      ),
+      'top' => array(
+        1 => 'lememo_fiche_cover_image',
+      ),
+      'header_society_left' => array(
+        2 => 'field_logo',
+      ),
+      'header_society_right' => array(
+        3 => 'lememo_fiche_btn_coord',
+        4 => 'field_vote',
+        5 => 'title',
+        6 => 'field_city',
+      ),
+      'header_sharethis' => array(
+        7 => 'lememo_fiche_share_this',
+      ),
+      'header_resume' => array(
+        8 => 'field_description_short',
       ),
       'right' => array(
         11 => 'contact_form',
@@ -203,6 +208,7 @@ function lememo_fiche_ds_layout_settings_info() {
       ),
     ),
     'fields' => array(
+      'lememo_fiche_block_gallery' => 'left',
       'lememo_fiche_cover_image' => 'top',
       'field_logo' => 'header_society_left',
       'lememo_fiche_btn_coord' => 'header_society_right',
@@ -211,7 +217,6 @@ function lememo_fiche_ds_layout_settings_info() {
       'field_city' => 'header_society_right',
       'lememo_fiche_share_this' => 'header_sharethis',
       'field_description_short' => 'header_resume',
-      'field_pictures' => 'left',
       'field_description_long' => 'left',
       'comments' => 'left',
       'contact_form' => 'right',
@@ -235,6 +240,7 @@ function lememo_fiche_ds_layout_settings_info() {
     'layout_attributes_merge' => 1,
     'layout_link_attribute' => '',
     'layout_link_custom' => '',
+    'layout_disable_css' => 0,
     'hide_page_title' => '1',
     'page_option_title' => '',
   );

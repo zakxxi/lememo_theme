@@ -701,12 +701,8 @@ function lememo_fiche_field_default_field_instances() {
       ),
       'full' => array(
         'label' => 'hidden',
-        'module' => 'image',
-        'settings' => array(
-          'image_link' => '',
-          'image_style' => 'medium',
-        ),
-        'type' => 'image',
+        'settings' => array(),
+        'type' => 'hidden',
         'weight' => 8,
       ),
       'teaser' => array(
