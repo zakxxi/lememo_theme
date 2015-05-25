@@ -115,6 +115,39 @@ function lememo_fiche_ds_layout_settings_info() {
 
   $ds_layout = new stdClass();
   $ds_layout->api_version = 1;
+  $ds_layout->id = 'comment|comment_node_fiche|full';
+  $ds_layout->entity_type = 'comment';
+  $ds_layout->bundle = 'comment_node_fiche';
+  $ds_layout->view_mode = 'full';
+  $ds_layout->layout = 'lememo_comments_display';
+  $ds_layout->settings = array(
+    'regions' => array(
+      'left' => array(
+        0 => 'author',
+      ),
+      'right' => array(
+        1 => 'comment_body',
+      ),
+    ),
+    'fields' => array(
+      'author' => 'left',
+      'comment_body' => 'right',
+    ),
+    'classes' => array(),
+    'wrappers' => array(
+      'left' => 'div',
+      'right' => 'div',
+    ),
+    'layout_wrapper' => 'div',
+    'layout_attributes' => '',
+    'layout_attributes_merge' => 1,
+    'layout_link_attribute' => '',
+    'layout_link_custom' => '',
+  );
+  $export['comment|comment_node_fiche|full'] = $ds_layout;
+
+  $ds_layout = new stdClass();
+  $ds_layout->api_version = 1;
   $ds_layout->id = 'node|fiche|full';
   $ds_layout->entity_type = 'node';
   $ds_layout->bundle = 'fiche';

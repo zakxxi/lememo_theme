@@ -12,7 +12,12 @@ function lememo_theme_filter_tips_more_info () {
   return '';
 }
 
-
+/**
+ * Remove the comment reply link
+ */
+function lememo_theme_preprocess_comment(&$variables) {
+  unset($variables['content']['links']['comment']['#links']['comment-reply']);
+}
 /**
  * Add foundation JS
  */
