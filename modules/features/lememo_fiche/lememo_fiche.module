@@ -211,7 +211,7 @@ function lememo_fiche_block_gallery($field) {
   //  foreach ($pictures as $pic) {
 
     // pour les 2 premières
-      $output = $output . '<ul class = "clearing-thumbs small-block-grid-2" data-clearing >';
+      $output = $output . '<ul class = "clearing-thumbs small-block-grid-2" data-clearing>';
 
       //$output = $output . '<ul class = "small-block-grid-2" >';
 
@@ -229,7 +229,7 @@ function lememo_fiche_block_gallery($field) {
        $output = $output . '</ul>';
 
     // pour les 3 suivantes
-      $output = $output . '<ul class = "clearing-thumbs small-block-grid-3" data-clearing';
+      $output = $output . '<ul class = "clearing-thumbs small-block-grid-3" data-clearing>';
 
       for ($i = 2; $i < 5; $i++) {
 
