@@ -37,6 +37,36 @@ function lememo_fiche_image_default_styles() {
     ),
   );
 
+  // Exported image style: gallery_thumb1.
+  $styles['gallery_thumb1'] = array(
+    'label' => 'gallery_thumb1',
+    'effects' => array(
+      1 => array(
+        'name' => 'image_scale_and_crop',
+        'data' => array(
+          'width' => 300,
+          'height' => 200,
+        ),
+        'weight' => 1,
+      ),
+    ),
+  );
+
+  // Exported image style: gallery_thumb2.
+  $styles['gallery_thumb2'] = array(
+    'label' => 'gallery_thumb2',
+    'effects' => array(
+      2 => array(
+        'name' => 'image_scale_and_crop',
+        'data' => array(
+          'width' => 200,
+          'height' => 132,
+        ),
+        'weight' => 1,
+      ),
+    ),
+  );
+
   // Exported image style: logo.
   $styles['logo'] = array(
     'label' => 'logo',

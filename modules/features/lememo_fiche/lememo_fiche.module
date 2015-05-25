@@ -106,6 +106,11 @@ function lememo_fiche_ds_fields_info($entity_type) {
     'function' => 'lememo_fiche_block_coord',
   );
 
+    $fields['node']['lememo_fiche_block_gallery'] = array(
+    'title' => t('Bloc galerie'),
+    'field_type' => DS_FIELD_TYPE_FUNCTION,
+    'function' => 'lememo_fiche_block_gallery',
+  );
 
   if (isset($fields[$entity_type])) {
     return array($entity_type => $fields[$entity_type]);
@@ -188,6 +193,69 @@ function lememo_fiche_block_coord($field) {
 return $output;
 }
 
+/**
+ * Render the field block_gallery. // WORK IN PROGRESS
+ */
+function lememo_fiche_block_gallery($field) {
+
+  $pictures = $field['entity']->field_pictures['und'];
+
+  // compte le nombre d'images
+  $pictures_nb = count($pictures);
+
+  // rendu de la galerie
+  if ($pictures_nb != 0) {
+
+    // on parcours les images
+
+  //  foreach ($pictures as $pic) {
+
+    // pour les 2 premières
+      $output = $output . '<ul class = "clearing-thumbs small-block-grid-2" data-clearing>';
+
+      //$output = $output . '<ul class = "small-block-grid-2" >';
+
+      for ($i = 0; $i < 2; $i++) {
+
+        $img_uri = $pictures[$i]['uri'];
+        $img_thumb1_url = image_style_url('gallery_thumb1', $img_uri);
+        $img_original_url = file_create_url($img_uri);
+
+        $output_thumb1 = '<li><a class= "th" href="' . $img_original_url . '"><img src="' . $img_thumb1_url . '"></a></li>';
+
+        $output = $output . $output_thumb1;
+      }
+
+       $output = $output . '</ul>';
+
+    // pour les 3 suivantes
+      $output = $output . '<ul class = "clearing-thumbs small-block-grid-3" data-clearing>';
+
+      for ($i = 2; $i < 5; $i++) {
+
+        $img_uri = $pictures[$i]['uri'];
+        $img_thumb2_url = image_style_url('gallery_thumb2', $img_uri);
+        $img_original_url = file_create_url($img_uri);
+
+        $output_thumb2 = '<li><a class= "th" href="' . $img_original_url . '"><img src="' . $img_thumb2_url . '"></a></li>';
+
+        $output = $output . $output_thumb2;
+      }
+
+      $output = $output . '</ul>';
+      
+  //   $output = $output . '</ul>';
+    
+
+
+  } else {
+
+      $output = NULL;
+
+  }
+
+return $output;
+}
 
 /**
  * Custom comments buttons

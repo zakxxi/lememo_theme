@@ -1,7 +1,7 @@
 name = lememo_fiche
 core = 7.x
 package = Features
-version = 7.x-0.7
+version = 7.x-0.8
 project = lememo_fiche
 dependencies[] = contact
 dependencies[] = ctools
@@ -72,6 +72,8 @@ features[field_instance][] = node-fiche-field_siret
 features[field_instance][] = node-fiche-field_tva
 features[field_instance][] = node-fiche-field_vote
 features[image][] = cover
+features[image][] = gallery_thumb1
+features[image][] = gallery_thumb2
 features[image][] = logo
 features[menu_custom][] = main-menu
 features[menu_custom][] = menu-footer
