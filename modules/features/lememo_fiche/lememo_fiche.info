@@ -81,6 +81,8 @@ features[menu_links][] = menu-footer-2_faq:http://www.lememo.com/Faq
 features[menu_links][] = menu-footer-2_mentions-lgales:http://www.lememo.com/MentionsLegales
 features[menu_links][] = menu-footer_conditions-gnrales-de-services--ventes:http://www.lememo.com/Cgv
 features[menu_links][] = menu-footer_qui-sommes-nous-:http://www.lememo.com/CharteQualite
+features[menu_links][] = menu-menu-footer-3_crdits:http://www.lememo.com/Credits?lieuSite=internet&siteId=1
+features[menu_links][] = menu-menu-footer-3_mentions-lgales:http://www.lememo.com/MentionsLegales
 features[node][] = fiche
 features[user_permission][] = rate content
 features[variable][] = ds_extras_field_permissions
