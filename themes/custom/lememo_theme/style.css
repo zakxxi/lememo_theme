@@ -29,7 +29,6 @@ LEMEMO CSS / DEV VERSION
 
 .footer {
         background-color: lightgray;
-
 }
 
 .filter-wrapper {
@@ -38,4 +37,10 @@ LEMEMO CSS / DEV VERSION
 
 .comment {
     border: 1px solid gray;
+}
+
+#fiche_coord {
+  height: 300px;
+  margin-top: -300px;
+  background-color: white;
 }

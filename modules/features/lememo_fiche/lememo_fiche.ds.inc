@@ -18,7 +18,7 @@ function lememo_fiche_ds_field_settings_info() {
   $ds_fieldsetting->view_mode = 'full';
   $ds_fieldsetting->settings = array(
     'contact_form' => array(
-      'weight' => '10',
+      'weight' => '11',
       'label' => 'hidden',
       'format' => 'default',
       'formatter_settings' => array(
@@ -28,7 +28,7 @@ function lememo_fiche_ds_field_settings_info() {
       ),
     ),
     'title' => array(
-      'weight' => '3',
+      'weight' => '4',
       'label' => 'hidden',
       'format' => 'default',
       'formatter_settings' => array(
@@ -38,7 +38,7 @@ function lememo_fiche_ds_field_settings_info() {
       ),
     ),
     'comments' => array(
-      'weight' => '9',
+      'weight' => '10',
       'label' => 'hidden',
       'format' => 'default',
     ),
@@ -47,8 +47,23 @@ function lememo_fiche_ds_field_settings_info() {
       'label' => 'hidden',
       'format' => 'default',
     ),
+    'lememo_fiche_btn_coord' => array(
+      'weight' => '2',
+      'label' => 'hidden',
+      'format' => 'default',
+    ),
     'lememo_fiche_share_this' => array(
-      'weight' => '5',
+      'weight' => '6',
+      'label' => 'hidden',
+      'format' => 'default',
+    ),
+    'lememo_fiche_legals' => array(
+      'weight' => '23',
+      'label' => 'hidden',
+      'format' => 'default',
+    ),
+    'lememo_fiche_block_coord' => array(
+      'weight' => '13',
       'label' => 'hidden',
       'format' => 'default',
     ),
@@ -60,31 +75,6 @@ function lememo_fiche_ds_field_settings_info() {
           'lbw' => 1,
           'lbw-el' => 'h2',
         ),
-      ),
-    ),
-    'field_siret' => array(
-      'formatter_settings' => array(
-        'ft' => array(
-          'func' => 'theme_ds_field_expert',
-          'lb-col' => TRUE,
-          'lbw' => 1,
-          'lbw-el' => 'h3',
-        ),
-      ),
-    ),
-    'field_tva' => array(
-      'formatter_settings' => array(
-        'ft' => array(
-          'func' => 'theme_ds_field_expert',
-          'lb' => 'TVA Intra',
-          'lb-el' => 'h3',
-          'lb-col' => TRUE,
-        ),
-      ),
-    ),
-    'field_vote' => array(
-      'formatter_settings' => array(
-        'ft' => array(),
       ),
     ),
   );
@@ -139,33 +129,35 @@ function lememo_fiche_ds_layout_settings_info() {
         1 => 'field_logo',
       ),
       'header_society_right' => array(
-        2 => 'field_vote',
-        3 => 'title',
-        4 => 'field_city',
+        2 => 'lememo_fiche_btn_coord',
+        3 => 'field_vote',
+        4 => 'title',
+        5 => 'field_city',
       ),
       'header_sharethis' => array(
-        5 => 'lememo_fiche_share_this',
+        6 => 'lememo_fiche_share_this',
       ),
       'header_resume' => array(
-        6 => 'field_description_short',
+        7 => 'field_description_short',
       ),
       'left' => array(
-        7 => 'field_pictures',
-        8 => 'field_description_long',
-        9 => 'comments',
+        8 => 'field_pictures',
+        9 => 'field_description_long',
+        10 => 'comments',
       ),
       'right' => array(
-        10 => 'contact_form',
-        11 => 'field_siret',
-        12 => 'field_tva',
+        11 => 'contact_form',
+        14 => 'lememo_fiche_legals',
       ),
       'bottom' => array(
-        13 => 'field_position',
+        12 => 'field_position',
+        13 => 'lememo_fiche_block_coord',
       ),
     ),
     'fields' => array(
       'lememo_fiche_cover_image' => 'top',
       'field_logo' => 'header_society_left',
+      'lememo_fiche_btn_coord' => 'header_society_right',
       'field_vote' => 'header_society_right',
       'title' => 'header_society_right',
       'field_city' => 'header_society_right',
@@ -175,9 +167,9 @@ function lememo_fiche_ds_layout_settings_info() {
       'field_description_long' => 'left',
       'comments' => 'left',
       'contact_form' => 'right',
-      'field_siret' => 'right',
-      'field_tva' => 'right',
       'field_position' => 'bottom',
+      'lememo_fiche_block_coord' => 'bottom',
+      'lememo_fiche_legals' => 'right',
     ),
     'classes' => array(),
     'wrappers' => array(

@@ -82,10 +82,28 @@ function lememo_fiche_ds_fields_info($entity_type) {
     'function' => 'lememo_fiche_ds_field_cover_image',
   );
 
+    $fields['node']['lememo_fiche_btn_coord'] = array(
+    'title' => t('Bouton coordonnées'),
+    'field_type' => DS_FIELD_TYPE_FUNCTION,
+    'function' => 'lememo_fiche_btn_coord',
+  );
+
     $fields['node']['lememo_fiche_share_this'] = array(
     'title' => t('Share this'),
     'field_type' => DS_FIELD_TYPE_FUNCTION,
     'function' => 'lememo_fiche_ds_field_share_this',
+  );
+
+    $fields['node']['lememo_fiche_legals'] = array(
+    'title' => t('Mentions légales'),
+    'field_type' => DS_FIELD_TYPE_FUNCTION,
+    'function' => 'lememo_fiche_legals',
+  );
+
+    $fields['node']['lememo_fiche_block_coord'] = array(
+    'title' => t('Bloc coordonnées'),
+    'field_type' => DS_FIELD_TYPE_FUNCTION,
+    'function' => 'lememo_fiche_block_coord',
   );
 
 
@@ -96,26 +114,32 @@ function lememo_fiche_ds_fields_info($entity_type) {
 } 
 
 /**
- * Render the field.
+ * Render the field cover_image.
  */
 function lememo_fiche_ds_field_cover_image($field) {
-
   // récupère le champ
   $field_cover = $field['entity']->field_cover;
   // récupère l'URI de l'image
   $img_uri = $field_cover['und'][0]['uri'];
   $img_cover_url = image_style_url('cover', $img_uri);
-
   $output = '<div class="societe-cover-image" style="background: url(\'' . $img_cover_url  . '\') no-repeat center;"></div>';
 
 return $output;
 }
 
 /**
- * Render the field.
+ * Render the field btn_coord.
+ */
+function lememo_fiche_btn_coord($field) {
+  $output = '<a href="#fiche_coord" class="button warning">Coordonnées</a>';
+
+return $output;
+}
+
+/**
+ * Render the field share_this.
  */
 function lememo_fiche_ds_field_share_this($field) {
-
   $output = '<!-- SHARETHIS ELEMENTS -->                         
             <span class=\'st_facebook_large\' displaytext=\'Facebook\'></span>
             <span class=\'st_print_large\' displaytext=\'Print\'></span>
@@ -123,8 +147,47 @@ function lememo_fiche_ds_field_share_this($field) {
             <span class=\'st_twitter_large\' displaytext=\'Tweet\'></span>
             <span class=\'st_googleplus_large\' displaytext=\'Google +\'></span>
             <!-- END OF SHARETHIS ELEMENTS -->';
+
 return $output;
 }
+
+/**
+ * Render the field block_legals.
+ */
+function lememo_fiche_legals($field) {
+  $company = $field['entity']->title;
+  $siret =   $field['entity']->field_siret['und'][0]['value'];
+  $tva =   $field['entity']->field_siret['und'][0]['value'];
+  $adress = lememo_fiche_make_adress($field);
+  $output = '<div class="bg-color">
+    <h2> Informations Légales </h2>
+    <h3> Siège social </h3>
+    <p>' . $adress . '</p>
+    <h3> SIRET </h3>'
+    . $siret .
+    '<h3> TVA Intra </h3>'
+    . $tva .
+  '</div>' ;
+
+return $output;
+}
+
+
+/**
+ * Render the field block_coord.
+ */
+function lememo_fiche_block_coord($field) {
+  $company = $field['entity']->title;
+  $adress = lememo_fiche_make_adress($field);
+  $output = '<div class="row"> <div id="fiche_coord" class="columns small-6 medium-3 medium-offset-1">
+    <h2>' . $company . '</h2>
+    <p>' . $adress . '</p>
+    <a href="#" class="button warning">Contacter</a>
+  </div></div>' ;
+
+return $output;
+}
+
 
 /**
  * Custom comments buttons
@@ -141,7 +204,6 @@ function lememo_fiche_form_comment_form_alter(&$form, &$form_state) {
     '#access' => ($comment->cid && user_access('administer comments')) || variable_get('comment_preview_' . $node->type, DRUPAL_OPTIONAL) != DRUPAL_REQUIRED || isset($form_state['comment_preview']), 
     '#weight' => 20,
     '#attributes'=> array('class' => array('button small')),
-
   );
   $form['actions']['preview'] = array(
     '#type' => 'submit', 
@@ -151,4 +213,20 @@ function lememo_fiche_form_comment_form_alter(&$form, &$form_state) {
     '#submit' => array('comment_form_build_preview'),
     '#attributes'=> array('class' => array('button small secondary')),
 );
+}
+
+/**
+ * Function to concratenate adress
+ */
+
+function lememo_fiche_make_adress($field) {
+
+  $street = $field['entity']->field_rows['und'][0]['value'];
+  $cp = $field['entity']->field_code_postal['und'][0]['value'];
+  $city = $field['entity']->field_city['und'][0]['value'];
+  $country = $field['entity']->field_country['und'][0]['value'];
+
+  $output = $street . '</br>' . $cp . ' ' . $city . ', ' . $country;
+
+return $output;
 }
