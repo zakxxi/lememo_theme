@@ -29,7 +29,7 @@ function lememo_fiche_field_default_field_instances() {
         'module' => 'text',
         'settings' => array(),
         'type' => 'text_default',
-        'weight' => 3,
+        'weight' => 5,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -73,10 +73,9 @@ function lememo_fiche_field_default_field_instances() {
       ),
       'full' => array(
         'label' => 'hidden',
-        'module' => 'text',
         'settings' => array(),
-        'type' => 'text_default',
-        'weight' => 4,
+        'type' => 'hidden',
+        'weight' => 24,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -120,10 +119,9 @@ function lememo_fiche_field_default_field_instances() {
       ),
       'full' => array(
         'label' => 'hidden',
-        'module' => 'text',
         'settings' => array(),
-        'type' => 'text_default',
-        'weight' => 11,
+        'type' => 'hidden',
+        'weight' => 26,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -169,7 +167,7 @@ function lememo_fiche_field_default_field_instances() {
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 21,
+        'weight' => 29,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -215,7 +213,7 @@ function lememo_fiche_field_default_field_instances() {
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 23,
+        'weight' => 31,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -261,7 +259,7 @@ function lememo_fiche_field_default_field_instances() {
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 25,
+        'weight' => 33,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -307,13 +305,9 @@ function lememo_fiche_field_default_field_instances() {
       ),
       'full' => array(
         'label' => 'hidden',
-        'module' => 'image',
-        'settings' => array(
-          'image_link' => '',
-          'image_style' => 'cover',
-        ),
-        'type' => 'image',
-        'weight' => 0,
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 25,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -389,7 +383,7 @@ function lememo_fiche_field_default_field_instances() {
         'module' => 'text',
         'settings' => array(),
         'type' => 'text_default',
-        'weight' => 7,
+        'weight' => 9,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -435,8 +429,8 @@ function lememo_fiche_field_default_field_instances() {
         'label' => 'hidden',
         'module' => 'text',
         'settings' => array(),
-        'type' => 'text_default',
-        'weight' => 5,
+        'type' => 'text_plain',
+        'weight' => 7,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -482,7 +476,7 @@ function lememo_fiche_field_default_field_instances() {
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 24,
+        'weight' => 32,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -533,7 +527,7 @@ function lememo_fiche_field_default_field_instances() {
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 20,
+        'weight' => 28,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -661,7 +655,7 @@ function lememo_fiche_field_default_field_instances() {
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 22,
+        'weight' => 30,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -707,13 +701,9 @@ function lememo_fiche_field_default_field_instances() {
       ),
       'full' => array(
         'label' => 'hidden',
-        'module' => 'image',
-        'settings' => array(
-          'image_link' => '',
-          'image_style' => 'medium',
-        ),
-        'type' => 'image',
-        'weight' => 6,
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 8,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -800,7 +790,7 @@ function lememo_fiche_field_default_field_instances() {
             'lon' => '',
           ),
           'geofield_map_controltype' => 'default',
-          'geofield_map_draggable' => 0,
+          'geofield_map_draggable' => 1,
           'geofield_map_height' => '300px',
           'geofield_map_maptype' => 'map',
           'geofield_map_max_zoom' => 0,
@@ -810,10 +800,10 @@ function lememo_fiche_field_default_field_instances() {
           'geofield_map_overview_opened' => 0,
           'geofield_map_pancontrol' => 1,
           'geofield_map_scale' => 0,
-          'geofield_map_scrollwheel' => 0,
-          'geofield_map_streetview_show' => 0,
+          'geofield_map_scrollwheel' => 1,
+          'geofield_map_streetview_show' => 1,
           'geofield_map_width' => '100%',
-          'geofield_map_zoom' => 8,
+          'geofield_map_zoom' => 18,
         ),
         'type' => 'geofield_map_map',
         'weight' => 12,
@@ -825,6 +815,7 @@ function lememo_fiche_field_default_field_instances() {
         'weight' => 0,
       ),
     ),
+    'ds_extras_field_template' => '',
     'entity_type' => 'node',
     'field_name' => 'field_position',
     'label' => 'Coordonnées',
@@ -861,7 +852,7 @@ function lememo_fiche_field_default_field_instances() {
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 19,
+        'weight' => 27,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -904,11 +895,10 @@ function lememo_fiche_field_default_field_instances() {
         'weight' => 3,
       ),
       'full' => array(
-        'label' => 'hidden',
-        'module' => 'text',
+        'label' => 'above',
         'settings' => array(),
-        'type' => 'text_default',
-        'weight' => 9,
+        'type' => 'hidden',
+        'weight' => 20,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -951,11 +941,10 @@ function lememo_fiche_field_default_field_instances() {
         'weight' => 4,
       ),
       'full' => array(
-        'label' => 'hidden',
-        'module' => 'text',
+        'label' => 'above',
         'settings' => array(),
-        'type' => 'text_default',
-        'weight' => 10,
+        'type' => 'hidden',
+        'weight' => 17,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -983,6 +972,70 @@ function lememo_fiche_field_default_field_instances() {
     ),
   );
 
+  // Exported field_instance: 'node-fiche-field_vote'
+  $field_instances['node-fiche-field_vote'] = array(
+    'bundle' => 'fiche',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'fivestar',
+        'settings' => array(
+          'expose' => TRUE,
+          'style' => 'average',
+          'text' => 'average',
+          'widget' => array(
+            'fivestar_widget' => NULL,
+          ),
+        ),
+        'type' => 'fivestar_formatter_default',
+        'weight' => 18,
+      ),
+      'full' => array(
+        'label' => 'hidden',
+        'module' => 'fivestar',
+        'settings' => array(
+          'expose' => 1,
+          'style' => 'average',
+          'text' => 'none',
+          'widget' => array(
+            'fivestar_widget' => 'default',
+          ),
+        ),
+        'type' => 'fivestar_formatter_default',
+        'weight' => 3,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'ds_extras_field_template' => '',
+    'entity_type' => 'node',
+    'field_name' => 'field_vote',
+    'label' => 'Vote',
+    'required' => 0,
+    'settings' => array(
+      'allow_clear' => 1,
+      'allow_ownvote' => 0,
+      'allow_revote' => 0,
+      'stars' => 5,
+      'target' => 'none',
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'fivestar',
+      'settings' => array(),
+      'type' => 'exposed',
+      'weight' => 14,
+    ),
+  );
+
   // Translatables
   // Included for use with string extractors like potx.
   t('Code postal');
@@ -997,6 +1050,7 @@ function lememo_fiche_field_default_field_instances() {
   t('Rue');
   t('Région');
   t('Ville');
+  t('Vote');
   t('companyCleaned');
   t('description courte');
   t('mail');

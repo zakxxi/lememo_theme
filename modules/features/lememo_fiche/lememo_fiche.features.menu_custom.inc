@@ -19,22 +19,30 @@ function lememo_fiche_menu_default_menu_custom() {
   // Exported menu: menu-footer.
   $menus['menu-footer'] = array(
     'menu_name' => 'menu-footer',
-    'title' => 'Footer 1',
+    'title' => 'Footer 1 menu',
     'description' => 'Menu contenant les liens de pieds de page de niveau 1',
   );
   // Exported menu: menu-footer-2.
   $menus['menu-footer-2'] = array(
     'menu_name' => 'menu-footer-2',
-    'title' => 'Footer 2',
+    'title' => 'Footer 2 menu',
     'description' => 'Menu contenant les liens de pieds de page de niveau 2',
+  );
+  // Exported menu: menu-menu-footer-3.
+  $menus['menu-menu-footer-3'] = array(
+    'menu_name' => 'menu-menu-footer-3',
+    'title' => 'Footer 3 menu',
+    'description' => 'Menu contenant les liens de pieds de page de niveau 3',
   );
   // Translatables
   // Included for use with string extractors like potx.
-  t('Footer 1');
-  t('Footer 2');
+  t('Footer 1 menu');
+  t('Footer 2 menu');
+  t('Footer 3 menu');
   t('Main menu');
   t('Menu contenant les liens de pieds de page de niveau 1');
   t('Menu contenant les liens de pieds de page de niveau 2');
+  t('Menu contenant les liens de pieds de page de niveau 3');
   t('The <em>Main</em> menu is used on many sites to show the major sections of the site, often in a top navigation bar.');
 
 

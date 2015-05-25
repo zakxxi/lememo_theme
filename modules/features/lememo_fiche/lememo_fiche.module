@@ -17,6 +17,7 @@ function lememo_fiche_form_contact_site_form_alter(&$form, &$form_state, $form_i
   $form['subject']['#access'] = false;
   $form['copy']['#access'] = false;
   $form['actions']['submit']['#value'] = 'Envoyer une demande de devis';
+  $form['actions']['submit']['#attributes'] = array('class' => array('button expand'));
   array_push($form['#submit'], 'lememo_fiche_form_contact_site_form_submit');
 }
 
@@ -66,4 +67,235 @@ function lememo_fiche_block_view($delta = '') {
       }
       break;
   }
+}
+
+/**
+ * Implements hook_ds_fields_info().
+ * création d'un champ DS pour charger l'image de couverture dans un champ extra
+ */
+function lememo_fiche_ds_fields_info($entity_type) {
+  $fields = array();
+
+  $fields['node']['lememo_fiche_cover_image'] = array(
+    'title' => t('Cover image'),
+    'field_type' => DS_FIELD_TYPE_FUNCTION,
+    'function' => 'lememo_fiche_ds_field_cover_image',
+  );
+
+    $fields['node']['lememo_fiche_btn_coord'] = array(
+    'title' => t('Bouton coordonnées'),
+    'field_type' => DS_FIELD_TYPE_FUNCTION,
+    'function' => 'lememo_fiche_btn_coord',
+  );
+
+    $fields['node']['lememo_fiche_share_this'] = array(
+    'title' => t('Share this'),
+    'field_type' => DS_FIELD_TYPE_FUNCTION,
+    'function' => 'lememo_fiche_ds_field_share_this',
+  );
+
+    $fields['node']['lememo_fiche_legals'] = array(
+    'title' => t('Mentions légales'),
+    'field_type' => DS_FIELD_TYPE_FUNCTION,
+    'function' => 'lememo_fiche_legals',
+  );
+
+    $fields['node']['lememo_fiche_block_coord'] = array(
+    'title' => t('Bloc coordonnées'),
+    'field_type' => DS_FIELD_TYPE_FUNCTION,
+    'function' => 'lememo_fiche_block_coord',
+  );
+
+    $fields['node']['lememo_fiche_block_gallery'] = array(
+    'title' => t('Bloc galerie'),
+    'field_type' => DS_FIELD_TYPE_FUNCTION,
+    'function' => 'lememo_fiche_block_gallery',
+  );
+
+  if (isset($fields[$entity_type])) {
+    return array($entity_type => $fields[$entity_type]);
+  }
+  return;
+} 
+
+/**
+ * Render the field cover_image.
+ */
+function lememo_fiche_ds_field_cover_image($field) {
+  // récupère le champ
+  $field_cover = $field['entity']->field_cover;
+  // récupère l'URI de l'image
+  $img_uri = $field_cover['und'][0]['uri'];
+  $img_cover_url = image_style_url('cover', $img_uri);
+  $output = '<div class="societe-cover-image" style="background: url(\'' . $img_cover_url  . '\') no-repeat center;"></div>';
+
+return $output;
+}
+
+/**
+ * Render the field btn_coord.
+ */
+function lememo_fiche_btn_coord($field) {
+  $output = '<a href="#fiche_coord" class="button warning">Coordonnées</a>';
+
+return $output;
+}
+
+/**
+ * Render the field share_this.
+ */
+function lememo_fiche_ds_field_share_this($field) {
+  $output = '<!-- SHARETHIS ELEMENTS -->                         
+            <span class=\'st_facebook_large\' displaytext=\'Facebook\'></span>
+            <span class=\'st_print_large\' displaytext=\'Print\'></span>
+            <span class=\'st_email_large\' displaytext=\'Email\'></span>
+            <span class=\'st_twitter_large\' displaytext=\'Tweet\'></span>
+            <span class=\'st_googleplus_large\' displaytext=\'Google +\'></span>
+            <!-- END OF SHARETHIS ELEMENTS -->';
+
+return $output;
+}
+
+/**
+ * Render the field block_legals.
+ */
+function lememo_fiche_legals($field) {
+  $company = $field['entity']->title;
+  $siret =   $field['entity']->field_siret['und'][0]['value'];
+  $tva =   $field['entity']->field_siret['und'][0]['value'];
+  $adress = lememo_fiche_make_adress($field);
+  $output = '<div class="bg-color">
+    <h2> Informations Légales </h2>
+    <h3> Siège social </h3>
+    <p>' . $adress . '</p>
+    <h3> SIRET </h3>'
+    . $siret .
+    '<h3> TVA Intra </h3>'
+    . $tva .
+  '</div>' ;
+
+return $output;
+}
+
+
+/**
+ * Render the field block_coord.
+ */
+function lememo_fiche_block_coord($field) {
+  $company = $field['entity']->title;
+  $adress = lememo_fiche_make_adress($field);
+  $output = '<div class="row"> <div id="fiche_coord" class="columns small-6 medium-3 medium-offset-1">
+    <h2>' . $company . '</h2>
+    <p>' . $adress . '</p>
+    <a href="#" class="button warning">Contacter</a>
+  </div></div>' ;
+
+return $output;
+}
+
+/**
+ * Render the field block_gallery. // WORK IN PROGRESS
+ */
+function lememo_fiche_block_gallery($field) {
+
+  $pictures = $field['entity']->field_pictures['und'];
+
+  // compte le nombre d'images
+  $pictures_nb = count($pictures);
+
+  // rendu de la galerie
+  if ($pictures_nb != 0) {
+
+    // on parcours les images
+
+  //  foreach ($pictures as $pic) {
+
+    // pour les 2 premières
+      $output = $output . '<ul class = "clearing-thumbs small-block-grid-2" data-clearing>';
+
+      //$output = $output . '<ul class = "small-block-grid-2" >';
+
+      for ($i = 0; $i < 2; $i++) {
+
+        $img_uri = $pictures[$i]['uri'];
+        $img_thumb1_url = image_style_url('gallery_thumb1', $img_uri);
+        $img_original_url = file_create_url($img_uri);
+
+        $output_thumb1 = '<li><a class= "th" href="' . $img_original_url . '"><img src="' . $img_thumb1_url . '"></a></li>';
+
+        $output = $output . $output_thumb1;
+      }
+
+       $output = $output . '</ul>';
+
+    // pour les 3 suivantes
+      $output = $output . '<ul class = "clearing-thumbs small-block-grid-3" data-clearing>';
+
+      for ($i = 2; $i < 5; $i++) {
+
+        $img_uri = $pictures[$i]['uri'];
+        $img_thumb2_url = image_style_url('gallery_thumb2', $img_uri);
+        $img_original_url = file_create_url($img_uri);
+
+        $output_thumb2 = '<li><a class= "th" href="' . $img_original_url . '"><img src="' . $img_thumb2_url . '"></a></li>';
+
+        $output = $output . $output_thumb2;
+      }
+
+      $output = $output . '</ul>';
+      
+  //   $output = $output . '</ul>';
+    
+
+
+  } else {
+
+      $output = NULL;
+
+  }
+
+return $output;
+}
+
+/**
+ * Custom comments buttons
+ */
+
+function lememo_fiche_form_comment_form_alter(&$form, &$form_state) {
+
+  // Only show the save button if comment previews are optional or if we are
+  // already previewing the submission.
+  $form['actions'] = array('#type' => 'actions');
+  $form['actions']['submit'] = array(
+    '#type' => 'submit', 
+    '#value' => t('Save'), 
+    '#access' => ($comment->cid && user_access('administer comments')) || variable_get('comment_preview_' . $node->type, DRUPAL_OPTIONAL) != DRUPAL_REQUIRED || isset($form_state['comment_preview']), 
+    '#weight' => 20,
+    '#attributes'=> array('class' => array('button small')),
+  );
+  /*
+  $form['actions']['preview'] = array(
+    '#type' => 'submit', 
+    '#value' => t('Preview'), 
+    '#access' => (variable_get('comment_preview_' . $node->type, DRUPAL_OPTIONAL) != DRUPAL_DISABLED), 
+    '#weight' => 19, 
+    '#submit' => array('comment_form_build_preview'),
+    '#attributes'=> array('class' => array('button small secondary')),
+);*/
+}
+
+/**
+ * Function to concratenate adress
+ */
+
+function lememo_fiche_make_adress($field) {
+
+  $street = $field['entity']->field_rows['und'][0]['value'];
+  $cp = $field['entity']->field_code_postal['und'][0]['value'];
+  $city = $field['entity']->field_city['und'][0]['value'];
+  $country = $field['entity']->field_country['und'][0]['value'];
+
+  $output = $street . '</br>' . $cp . ' ' . $city . ', ' . $country;
+
+return $output;
 }

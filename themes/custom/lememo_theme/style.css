@@ -1,0 +1,46 @@
+/*
+LEMEMO CSS / DEV VERSION
+*/
+
+
+.societe-cover-image {
+    display: block;
+    min-height: 330px;
+    background-size: cover;
+}
+
+.societe-block-info {
+    margin-top: -100px;
+}
+
+.share-this-block {
+    margin-top: 100px;
+ 
+}
+
+.field-name-contact-form {
+    margin-top: -100px;
+    background-color: lightgray;
+}
+
+.bg-color {
+    background-color: gray;
+}
+
+.footer {
+        background-color: lightgray;
+}
+
+.filter-wrapper {
+    display: none;
+}
+
+.comment {
+    border: 1px solid gray;
+}
+
+#fiche_coord {
+  height: 300px;
+  margin-top: -300px;
+  background-color: white;
+}

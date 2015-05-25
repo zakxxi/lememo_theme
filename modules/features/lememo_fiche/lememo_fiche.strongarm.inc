@@ -13,16 +13,51 @@ function lememo_fiche_strongarm() {
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
-  $strongarm->name = 'ds_extras_field_permissions';
-  $strongarm->value = 0;
-  $export['ds_extras_field_permissions'] = $strongarm;
+  $strongarm->name = 'comment_anonymous_fiche';
+  $strongarm->value = '0';
+  $export['comment_anonymous_fiche'] = $strongarm;
 
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
-  $strongarm->name = 'ds_extras_field_template';
+  $strongarm->name = 'comment_default_mode_fiche';
+  $strongarm->value = 1;
+  $export['comment_default_mode_fiche'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'comment_default_per_page_fiche';
+  $strongarm->value = '30';
+  $export['comment_default_per_page_fiche'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'comment_fiche';
+  $strongarm->value = '2';
+  $export['comment_fiche'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'comment_form_location_fiche';
+  $strongarm->value = 1;
+  $export['comment_form_location_fiche'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'comment_preview_fiche';
+  $strongarm->value = '0';
+  $export['comment_preview_fiche'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'comment_subject_field_fiche';
   $strongarm->value = 0;
-  $export['ds_extras_field_template'] = $strongarm;
+  $export['comment_subject_field_fiche'] = $strongarm;
 
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
@@ -37,6 +72,20 @@ function lememo_fiche_strongarm() {
   $strongarm->name = 'ds_extras_fields_extra_list';
   $strongarm->value = '';
   $export['ds_extras_fields_extra_list'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'ds_extras_field_permissions';
+  $strongarm->value = 0;
+  $export['ds_extras_field_permissions'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'ds_extras_field_template';
+  $strongarm->value = 1;
+  $export['ds_extras_field_template'] = $strongarm;
 
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
@@ -120,6 +169,13 @@ function lememo_fiche_strongarm() {
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
+  $strongarm->name = 'jquery_update_jquery_version';
+  $strongarm->value = '1.10';
+  $export['jquery_update_jquery_version'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
   $strongarm->name = 'menu_options_fiche';
   $strongarm->value = array();
   $export['menu_options_fiche'] = $strongarm;
@@ -157,25 +213,9 @@ function lememo_fiche_strongarm() {
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
-  $strongarm->name = 'theme_bartik_settings';
-  $strongarm->value = array(
-    'toggle_logo' => 1,
-    'toggle_name' => 1,
-    'toggle_slogan' => 1,
-    'toggle_node_user_picture' => 1,
-    'toggle_comment_user_picture' => 1,
-    'toggle_comment_user_verification' => 1,
-    'toggle_favicon' => 1,
-    'toggle_main_menu' => 0,
-    'toggle_secondary_menu' => 0,
-    'default_logo' => 1,
-    'logo_path' => '',
-    'logo_upload' => '',
-    'default_favicon' => 1,
-    'favicon_path' => '',
-    'favicon_upload' => '',
-  );
-  $export['theme_bartik_settings'] = $strongarm;
+  $strongarm->name = 'theme_default';
+  $strongarm->value = 'lememo_theme';
+  $export['theme_default'] = $strongarm;
 
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */

@@ -29,8 +29,38 @@ function lememo_fiche_image_default_styles() {
       1 => array(
         'name' => 'image_scale_and_crop',
         'data' => array(
-          'width' => 1024,
-          'height' => 335,
+          'width' => 2000,
+          'height' => 330,
+        ),
+        'weight' => 1,
+      ),
+    ),
+  );
+
+  // Exported image style: gallery_thumb1.
+  $styles['gallery_thumb1'] = array(
+    'label' => 'gallery_thumb1',
+    'effects' => array(
+      1 => array(
+        'name' => 'image_scale_and_crop',
+        'data' => array(
+          'width' => 300,
+          'height' => 200,
+        ),
+        'weight' => 1,
+      ),
+    ),
+  );
+
+  // Exported image style: gallery_thumb2.
+  $styles['gallery_thumb2'] = array(
+    'label' => 'gallery_thumb2',
+    'effects' => array(
+      2 => array(
+        'name' => 'image_scale_and_crop',
+        'data' => array(
+          'width' => 200,
+          'height' => 132,
         ),
         'weight' => 1,
       ),
@@ -65,7 +95,7 @@ function lememo_fiche_node_info() {
       'base' => 'node_content',
       'description' => '',
       'has_title' => '1',
-      'title_label' => t('Title'),
+      'title_label' => t('Titre'),
       'help' => '',
     ),
   );

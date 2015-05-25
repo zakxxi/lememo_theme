@@ -1,0 +1,17 @@
+name = lememo_dummy_content
+description = Dummy content for theming
+core = 7.x
+package = Features
+version = 7.x-0.1
+project = lememo_dummy_content
+dependencies[] = ctools
+dependencies[] = features
+dependencies[] = lememo_fiche
+dependencies[] = node_export_features
+dependencies[] = node_export
+dependencies[] = node_export_features
+dependencies[] = strongarm
+features[ctools][] = strongarm:strongarm:1
+features[features_api][] = api:2
+features[node_export_features][] = 2a7543e9-9454-4054-bcfc-c855a36e31d1
+project path = sites/all/modules/features

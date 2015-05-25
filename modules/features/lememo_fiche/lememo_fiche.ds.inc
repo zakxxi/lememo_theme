@@ -12,24 +12,89 @@ function lememo_fiche_ds_field_settings_info() {
 
   $ds_fieldsetting = new stdClass();
   $ds_fieldsetting->api_version = 1;
+  $ds_fieldsetting->id = 'comment|comment_node_fiche|full';
+  $ds_fieldsetting->entity_type = 'comment';
+  $ds_fieldsetting->bundle = 'comment_node_fiche';
+  $ds_fieldsetting->view_mode = 'full';
+  $ds_fieldsetting->settings = array(
+    'author' => array(
+      'weight' => '0',
+      'label' => 'hidden',
+      'format' => 'default',
+    ),
+  );
+  $export['comment|comment_node_fiche|full'] = $ds_fieldsetting;
+
+  $ds_fieldsetting = new stdClass();
+  $ds_fieldsetting->api_version = 1;
   $ds_fieldsetting->id = 'node|fiche|full';
   $ds_fieldsetting->entity_type = 'node';
   $ds_fieldsetting->bundle = 'fiche';
   $ds_fieldsetting->view_mode = 'full';
   $ds_fieldsetting->settings = array(
     'contact_form' => array(
-      'weight' => '8',
+      'weight' => '11',
       'label' => 'hidden',
       'format' => 'default',
+      'formatter_settings' => array(
+        'ft' => array(
+          'func' => 'theme_ds_field_minimal',
+        ),
+      ),
     ),
     'title' => array(
-      'weight' => '2',
+      'weight' => '4',
       'label' => 'hidden',
       'format' => 'default',
       'formatter_settings' => array(
         'link' => '0',
         'wrapper' => 'h1',
         'class' => '',
+      ),
+    ),
+    'comments' => array(
+      'weight' => '10',
+      'label' => 'hidden',
+      'format' => 'default',
+    ),
+    'lememo_fiche_cover_image' => array(
+      'weight' => '0',
+      'label' => 'hidden',
+      'format' => 'default',
+    ),
+    'lememo_fiche_btn_coord' => array(
+      'weight' => '2',
+      'label' => 'hidden',
+      'format' => 'default',
+    ),
+    'lememo_fiche_share_this' => array(
+      'weight' => '6',
+      'label' => 'hidden',
+      'format' => 'default',
+    ),
+    'lememo_fiche_legals' => array(
+      'weight' => '23',
+      'label' => 'hidden',
+      'format' => 'default',
+    ),
+    'lememo_fiche_block_coord' => array(
+      'weight' => '13',
+      'label' => 'hidden',
+      'format' => 'default',
+    ),
+    'lememo_fiche_block_gallery' => array(
+      'weight' => '0',
+      'label' => 'hidden',
+      'format' => 'default',
+    ),
+    'field_description_long' => array(
+      'formatter_settings' => array(
+        'ft' => array(
+          'func' => 'theme_ds_field_expert',
+          'lb-col' => TRUE,
+          'lbw' => 1,
+          'lbw-el' => 'h2',
+        ),
       ),
     ),
   );
@@ -70,62 +135,112 @@ function lememo_fiche_ds_layout_settings_info() {
 
   $ds_layout = new stdClass();
   $ds_layout->api_version = 1;
-  $ds_layout->id = 'node|fiche|full';
-  $ds_layout->entity_type = 'node';
-  $ds_layout->bundle = 'fiche';
+  $ds_layout->id = 'comment|comment_node_fiche|full';
+  $ds_layout->entity_type = 'comment';
+  $ds_layout->bundle = 'comment_node_fiche';
   $ds_layout->view_mode = 'full';
-  $ds_layout->layout = 'ds_2col_stacked';
+  $ds_layout->layout = 'lememo_comments_display';
   $ds_layout->settings = array(
     'regions' => array(
-      'header' => array(
-        0 => 'field_cover',
-        1 => 'field_logo',
-        2 => 'title',
-        3 => 'field_city',
-        4 => 'field_code_postal',
-      ),
       'left' => array(
-        5 => 'field_description_short',
-        6 => 'field_pictures',
-        7 => 'field_description_long',
+        0 => 'author',
       ),
       'right' => array(
-        8 => 'contact_form',
-        9 => 'field_siret',
-        10 => 'field_tva',
-      ),
-      'footer' => array(
-        11 => 'field_company',
-        12 => 'field_position',
+        1 => 'comment_body',
       ),
     ),
     'fields' => array(
-      'field_cover' => 'header',
-      'field_logo' => 'header',
-      'title' => 'header',
-      'field_city' => 'header',
-      'field_code_postal' => 'header',
-      'field_description_short' => 'left',
-      'field_pictures' => 'left',
-      'field_description_long' => 'left',
-      'contact_form' => 'right',
-      'field_siret' => 'right',
-      'field_tva' => 'right',
-      'field_company' => 'footer',
-      'field_position' => 'footer',
+      'author' => 'left',
+      'comment_body' => 'right',
     ),
     'classes' => array(),
     'wrappers' => array(
-      'header' => 'div',
       'left' => 'div',
       'right' => 'div',
-      'footer' => 'div',
     ),
     'layout_wrapper' => 'div',
     'layout_attributes' => '',
     'layout_attributes_merge' => 1,
     'layout_link_attribute' => '',
     'layout_link_custom' => '',
+  );
+  $export['comment|comment_node_fiche|full'] = $ds_layout;
+
+  $ds_layout = new stdClass();
+  $ds_layout->api_version = 1;
+  $ds_layout->id = 'node|fiche|full';
+  $ds_layout->entity_type = 'node';
+  $ds_layout->bundle = 'fiche';
+  $ds_layout->view_mode = 'full';
+  $ds_layout->layout = 'lememo_node_display';
+  $ds_layout->settings = array(
+    'regions' => array(
+      'left' => array(
+        0 => 'lememo_fiche_block_gallery',
+        9 => 'field_description_long',
+        10 => 'comments',
+      ),
+      'top' => array(
+        1 => 'lememo_fiche_cover_image',
+      ),
+      'header_society_left' => array(
+        2 => 'field_logo',
+      ),
+      'header_society_right' => array(
+        3 => 'lememo_fiche_btn_coord',
+        4 => 'field_vote',
+        5 => 'title',
+        6 => 'field_city',
+      ),
+      'header_sharethis' => array(
+        7 => 'lememo_fiche_share_this',
+      ),
+      'header_resume' => array(
+        8 => 'field_description_short',
+      ),
+      'right' => array(
+        11 => 'contact_form',
+        14 => 'lememo_fiche_legals',
+      ),
+      'bottom' => array(
+        12 => 'field_position',
+        13 => 'lememo_fiche_block_coord',
+      ),
+    ),
+    'fields' => array(
+      'lememo_fiche_block_gallery' => 'left',
+      'lememo_fiche_cover_image' => 'top',
+      'field_logo' => 'header_society_left',
+      'lememo_fiche_btn_coord' => 'header_society_right',
+      'field_vote' => 'header_society_right',
+      'title' => 'header_society_right',
+      'field_city' => 'header_society_right',
+      'lememo_fiche_share_this' => 'header_sharethis',
+      'field_description_short' => 'header_resume',
+      'field_description_long' => 'left',
+      'comments' => 'left',
+      'contact_form' => 'right',
+      'field_position' => 'bottom',
+      'lememo_fiche_block_coord' => 'bottom',
+      'lememo_fiche_legals' => 'right',
+    ),
+    'classes' => array(),
+    'wrappers' => array(
+      'top' => 'div',
+      'header_society_left' => 'div',
+      'header_society_right' => 'div',
+      'header_sharethis' => 'div',
+      'header_resume' => 'div',
+      'left' => 'div',
+      'right' => 'div',
+      'bottom' => 'div',
+    ),
+    'layout_wrapper' => 'div',
+    'layout_attributes' => '',
+    'layout_attributes_merge' => 1,
+    'layout_link_attribute' => '',
+    'layout_link_custom' => '',
+    'layout_disable_css' => 0,
     'hide_page_title' => '1',
     'page_option_title' => '',
   );
