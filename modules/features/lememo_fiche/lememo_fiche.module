@@ -200,7 +200,6 @@ function lememo_fiche_block_gallery($field) {
   $pictures = $field['entity']->field_pictures['und'];
   // compte le nombre d'images
   $pictures_nb = count($pictures);
-  print $pictures_nb;
   // rendu de la galerie si il y'a des images
   if ($pictures_nb != 0) {
     // on parcours les images
