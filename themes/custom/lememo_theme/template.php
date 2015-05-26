@@ -18,12 +18,21 @@ function lememo_theme_filter_tips_more_info () {
 function lememo_theme_preprocess_comment(&$variables) {
   unset($variables['content']['links']['comment']['#links']['comment-reply']);
 }
+
 /**
  * Add foundation JS
  */
+function lememo_theme_preprocess_html(&$variables) {
+
+
+}
+
 $options = array('scope' => 'footer'  );
 drupal_add_js(drupal_get_path('theme', 'lememo_theme') . '/js/foundation.min.js', $options);
 drupal_add_js(drupal_get_path('theme', 'lememo_theme') . '/js/foundation.clearing.js', $options);
+drupal_add_js(drupal_get_path('theme', 'lememo_theme') . '/scripts.js', $options);
+
 $foundation='jQuery(document).foundation();';
 $options['type']='inline';
 drupal_add_js($foundation, $options);
+

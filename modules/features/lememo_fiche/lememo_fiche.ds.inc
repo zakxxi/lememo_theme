@@ -240,7 +240,6 @@ function lememo_fiche_ds_layout_settings_info() {
     'layout_attributes_merge' => 1,
     'layout_link_attribute' => '',
     'layout_link_custom' => '',
-    'layout_disable_css' => 0,
     'hide_page_title' => '1',
     'page_option_title' => '',
   );

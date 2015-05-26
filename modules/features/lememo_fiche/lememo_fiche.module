@@ -194,64 +194,68 @@ return $output;
 }
 
 /**
- * Render the field block_gallery. // WORK IN PROGRESS
+ * Render the field block_gallery. // CUSTOM GALLERY
  */
 function lememo_fiche_block_gallery($field) {
-
   $pictures = $field['entity']->field_pictures['und'];
-
   // compte le nombre d'images
   $pictures_nb = count($pictures);
-
-  // rendu de la galerie
+  print $pictures_nb;
+  // rendu de la galerie si il y'a des images
   if ($pictures_nb != 0) {
-
     // on parcours les images
-
-  //  foreach ($pictures as $pic) {
-
     // pour les 2 premières
-      $output = $output . '<ul class = "clearing-thumbs small-block-grid-2" data-clearing>';
+      if ($pictures_nb > 1){
+            $output = $output . '<div class="fiche_gallery"><ul data-clearing>'; // on ouvre la liste
+            for ($i = 0; $i < 2; $i++) {
+              $img_uri = $pictures[$i]['uri'];
+              $img_thumb1_url = image_style_url('gallery_thumb1', $img_uri);
+              $img_original_url = file_create_url($img_uri);
+              $output_thumb1 = '<li class = "gallery_thumb1"><a href="' . $img_original_url . '"><img src="' . $img_thumb1_url . '"></a></li>';
+              $output = $output . $output_thumb1;
+            }
 
-      //$output = $output . '<ul class = "small-block-grid-2" >';
+        if ($pictures_nb > 2){
+          // pour les 3 suivantes
+            for ($i = 2; $i < $pictures_nb && $i < 5; $i++) {
+              $img_uri = $pictures[$i]['uri'];
+              $img_thumb2_url = image_style_url('gallery_thumb2', $img_uri);
+              $img_original_url = file_create_url($img_uri);
+              $output_thumb2 = '<li class = "gallery_thumb2"><a href="' . $img_original_url . '"><img src="' . $img_thumb2_url . '"></a></li>';
+              $output = $output . $output_thumb2;
+            }
+                if ($pictures_nb <= 5){
+                   $output = $output . '</ul></div>'; // on ferme la liste si le nombre d'image est inférieur à 5
+                }
+          }
 
-      for ($i = 0; $i < 2; $i++) {
+        if ($pictures_nb > 5){
+              // pour les suivantes
+            for ($i = 5; $i < $pictures_nb ; $i++) {
+              $img_uri = $pictures[$i]['uri'];
+              $img_thumb_url3 = image_style_url('gallery_thumb2', $img_uri);
+              $img_original_url = file_create_url($img_uri);
+              $output_nothumb = '<li class = "hide gallery_nothumb"><a href="' . $img_original_url . '"><img src="' . $img_thumb_url3 . '"></a></li>';
+              $output = $output . $output_nothumb;
 
-        $img_uri = $pictures[$i]['uri'];
-        $img_thumb1_url = image_style_url('gallery_thumb1', $img_uri);
-        $img_original_url = file_create_url($img_uri);
-
-        $output_thumb1 = '<li><a class= "th" href="' . $img_original_url . '"><img src="' . $img_thumb1_url . '"></a></li>';
-
-        $output = $output . $output_thumb1;
-      }
-
-       $output = $output . '</ul>';
-
-    // pour les 3 suivantes
-      $output = $output . '<ul class = "clearing-thumbs small-block-grid-3" data-clearing>';
-
-      for ($i = 2; $i < 5; $i++) {
-
-        $img_uri = $pictures[$i]['uri'];
-        $img_thumb2_url = image_style_url('gallery_thumb2', $img_uri);
-        $img_original_url = file_create_url($img_uri);
-
-        $output_thumb2 = '<li><a class= "th" href="' . $img_original_url . '"><img src="' . $img_thumb2_url . '"></a></li>';
-
-        $output = $output . $output_thumb2;
-      }
-
-      $output = $output . '</ul>';
-      
-  //   $output = $output . '</ul>';
-    
-
-
+            }
+            $output = $output . '</ul></div>'; // on ferme la liste
+            // affichage du lien pour toute la galerie
+            $output = $output . '<a class = "openclearing" href="#"  data-thumb-index="0"> Voir toutes les photos</a>';
+        }
+      } else {
+      // dans le cas ou une seule image
+            $output = $output . '<ul data-clearing>';  // on ouvre la liste
+            $img_uri = $pictures[0]['uri'];
+            $img_thumb_url = image_style_url('gallery_thumb1', $img_uri);
+            $img_original_url = file_create_url($img_uri);
+            $output_thumb = '<li class = "gallery_thumb1"><a href="' . $img_original_url . '"><img src="' . $img_thumb_url . '"></a></li>';
+            $output = $output . $output_thumb;
+            $output = $output . '</ul>'; // on ferme la liste
+}
   } else {
-
+      // dans le cas ou pas d'images
       $output = NULL;
-
   }
 
 return $output;
@@ -262,7 +266,6 @@ return $output;
  */
 
 function lememo_fiche_form_comment_form_alter(&$form, &$form_state) {
-
   // Only show the save button if comment previews are optional or if we are
   // already previewing the submission.
   $form['actions'] = array('#type' => 'actions');
@@ -287,14 +290,11 @@ function lememo_fiche_form_comment_form_alter(&$form, &$form_state) {
 /**
  * Function to concratenate adress
  */
-
 function lememo_fiche_make_adress($field) {
-
   $street = $field['entity']->field_rows['und'][0]['value'];
   $cp = $field['entity']->field_code_postal['und'][0]['value'];
   $city = $field['entity']->field_city['und'][0]['value'];
   $country = $field['entity']->field_country['und'][0]['value'];
-
   $output = $street . '</br>' . $cp . ' ' . $city . ', ' . $country;
 
 return $output;
