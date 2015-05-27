@@ -56,8 +56,8 @@
             </div>
         </div>
 
- <!-- SHARETHIS SCRIPTS -->
+ <!-- ADDTHIS SCRIPTS -->
 
- <?php print theme_get_setting('lememo_theme_sharethis_js')?>
+ <?php print theme_get_setting('lememo_theme_addthis_js')?>
 
-<!-- END OF SHARETHIS SCRIPTS -->
+<!-- END OF ADDTHIS SCRIPTS -->

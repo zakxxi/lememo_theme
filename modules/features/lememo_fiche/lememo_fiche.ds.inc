@@ -37,9 +37,7 @@ function lememo_fiche_ds_field_settings_info() {
       'label' => 'hidden',
       'format' => 'default',
       'formatter_settings' => array(
-        'ft' => array(
-          'func' => 'theme_ds_field_minimal',
-        ),
+        'ft' => array(),
       ),
     ),
     'title' => array(
@@ -67,8 +65,8 @@ function lememo_fiche_ds_field_settings_info() {
       'label' => 'hidden',
       'format' => 'default',
     ),
-    'lememo_fiche_share_this' => array(
-      'weight' => '6',
+    'lememo_fiche_add_this' => array(
+      'weight' => '0',
       'label' => 'hidden',
       'format' => 'default',
     ),
@@ -175,25 +173,25 @@ function lememo_fiche_ds_layout_settings_info() {
   $ds_layout->layout = 'lememo_node_display';
   $ds_layout->settings = array(
     'regions' => array(
+      'top' => array(
+        0 => 'lememo_fiche_cover_image',
+      ),
+      'header_addthis' => array(
+        1 => 'lememo_fiche_add_this',
+      ),
       'left' => array(
-        0 => 'lememo_fiche_block_gallery',
+        2 => 'lememo_fiche_block_gallery',
         9 => 'field_description_long',
         10 => 'comments',
       ),
-      'top' => array(
-        1 => 'lememo_fiche_cover_image',
-      ),
       'header_society_left' => array(
-        2 => 'field_logo',
+        3 => 'field_logo',
       ),
       'header_society_right' => array(
-        3 => 'lememo_fiche_btn_coord',
-        4 => 'field_vote',
-        5 => 'title',
-        6 => 'field_city',
-      ),
-      'header_sharethis' => array(
-        7 => 'lememo_fiche_share_this',
+        4 => 'lememo_fiche_btn_coord',
+        5 => 'field_vote',
+        6 => 'title',
+        7 => 'field_city',
       ),
       'header_resume' => array(
         8 => 'field_description_short',
@@ -208,14 +206,14 @@ function lememo_fiche_ds_layout_settings_info() {
       ),
     ),
     'fields' => array(
-      'lememo_fiche_block_gallery' => 'left',
       'lememo_fiche_cover_image' => 'top',
+      'lememo_fiche_add_this' => 'header_addthis',
+      'lememo_fiche_block_gallery' => 'left',
       'field_logo' => 'header_society_left',
       'lememo_fiche_btn_coord' => 'header_society_right',
       'field_vote' => 'header_society_right',
       'title' => 'header_society_right',
       'field_city' => 'header_society_right',
-      'lememo_fiche_share_this' => 'header_sharethis',
       'field_description_short' => 'header_resume',
       'field_description_long' => 'left',
       'comments' => 'left',
@@ -229,7 +227,7 @@ function lememo_fiche_ds_layout_settings_info() {
       'top' => 'div',
       'header_society_left' => 'div',
       'header_society_right' => 'div',
-      'header_sharethis' => 'div',
+      'header_addthis' => 'div',
       'header_resume' => 'div',
       'left' => 'div',
       'right' => 'div',

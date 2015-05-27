@@ -88,14 +88,14 @@ function lememo_fiche_ds_fields_info($entity_type) {
     'function' => 'lememo_fiche_btn_coord',
   );
 
-    $fields['node']['lememo_fiche_share_this'] = array(
-    'title' => t('Share this'),
+    $fields['node']['lememo_fiche_add_this'] = array(
+    'title' => t('Bloc Add this'),
     'field_type' => DS_FIELD_TYPE_FUNCTION,
-    'function' => 'lememo_fiche_ds_field_share_this',
+    'function' => 'lememo_fiche_ds_field_add_this',
   );
 
     $fields['node']['lememo_fiche_legals'] = array(
-    'title' => t('Mentions légales'),
+    'title' => t('Bloc Mentions légales'),
     'field_type' => DS_FIELD_TYPE_FUNCTION,
     'function' => 'lememo_fiche_legals',
   );
@@ -142,16 +142,10 @@ return $output;
 }
 
 /**
- * Render the field share_this.
+ * Render the field add_this.
  */
-function lememo_fiche_ds_field_share_this($field) {
-  $output = '<!-- SHARETHIS ELEMENTS -->                         
-            <span class=\'st_facebook_large\' displaytext=\'Facebook\'></span>
-            <span class=\'st_print_large\' displaytext=\'Print\'></span>
-            <span class=\'st_email_large\' displaytext=\'Email\'></span>
-            <span class=\'st_twitter_large\' displaytext=\'Tweet\'></span>
-            <span class=\'st_googleplus_large\' displaytext=\'Google +\'></span>
-            <!-- END OF SHARETHIS ELEMENTS -->';
+function lememo_fiche_ds_field_add_this($field) {
+  $output = '<div class="addthis_sharing_toolbox"></div>';
 
 return $output;
 }
