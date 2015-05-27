@@ -97,6 +97,7 @@ features[node][] = fiche
 features[user_permission][] = access comments
 features[user_permission][] = post comments
 features[user_permission][] = rate content
+features[variable][] = captcha_default_challenge
 features[variable][] = comment_anonymous_fiche
 features[variable][] = comment_default_mode_fiche
 features[variable][] = comment_default_per_page_fiche
