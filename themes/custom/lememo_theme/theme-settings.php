@@ -13,4 +13,11 @@ function lememo_theme_form_system_theme_settings_alter(&$form, $form_state) {
     '#default_value' => theme_get_setting('lememo_theme_addthis_js'),
     '#description'   => t("Coller le code Javascript fourni par Addthis"),
   );
+
+    $form['lememo_theme_typekit_js'] = array(
+    '#type'          => 'textarea',
+    '#title'         => t('TypeKit JS'),
+    '#default_value' => theme_get_setting('lememo_theme_typekit_js'),
+    '#description'   => t("Coller le code Javascript fourni par TypeKit"),
+  );
 }
