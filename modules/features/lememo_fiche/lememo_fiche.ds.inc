@@ -95,6 +95,11 @@ function lememo_fiche_ds_field_settings_info() {
         ),
       ),
     ),
+    'field_position' => array(
+      'formatter_settings' => array(
+        'ft' => array(),
+      ),
+    ),
   );
   $export['node|fiche|full'] = $ds_fieldsetting;
 

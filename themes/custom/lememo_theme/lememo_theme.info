@@ -1,6 +1,6 @@
 name = Le Memo
 description = Le memo api theme based on Foundation 5
-version = 7.x-1.0-alpha3
+version = 7.x-1.0-beta1
 core = 7.x
 
 ; Add stylesheets

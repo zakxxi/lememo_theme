@@ -176,12 +176,13 @@ return $output;
  * Render the field block_coord.
  */
 function lememo_fiche_block_coord($field) {
+  $mail = $field['entity']->field_mail['und'][0]['value'];
   $company = $field['entity']->title;
   $adress = lememo_fiche_make_adress($field);
   $output = '<div class="row"> <div id="fiche_coord" class="columns small-6 medium-3 medium-offset-1">
     <h2>' . $company . '</h2>
     <p>' . $adress . '</p>
-    <a href="#" class="button warning">Contacter</a>
+    <a href="mailto:' . $mail . '" class="button warning">Contacter</a>
   </div></div>' ;
 
 return $output;

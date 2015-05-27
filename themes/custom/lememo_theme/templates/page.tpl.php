@@ -27,11 +27,16 @@
 <div class="footer">
             <div class="row">
 
-            	<?php if ($page['footer_left']): ?>
+
 	                <div class="columns medium-offset-2 medium-2"> 
-					<?php print render($page['footer_left']); ?>
-	                </div>
-                <?php endif; ?>
+                        <div class = "footer_logo">
+                            <?php if ($logo): ?>
+                                <img src="<?php print $logo ?>"/>
+                            <?php endif; ?>
+                            <p>Annuaires profesionnels</p>
+
+    	               </div>
+                    </div>
 
             	<?php if ($page['footer_center']): ?>
 	                <div class="columns medium-2 medium-offset-1"> 
