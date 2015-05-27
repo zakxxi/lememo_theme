@@ -28,13 +28,13 @@
       </div>
     
 
-    <<?php print $header_sharethis_wrapper; ?> class="share-this-block columns medium-4 right text-right <?php print $header_sharethis_classes; ?>">
-        <?php print $header_sharethis; ?>
-    </<?php print $header_sharethis_wrapper; ?>>
+    <<?php print $header_addthis_wrapper; ?> class="add-this-block columns medium-4 right text-right <?php print $header_addthis_classes; ?>">
+        <?php print $header_addthis; ?>
+    </<?php print $header_addthis_wrapper; ?>>
 
     </div>
 
-<div class = "bg-color">
+<div class = "resume-block">
     <<?php print $header_resume_wrapper; ?> class="row <?php print $header_resume_classes; ?>">
       <div class ="columns medium-7 medium-offset-1">
         <?php print $header_resume; ?>

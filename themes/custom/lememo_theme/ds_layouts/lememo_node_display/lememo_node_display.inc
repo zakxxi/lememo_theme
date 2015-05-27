@@ -12,7 +12,7 @@ function ds_lememo_node_display() {
       'top' => t('Top'),
       'header_society_left' => t('Header Bloc Info Left'),
       'header_society_right' => t('Header Bloc Info Right'),
-      'header_sharethis' => t('Header Share This'),
+      'header_addthis' => t('Header Add This'),
       'header_resume' => t('Header Resume'),
       'left' => t('Left'),
       'right' => t('Right'),

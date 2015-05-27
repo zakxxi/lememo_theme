@@ -7,7 +7,7 @@
 
 function ds_lememo_comments_display() {
   return array(
-    'label' => t('Lememo Comments Display'),
+    'label' => t('Lememo comments display'),
     'regions' => array(
       'left' => t('Left'),
       'right' => t('Right'),
