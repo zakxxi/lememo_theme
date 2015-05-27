@@ -1,7 +1,7 @@
 name = lememo_fiche
 core = 7.x
 package = Features
-version = 7.x-1.0-alpha2
+version = 7.x-1.0-alpha3
 project = lememo_fiche
 dependencies[] = contact
 dependencies[] = ctools
