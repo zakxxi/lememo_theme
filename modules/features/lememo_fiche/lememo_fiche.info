@@ -17,6 +17,7 @@ dependencies[] = fivestar
 dependencies[] = geofield
 dependencies[] = geofield_map
 dependencies[] = image
+dependencies[] = image_captcha
 dependencies[] = jquery_update
 dependencies[] = menu
 dependencies[] = migrate_ui
