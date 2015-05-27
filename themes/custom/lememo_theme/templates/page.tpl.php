@@ -45,10 +45,12 @@
 	                </div>
                 <?php endif; ?>
 
-             	<?php if ($page['footer_bottom']): ?>               
+             	<?php if ($page['footer_bottom']): ?>
+                <div class="row">               
 	                <div class="columns left medium-12"> 
 					<?php print render($page['footer_bottom']); ?>
 	                </div>
+                </div>
                 <?php endif; ?>	                
 
             </div>

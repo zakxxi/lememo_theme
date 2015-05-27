@@ -34,7 +34,7 @@
 
     </div>
 
-<div class = "bg-color">
+<div class = "resume-block">
     <<?php print $header_resume_wrapper; ?> class="row <?php print $header_resume_classes; ?>">
       <div class ="columns medium-7 medium-offset-1">
         <?php print $header_resume; ?>

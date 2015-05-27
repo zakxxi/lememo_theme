@@ -77,7 +77,7 @@ function lememo_fiche_ds_fields_info($entity_type) {
   $fields = array();
 
   $fields['node']['lememo_fiche_cover_image'] = array(
-    'title' => t('Cover image'),
+    'title' => t('Image de couverture'),
     'field_type' => DS_FIELD_TYPE_FUNCTION,
     'function' => 'lememo_fiche_ds_field_cover_image',
   );
@@ -164,15 +164,15 @@ function lememo_fiche_legals($field) {
   $siret =   $field['entity']->field_siret['und'][0]['value'];
   $tva =   $field['entity']->field_siret['und'][0]['value'];
   $adress = lememo_fiche_make_adress($field);
-  $output = '<div class="bg-color">
+  $output = '<div>
     <h2> Informations Légales </h2>
     <h3> Siège social </h3>
     <p>' . $adress . '</p>
-    <h3> SIRET </h3>'
+    <h3> SIRET </h3> <p>'
     . $siret .
-    '<h3> TVA Intra </h3>'
+    '</p><h3> TVA Intra </h3> <p>'
     . $tva .
-  '</div>' ;
+  '</p></div>';
 
 return $output;
 }

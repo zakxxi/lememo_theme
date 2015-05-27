@@ -34,12 +34,12 @@ LEMEMO CSS / DEV VERSION
   box-shadow: none;
 }
 
-.bg-color {
-    background-color: #797979;
-}
-
 .footer {
    background-color: lightgray;
+}
+
+.resume-block {
+   background-color: gray;
 }
 
 .filter-wrapper {
@@ -109,7 +109,7 @@ div.fivestar-widget .star, div.fivestar-widget .star a {
 .field-name-lememo-fiche-legals{
   margin-top: 20px;
 }
-.field-name-lememo-fiche-legals .bg-color{
+.field-name-lememo-fiche-legals {
   background: #f0f0f0;
   padding: 20px 25px;
 }
