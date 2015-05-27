@@ -800,7 +800,7 @@ function lememo_fiche_field_default_field_instances() {
           'geofield_map_overview_opened' => 0,
           'geofield_map_pancontrol' => 1,
           'geofield_map_scale' => 0,
-          'geofield_map_scrollwheel' => 1,
+          'geofield_map_scrollwheel' => 0,
           'geofield_map_streetview_show' => 1,
           'geofield_map_width' => '100%',
           'geofield_map_zoom' => 18,
