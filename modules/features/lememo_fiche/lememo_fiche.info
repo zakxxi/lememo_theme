@@ -24,6 +24,7 @@ dependencies[] = migrate_ui
 dependencies[] = node
 dependencies[] = number
 dependencies[] = path
+dependencies[] = recaptcha
 dependencies[] = strongarm
 dependencies[] = text
 features[captcha_points][] = comment_node_article_form
