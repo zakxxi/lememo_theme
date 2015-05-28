@@ -1,0 +1,116 @@
+<?php
+
+/**
+ * Implements hook_menu().
+ */
+/*
+function lememo_client_menu() {
+  $items['lememo_initial'] = array(
+    'title' => 'lememo initial import',
+    'page callback' => 'lememo_initial_call',
+    'access arguments' => array('access content'),
+  );
+  $items['lememo_nightly'] = array(
+    'title' => 'lememo nightly import',
+    'page callback' => 'lememo_nightly_call',
+    'access arguments' => array('access content'),
+  );
+  return $items;
+}
+*/
+
+/**
+ * Callback to test the nightly lememo import.
+ *
+ * @throws \Exception
+ */
+function lememo_nightly_call() {
+  $interval = (86400 * 15);
+  _lememo_import_updated_fiche($interval, 'nightly.json', 'lememo_businesscard_nightly', TRUE);
+}
+
+/**
+ * Callback to test the initial lememo import.
+ *
+ * @throws \Exception
+ */
+function lememo_initial_call() {
+  $interval = (86400 * 365 * 30);
+  _lememo_import_updated_fiche($interval, 'init.json', 'lememo_businesscard_inital', FALSE);
+
+}
+
+/**
+ * Helper to get the lememo API Connector.
+ *
+ * @return lememoClient object
+ */
+function _lememo_client_api_get_connector() {
+  global $language;
+
+  $options = array(
+    'language' => $language->language,
+  );
+  return lememoClient::getInstance('dev', '3DDC1CF0-4B41-4682-AF31-AF7122FC1001', $options);
+}
+
+function _lememo_import_updated_fiche($interval_time, $export_file, $migration_machine_name, $update = FALSE) {
+//  $path = drupal_realpath(DRUPAL_ROOT . DIRECTORY_SEPARATOR . '..' . DIRECTORY_SEPARATOR . 'ressources' . DIRECTORY_SEPARATOR . 'import');
+  $path = drupal_realpath(DRUPAL_ROOT . DIRECTORY_SEPARATOR . 'ressources' . DIRECTORY_SEPARATOR . 'import');
+  $client = _lememo_client_api_get_connector();
+  $today = REQUEST_TIME;
+  $yesterday = $today - $interval_time;
+
+  $test = $client->getUpdated($yesterday, $today);
+  if (!empty($test->items)) {
+    $data = drupal_json_encode($test->items);
+    $file_uri = drupal_realpath(file_unmanaged_save_data($data));
+    rename($file_uri, $path . DIRECTORY_SEPARATOR . $export_file);
+
+    migrate_static_registration(array($migration_machine_name));
+    $migration = Migration::getInstance($migration_machine_name);
+    if ($update) {
+      $migration->prepareUpdate();
+    }
+    $result = $migration->processImport();
+  }
+}
+
+function _lememo_import_unpublish_fiche($interval_time) {
+  $client = _lememo_client_api_get_connector();
+  $today = REQUEST_TIME;
+  $yesterday = $today - $interval_time;
+  $test = $client->getRemoved($yesterday, $today);
+  if (!empty($test->items)) {
+    $ids = $test->items;
+    if (!empty($ids)) {
+      $query = new EntityFieldQuery();
+      $query->entityCondition('entity_type', 'node')
+        ->entityCondition('bundle', 'fiche')
+        ->propertyCondition('status', NODE_PUBLISHED)
+        ->fieldCondition('field_id_api', 'value', $ids, 'IN')
+        ->addMetaData('account', user_load(1)); // Run the query as user 1.
+
+      $result = $query->execute();
+      if (isset($result['node'])) {
+        module_load_include('inc', 'node', 'node.admin');
+        $nids = array_keys($result['node']);
+        node_mass_update($nids, array('status' => 0));
+      }
+    }
+  }
+}
+
+/**
+ * Implements hook_cron().
+ */
+function lememo_client_cron() {
+  $last_run = variable_get('lememo_import_cron_last_run', REQUEST_TIME);
+
+  $interval = REQUEST_TIME - $last_run;
+  _lememo_import_updated_fiche($interval, 'nightly.json', 'lememo_businesscard_nightly', TRUE);
+  _lememo_import_unpublish_fiche($interval);
+
+  variable_set('lememo_import_cron_last_run', REQUEST_TIME);
+
+}
