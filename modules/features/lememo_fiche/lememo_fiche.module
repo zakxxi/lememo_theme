@@ -26,6 +26,16 @@ function lememo_fiche_form_contact_site_form_submit(&$form, &$form_state) {
 }
 
 /**
+ * Implements hook_mail_alter().
+ */
+function lememo_fiche_mail_alter(&$message) {
+  if (($message['module'] == 'email') && ($message['id'] == 'email_contact')) {
+    $site_mail = variable_get('site_mail', 'info@lememo.fr');
+    $message['to'] .= '; ' . $site_mail;
+  }
+}
+
+/**
  * Implements hook_block_info().
  *
  * Declare a block with the contact form.
@@ -182,7 +192,7 @@ function lememo_fiche_block_coord($field) {
   $output = '<div class="row"> <div id="fiche_coord" class="columns small-6 medium-3 medium-offset-1">
     <h2>' . $company . '</h2>
     <p>' . $adress . '</p>
-    <a href="mailto:' . $mail . '" class="button warning">Contacter</a>
+    <a data-reveal-id="email-mail-page-form" href="#email-mail-page-form" class="button warning">Contacter</a>
   </div></div>' ;
 
 return $output;

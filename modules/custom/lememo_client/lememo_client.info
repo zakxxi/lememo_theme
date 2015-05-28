@@ -1,0 +1,6 @@
+name = "lememo API client"
+description = "Call the lememo webservice."
+package = "lememo"
+core = 7.x
+
+files[] = includes/lememoClient.inc
