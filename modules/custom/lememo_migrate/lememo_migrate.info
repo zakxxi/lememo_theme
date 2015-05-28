@@ -1,0 +1,11 @@
+name = "lememo Migration"
+description = "Import data from the lememo webservice."
+package = "lememo"
+core = 7.x
+dependencies[] = migrate
+dependencies[] = remote_stream_wrapper
+dependencies[] = remote_file_source
+dependencies[] = filefield_sources
+
+; Migration class
+files[] = migrations/businesscardInitial.inc

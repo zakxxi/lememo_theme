@@ -226,7 +226,9 @@ function lememo_fiche_ds_layout_settings_info() {
       'contact_form' => 'right',
       'lememo_fiche_legals' => 'right',
       'field_position' => 'bottom',
+      'lememo_fiche_legals' => 'right',
       'lememo_fiche_block_coord' => 'bottom',
+      'field_mail' => 'right',
     ),
     'classes' => array(),
     'wrappers' => array(
