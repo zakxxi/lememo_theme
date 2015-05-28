@@ -708,11 +708,7 @@ function lememo_fiche_field_default_field_instances() {
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-<<<<<<< HEAD
         'weight' => 0,
-=======
-        'weight' => 32,
->>>>>>> Feature update, re-captcha and class arround apropos.
       ),
       'teaser' => array(
         'label' => 'above',
