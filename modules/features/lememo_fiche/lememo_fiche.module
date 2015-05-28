@@ -222,6 +222,9 @@ function lememo_fiche_block_gallery($field) {
                    $output = $output . '</ul></div>'; // on ferme la liste si le nombre d'image est inférieur à 5
                 }
           }
+               else {
+                   $output = $output . '</ul></div>'; // on ferme la liste si le nombre d'image est égal à 2
+                }
 
         if ($pictures_nb > 5){
               // pour les suivantes
@@ -231,11 +234,10 @@ function lememo_fiche_block_gallery($field) {
               $img_original_url = file_create_url($img_uri);
               $output_nothumb = '<li class = "hide gallery_nothumb"><a href="' . $img_original_url . '"><img src="' . $img_thumb_url3 . '"></a></li>';
               $output = $output . $output_nothumb;
-
             }
             $output = $output . '</ul></div>'; // on ferme la liste
             // affichage du lien pour toute la galerie
-            $output = $output . '<a class = "openclearing" href="#"  data-thumb-index="0"> Voir toutes les photos</a>';
+            $output = $output . '<a class = "openclearing" href="#" data-thumb-index="0">Voir toutes les photos</a>';
         }
       } else {
       // dans le cas ou une seule image
@@ -258,7 +260,6 @@ return $output;
 /**
  * Custom comments buttons
  */
-
 function lememo_fiche_form_comment_form_alter(&$form, &$form_state) {
   // Only show the save button if comment previews are optional or if we are
   // already previewing the submission.
@@ -270,15 +271,6 @@ function lememo_fiche_form_comment_form_alter(&$form, &$form_state) {
     '#weight' => 20,
     '#attributes'=> array('class' => array('button small')),
   );
-  /*
-  $form['actions']['preview'] = array(
-    '#type' => 'submit', 
-    '#value' => t('Preview'), 
-    '#access' => (variable_get('comment_preview_' . $node->type, DRUPAL_OPTIONAL) != DRUPAL_DISABLED), 
-    '#weight' => 19, 
-    '#submit' => array('comment_form_build_preview'),
-    '#attributes'=> array('class' => array('button small secondary')),
-);*/
 }
 
 /**
