@@ -1,0 +1,31 @@
+<?php
+
+/**
+ * Implements hook_theme_registry_alter
+ * Alter the theme_image function.
+ */
+function lememo_migrate_theme_registry_alter(&$theme_registry) {
+  $theme_registry['image']['theme path'] = drupal_get_path('module', 'lememo_migrate');
+  $theme_registry['image']['function'] = 'lememo_migrate_image';
+}
+
+
+/**
+ * Specific version of theme_image that remove the width and height usage
+ *
+ * @param $variables
+ * @return string
+ */
+function lememo_migrate_image($variables) {
+  $attributes = $variables ['attributes'];
+  $attributes ['src'] = file_create_url($variables ['path']);
+
+  foreach (array('alt', 'title') as $key) {
+
+    if (isset($variables [$key])) {
+      $attributes [$key] = $variables [$key];
+    }
+  }
+
+  return '<img' . drupal_attributes($attributes) . ' />';
+}

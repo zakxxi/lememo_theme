@@ -30,6 +30,7 @@ function lememo_theme_preprocess_html(&$variables) {
 $options = array('scope' => 'footer'  );
 drupal_add_js(drupal_get_path('theme', 'lememo_theme') . '/js/foundation.min.js', $options);
 drupal_add_js(drupal_get_path('theme', 'lememo_theme') . '/js/foundation.clearing.js', $options);
+drupal_add_js(drupal_get_path('theme', 'lememo_theme') . '/js/foundation.reveal.js', $options);
 drupal_add_js(drupal_get_path('theme', 'lememo_theme') . '/js/jquery.sticky.js', $options);
 drupal_add_js(drupal_get_path('theme', 'lememo_theme') . '/scripts.js', $options);
 

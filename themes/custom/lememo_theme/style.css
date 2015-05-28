@@ -10,19 +10,22 @@ LEMEMO CSS / DEV VERSION
 }
 
 .societe-block-info {
-    margin-top: -100px;
+    margin-top: -55px;
 }
 
 .add-this-block {
-  margin-top: 150px;
-  margin-bottom: 50px;
+  margin-top: 100px;
+  margin-bottom: 70px;
 }
 
 .field-name-contact-form {
     margin-top: -100px;
     background-color: white;
     padding: 5px 20px;
-    box-shadow: 0 3px 15px #999;
+    box-shadow: 0 3px 15px  rgba(0, 0, 0, 0.5);
+    -moz-box-shadow: 0 3px 15px  rgba(0, 0, 0, 0.5);
+    -webkit-box-shadow: 0 3px 15px  rgba(0, 0, 0, 0.5);
+    z-index: 150;
 }
 .field-name-contact-form textarea,
 .field-name-contact-form input#edit-name,
@@ -37,7 +40,7 @@ LEMEMO CSS / DEV VERSION
 }
 
 .resume-block {
-   background-color: gray;
+   background-color: #797979;
 }
 
 .filter-wrapper {
@@ -49,8 +52,8 @@ LEMEMO CSS / DEV VERSION
 }
 
 #fiche_coord {
-  height: 300px;
-  margin-top: -300px;
+  height: 200px;
+  margin-top: -200px;
   background-color: white;
 }
 
@@ -58,34 +61,98 @@ LEMEMO CSS / DEV VERSION
 .field-name-title h1{
   text-transform: uppercase;
   font-size: 26px;
+  font-family: "foco",sans-serif;
+  font-style: normal;
+  font-weight: 700;
+  margin-bottom: 0;
+  line-height: 23px;
 }
 .field-name-field-city{
   text-transform: uppercase;
   font-size: 19px;
+  font-family: "aaux-next",sans-serif;
+  font-style: normal;
+  font-weight: 400;
 }
-
+.label-above{
+  margin-top: 50px;
+}
 h2 .label-above,
 #comments h2.title{
   text-transform: uppercase;
   color: #3a3a3a;
   font-size: 19px;
+  font-family: "foco",sans-serif;
+  font-style: normal;
+  font-weight: 700;
 }
 
 /*LOGO*/
+.logo-block{
+  margin-top: 18px;
+}
+
+.logo-block span{
+  color: #797979;
+  font-size: 27px;
+  font-family: "aaux-next",sans-serif;
+  font-style: normal;
+  font-weight: 700;
+  vertical-align: middle;
+  padding-left: 10px;
+}
+
 .field-name-field-logo{
-  box-shadow: 0 3px 15px #999;
+  box-shadow: 0 3px 15px  rgba(0, 0, 0, 0.5);
+  -moz-box-shadow: 0 3px 15px  rgba(0, 0, 0, 0.5);
+  -webkit-box-shadow: 0 3px 15px  rgba(0, 0, 0, 0.5);
+}
+
+/*RETOUR ANNUAIRE*/
+.button.expand.secondary{
+  font-family: "aaux-next",sans-serif;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 18px;
+  text-transform:uppercase;
+  background: #505050;
+  color: #fff;
+  margin: 17px 0 15px 0;
+  padding: 10px 0;
+  box-shadow: none;
+}
+.button.expand.secondary:hover{
+  background: #797979;
 }
 
 /*FIVESTAR*/
 .field-name-field-vote.field-type-fivestar{
   margin-top: 30px;
 }
-div.fivestar-widget div.on a {
+div.fivestar-widget-static div.on a {
   background-position: 0 -16px;
 }
-div.fivestar-widget .star, div.fivestar-widget .star a {
+
+div.fivestar-widget-static .star, div.fivestar-widget-static .star a {
   background: url(images/star.gif) no-repeat 0 0;
   text-decoration: none;
+}
+
+/*BOUTON COORDONNEES*/
+.button.small,
+.button.expand,
+.button.warning{
+  font-family: "aaux-next",sans-serif;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 18px;
+  text-transform:uppercase;
+  background: #ff8800;
+  color: #fff;
+  padding: 10px 15px;
+  box-shadow: 0 3px 15px  rgba(0, 0, 0, 0.5);
+-moz-box-shadow: 0 3px 15px  rgba(0, 0, 0, 0.5);
+-webkit-box-shadow: 0 3px 15px  rgba(0, 0, 0, 0.5);
 }
 
 /*DESCRIPTION*/
@@ -93,37 +160,201 @@ div.fivestar-widget .star, div.fivestar-widget .star a {
   color: #fff;
   height: 154px;
   padding: 20px 0;
+  font-family: "aaux-next",sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 18px;
 }
 
 /*GALERIE*/
 .field-name-lememo-fiche-block-gallery a{
-  text-align: right;
+  float: right;
   font-size: 12px;
   color: #c0c0c0;
   text-transform: uppercase;
 }
 
-/*BLOC INFO LEGALES*/
-.field-name-lememo-fiche-legals{
-  margin-top: 20px;
+/*DEMANDE DE DEVIS*/
+.button.small,
+.button.expand.form-submit{
+  box-shadow: none;
+  font-size: 14px;
+  padding: 10px;
 }
+
+.button.expand.form-submit:hover{
+  background: #797979;
+}
+
+/*BLOC INFO LEGALES*/
 .field-name-lememo-fiche-legals {
+  margin-top: 20px;
   background: #f0f0f0;
-  padding: 20px 25px;
+  padding:20px 25px 5px 25px;
 }
 .field-name-lememo-fiche-legals h2{
   text-transform: uppercase;
   font-size: 19px;
   color: #3a3a3a;
+  font-family: "foco",sans-serif;
+  font-style: normal;
+  font-weight: 700;
 }
 .field-name-lememo-fiche-legals h3{
   text-transform: uppercase;
   font-size: 13px;
   color: #5f5f5f;
   border-bottom: 1px solid #c0c0c0;
+  font-family: "aaux-next",sans-serif;
+  font-style: italic;
+  font-weight: 600;
 }
-.field-name-lememo-fiche-legals,
+
 .field-name-lememo-fiche-legals p{
   color: #979797;
   font-size: 15px;
+  font-family: "aaux-next",sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  padding-left: 10px;
+}
+
+/*COMMENTAIRES*/
+.comment{
+  background: #fff;
+  box-shadow: 0 3px 15px  rgba(0, 0, 0, 0.3);
+-moz-box-shadow: 0 3px 15px  rgba(0, 0, 0, 0.3);
+-webkit-box-shadow: 0 3px 15px  rgba(0, 0, 0, 0.3);
+  border: none;
+  margin-bottom: 20px;
+  padding: 15px;
+}
+.comment .username{
+  font-family: "aaux-next",sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size:16px;
+  color: #555555;
+  text-transform: uppercase;
+}
+.field-name-comment-body{
+  font-family: "aaux-next",sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size:16px;
+  color: #c0c0c0;
+}
+
+/*Pagination*/
+.item-list ul li {
+  margin: 0;
+}
+.item-list .pager{
+margin: 15px 0 10px 0;
+background:none;
+border:none;
+}
+.pager li.pager-item,
+.pager li.pager-previous,
+.pager li.pager-next {
+border:none;
+}
+.pager .pager-item a,
+.pager .pager-previous a,
+.pager .pager-next a,
+.pager .pager-last.last a,
+.pager .pager-first.first a{
+border-radius: 0 0 0 0;
+background:none;
+font-weight:normal;
+color:#888888;
+}
+.pager .pager-previous,
+.pager .pager-first{
+width:60px;
+border:none;
+}
+.pager .pager-previous{
+margin-right:10px;
+width:80px;
+}
+.pager li.pager-next {
+position: absolute;
+right: 60px;
+top: 0;
+}
+.pager .pager-item a{
+background: #f1f1f1;
+margin-right:5px;
+  padding: 4px 8px;
+}
+.pager .pager-item a:hover{
+background: #ccc;
+}
+.pager li.pager-current {
+background: none repeat scroll 0 0 #888888;
+border-radius: 0 0 0 0;
+margin-right:5px;
+  padding: 4px 8px;
+color: #fff;
+}
+
+
+/*COORDONNEES CARTE*/
+#fiche_coord h2{
+  font-family: "foco",sans-serif;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 20px;
+  color: #000;
+  text-transform: uppercase;
+}
+#fiche_coord p{
+  font-family: "aaux-next",sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size:14px;
+  color:#000; 
+}
+.fiche-bottom{
+  height: 300px;
+}
+
+/*FOOTER*/
+.footer{
+  background:#3f3f3f;
+  padding-top: 25px;
+}
+
+.footer_logo p{
+  color: #fff;
+  font-family: "aaux-next",sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 10px;
+  text-transform:uppercase;
+}
+.footer ul li{
+  list-style: none;
+}
+.footer_bottom{
+  background: #2e2e2e;
+}
+#block-menu-menu-menu-footer-3 ul{
+  text-align: center;
+}
+#block-menu-menu-menu-footer-3 ul li{
+  display: inline;
+}
+.footer ul li a,
+#block-menu-menu-menu-footer-3 ul li a{
+  color: #fff;
+  font-family: "aaux-next",sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+}
+.footer ul li a:hover,
+#block-menu-menu-menu-footer-3 ul li a:hover{
+  color:#ccc;
 }

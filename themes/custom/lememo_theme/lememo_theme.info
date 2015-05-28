@@ -1,6 +1,6 @@
 name = Le Memo
 description = Le memo api theme based on Foundation 5
-version = 7.x-1.0-beta1
+version = 7.x-1.0-beta2
 core = 7.x
 
 ; Add stylesheets
@@ -15,7 +15,6 @@ scripts[] = js/modernizr.js
 regions[page_top] = Page Top
 regions[help] = Help
 regions[content] = Content
-regions[footer_left] = Footer Left
 regions[footer_center] = Footer Center
 regions[footer_right] = Footer Right
 regions[footer_bottom] = Footer Bottom
