@@ -10,19 +10,22 @@ LEMEMO CSS / DEV VERSION
 }
 
 .societe-block-info {
-    margin-top: -100px;
+    margin-top: -55px;
 }
 
 .add-this-block {
-  margin-top: 150px;
-  margin-bottom: 50px;
+  margin-top: 100px;
+  margin-bottom: 70px;
 }
 
 .field-name-contact-form {
     margin-top: -100px;
     background-color: white;
     padding: 5px 20px;
-    box-shadow: 0 3px 15px #999;
+    box-shadow: 0 3px 15px  rgba(0, 0, 0, 0.5);
+    -moz-box-shadow: 0 3px 15px  rgba(0, 0, 0, 0.5);
+    -webkit-box-shadow: 0 3px 15px  rgba(0, 0, 0, 0.5);
+    z-index: 150;
 }
 .field-name-contact-form textarea,
 .field-name-contact-form input#edit-name,
@@ -37,7 +40,7 @@ LEMEMO CSS / DEV VERSION
 }
 
 .resume-block {
-   background-color: gray;
+   background-color: #797979;
 }
 
 .filter-wrapper {
@@ -58,10 +61,18 @@ LEMEMO CSS / DEV VERSION
 .field-name-title h1{
   text-transform: uppercase;
   font-size: 26px;
+  font-family: "foco",sans-serif;
+  font-style: normal;
+  font-weight: 700;
+  margin-bottom: 0;
+  line-height: 23px;
 }
 .field-name-field-city{
   text-transform: uppercase;
   font-size: 19px;
+  font-family: "aaux-next",sans-serif;
+  font-style: normal;
+  font-weight: 400;
 }
 
 h2 .label-above,
@@ -69,23 +80,76 @@ h2 .label-above,
   text-transform: uppercase;
   color: #3a3a3a;
   font-size: 19px;
+  font-family: "foco",sans-serif;
+  font-style: normal;
+  font-weight: 700;
 }
 
 /*LOGO*/
+.logo-block{
+  margin-top: 18px;
+}
+
+.logo-block span{
+  color: #797979;
+  font-size: 27px;
+  font-family: "aaux-next",sans-serif;
+  font-style: normal;
+  font-weight: 700;
+  vertical-align: middle;
+  padding-left: 10px;
+}
+
 .field-name-field-logo{
-  box-shadow: 0 3px 15px #999;
+  box-shadow: 0 3px 15px  rgba(0, 0, 0, 0.5);
+  -moz-box-shadow: 0 3px 15px  rgba(0, 0, 0, 0.5);
+  -webkit-box-shadow: 0 3px 15px  rgba(0, 0, 0, 0.5);
+}
+
+/*RETOUR ANNUAIRE*/
+.button.expand.secondary{
+  font-family: "aaux-next",sans-serif;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 18px;
+  text-transform:uppercase;
+  background: #505050;
+  color: #fff;
+  margin: 17px 0 15px 0;
+  padding: 10px 0;
+  box-shadow: none;
+}
+.button.expand.secondary:hover{
+  background: #797979;
 }
 
 /*FIVESTAR*/
 .field-name-field-vote.field-type-fivestar{
   margin-top: 30px;
 }
-div.fivestar-widget div.on a {
+div.fivestar-widget-static div.on a {
   background-position: 0 -16px;
 }
-div.fivestar-widget .star, div.fivestar-widget .star a {
+
+div.fivestar-widget-static .star, div.fivestar-widget-static .star a {
   background: url(images/star.gif) no-repeat 0 0;
   text-decoration: none;
+}
+
+/*BOUTON COORDONNEES*/
+.button.expand,
+.button.warning{
+  font-family: "aaux-next",sans-serif;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 18px;
+  text-transform:uppercase;
+  background: #ff8800;
+  color: #fff;
+  padding: 10px 15px;
+  box-shadow: 0 3px 15px  rgba(0, 0, 0, 0.5);
+-moz-box-shadow: 0 3px 15px  rgba(0, 0, 0, 0.5);
+-webkit-box-shadow: 0 3px 15px  rgba(0, 0, 0, 0.5);
 }
 
 /*DESCRIPTION*/
@@ -93,6 +157,10 @@ div.fivestar-widget .star, div.fivestar-widget .star a {
   color: #fff;
   height: 154px;
   padding: 20px 0;
+  font-family: "aaux-next",sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 18px;
 }
 
 /*GALERIE*/
@@ -101,6 +169,17 @@ div.fivestar-widget .star, div.fivestar-widget .star a {
   font-size: 12px;
   color: #c0c0c0;
   text-transform: uppercase;
+}
+
+/*DEMANDE DE DEVIS*/
+.button.expand.form-submit{
+  box-shadow: none;
+  font-size: 14px;
+  padding: 10px;
+}
+
+.button.expand.form-submit:hover{
+  background: #797979;
 }
 
 /*BLOC INFO LEGALES*/
@@ -115,15 +194,25 @@ div.fivestar-widget .star, div.fivestar-widget .star a {
   text-transform: uppercase;
   font-size: 19px;
   color: #3a3a3a;
+  font-family: "foco",sans-serif;
+  font-style: normal;
+  font-weight: 700;
 }
 .field-name-lememo-fiche-legals h3{
   text-transform: uppercase;
   font-size: 13px;
   color: #5f5f5f;
   border-bottom: 1px solid #c0c0c0;
+  font-family: "aaux-next",sans-serif;
+  font-style: italic;
+  font-weight: 600;
 }
 .field-name-lememo-fiche-legals,
 .field-name-lememo-fiche-legals p{
   color: #979797;
   font-size: 15px;
+  font-family: "aaux-next",sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  padding-left: 10px;
 }
