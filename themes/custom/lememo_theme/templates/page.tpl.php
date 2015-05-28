@@ -15,14 +15,8 @@
             </div>
         </div>
 
-<?php if ($node->type != 'fiche'): ?>
-<div class = "row">
     <?php print render($page['content']); ?>
-</div>
 
-<?php else: ?>
-    <?php print render($page['content']); ?>
-<?php endif; ?>
 <!-- PAGE FOOTER-->
 <div class="footer">
             <div class="row">
