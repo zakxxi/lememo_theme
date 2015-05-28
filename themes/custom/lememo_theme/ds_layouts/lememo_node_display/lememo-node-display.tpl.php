@@ -55,7 +55,7 @@
 
     </div>
 
-    <<?php print $bottom_wrapper; ?> class="<?php print $bottom_classes; ?>">
+    <<?php print $bottom_wrapper; ?> class="fiche-bottom<?php print $bottom_classes; ?>">
       <?php print $bottom; ?>
     </<?php print $bottom_wrapper; ?>>
 
