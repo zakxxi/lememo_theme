@@ -76,7 +76,7 @@ function lememo_fiche_ds_field_settings_info() {
       'format' => 'default',
     ),
     'lememo_fiche_block_coord' => array(
-      'weight' => '14',
+      'weight' => '15',
       'label' => 'hidden',
       'format' => 'default',
     ),
@@ -92,18 +92,14 @@ function lememo_fiche_ds_field_settings_info() {
           'lb-col' => TRUE,
           'lbw' => 1,
           'lbw-el' => 'h2',
-          'fi' => TRUE,
-          'fi-el' => 'p',
-          'fi-cl' => 'txt-apropos',
-          'fi-at' => '',
-          'fi-def-at' => FALSE,
-          'fi-odd-even' => FALSE,
         ),
       ),
     ),
-    'field_vote' => array(
+    'field_mail' => array(
       'formatter_settings' => array(
-        'ft' => array(),
+        'ft' => array(
+          'func' => 'theme_field',
+        ),
       ),
     ),
   );
@@ -209,11 +205,11 @@ function lememo_fiche_ds_layout_settings_info() {
       ),
       'right' => array(
         11 => 'contact_form',
-        12 => 'lememo_fiche_legals',
+        13 => 'lememo_fiche_legals',
         15 => 'field_mail',
       ),
       'bottom' => array(
-        13 => 'field_position',
+        12 => 'field_position',
         14 => 'lememo_fiche_block_coord',
       ),
     ),
@@ -230,8 +226,8 @@ function lememo_fiche_ds_layout_settings_info() {
       'field_description_long' => 'left',
       'comments' => 'left',
       'contact_form' => 'right',
-      'lememo_fiche_legals' => 'right',
       'field_position' => 'bottom',
+      'lememo_fiche_legals' => 'right',
       'lememo_fiche_block_coord' => 'bottom',
       'field_mail' => 'right',
     ),

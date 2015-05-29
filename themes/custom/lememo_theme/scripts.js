@@ -10,6 +10,11 @@
 		    $('[data-clearing] li img').eq($(this).data('thumb-index')).trigger('click');
 		});
 
+    // Re-open the contact form if error
+    if('#email-mail-popin > .error') {
+        $('#email-mail-popin').foundation('reveal', 'open');
+    }
+
 
     // Détecte la taille d'écran
     if (window.matchMedia("(min-width: 641px)").matches) {

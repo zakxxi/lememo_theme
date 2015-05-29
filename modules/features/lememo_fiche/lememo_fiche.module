@@ -192,8 +192,8 @@ function lememo_fiche_block_coord($field) {
   $output = '<div class="row"> <div id="fiche_coord" class="columns small-6 medium-3 medium-offset-1">
     <h2>' . $company . '</h2>
     <p>' . $adress . '</p>
-    <a data-reveal-id="email-mail-page-form" href="#email-mail-page-form" class="button warning">Contacter</a>
-  </div></div>' ;
+    <a data-reveal-id="email-mail-popin" href="#email-mail-page-form" class="button warning">Contacter</a></div></div>' ;
+
 
 return $output;
 }

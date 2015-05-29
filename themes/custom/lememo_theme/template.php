@@ -20,13 +20,25 @@ function lememo_theme_preprocess_comment(&$variables) {
 }
 
 /**
- * Add foundation JS
+ * Custom the mail contact form to open in popup
  */
-function lememo_theme_preprocess_html(&$variables) {
+function lememo_theme_preprocess_field(&$variables) {
+	dpm($variables);
+if (($variables['element']['#theme'] == "field") && ($variables['element']['#field_name'] == "field_mail")) {
+// Add some attributes
+ $variables['attributes_array']['id'] = 'email-mail-popin';
+ $variables['attributes_array']['data-reveal']='';
+ $variables['attributes_array']['aria-hidden']='true';
+ $variables['attributes_array']['role']='dialog';
 
-
+ // Add some classes
+ $variables['classes_array'][] = 'reveal-modal tiny';
+ }
 }
 
+/**
+ * Add foundation JS
+ */
 $options = array('scope' => 'footer'  );
 drupal_add_js(drupal_get_path('theme', 'lememo_theme') . '/js/foundation.min.js', $options);
 drupal_add_js(drupal_get_path('theme', 'lememo_theme') . '/js/foundation.clearing.js', $options);
