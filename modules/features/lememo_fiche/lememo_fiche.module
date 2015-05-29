@@ -189,9 +189,13 @@ function lememo_fiche_block_coord($field) {
   $mail = $field['entity']->field_mail['und'][0]['value'];
   $company = $field['entity']->title;
   $adress = lememo_fiche_make_adress($field);
+  $tel1 = $field['entity']->field_phone_1['und'][0]['value'];
+  $tel2 = $field['entity']->field_phone_1['und'][0]['value'];
   $output = '<div class="row"> <div id="fiche_coord" class="columns small-6 medium-3 medium-offset-1">
     <h2>' . $company . '</h2>
     <p>' . $adress . '</p>
+    <p>Tél : ' . $tel1 . '<br/>
+    Tél : ' . $tel2 . '</p>
     <a data-reveal-id="email-mail-popin" href="#email-mail-page-form" class="button warning">Contacter</a></div></div>' ;
 
 
@@ -284,7 +288,7 @@ function lememo_fiche_form_comment_form_alter(&$form, &$form_state) {
 }
 
 /**
- * Custom contact form buttons
+ * Custom contact form buttons /// WIP ///
  */
 function lememo_fiche_mail_form_alter(&$form, &$form_state) {
 
