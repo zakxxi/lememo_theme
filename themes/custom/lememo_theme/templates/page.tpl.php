@@ -1,5 +1,5 @@
 <!-- PAGE HEADER-->
-  <div class="row">
+  <div class="row" id="top">
             <div class="columns medium-9 logo-block">
 				<!-- LOADING LOGO-->
 				<?php if ($logo): ?>

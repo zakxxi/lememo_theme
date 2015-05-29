@@ -104,7 +104,6 @@ function lememo_fiche_ds_fields_info($entity_type) {
     'function' => 'lememo_fiche_comment_counter',
   );
 
-
     $fields['node']['lememo_fiche_add_this'] = array(
     'title' => t('Bloc Add this'),
     'field_type' => DS_FIELD_TYPE_FUNCTION,
@@ -127,6 +126,12 @@ function lememo_fiche_ds_fields_info($entity_type) {
     'title' => t('Bloc galerie'),
     'field_type' => DS_FIELD_TYPE_FUNCTION,
     'function' => 'lememo_fiche_block_gallery',
+  );
+
+    $fields['node']['lememo_fiche_backtop_btn'] = array(
+    'title' => t('Bouton retour haut'),
+    'field_type' => DS_FIELD_TYPE_FUNCTION,
+    'function' => 'lememo_fiche_backtop_btn',
   );
 
   if (isset($fields[$entity_type])) {
@@ -295,6 +300,18 @@ function lememo_fiche_block_gallery($field) {
 
 return $output;
 }
+
+/**
+ * Render the field backtop_btn
+ */
+function lememo_fiche_backtop_btn($field) {
+  $output = '<div class="row"> <a href="#top" class="button big secondary right scrollto">^</a></div>';
+//    $output = '<a href="#fiche_coord" class="button warning scrollto">Coordonnées</a>';
+
+
+return $output;
+}
+
 
 /**
  * Custom comments buttons
