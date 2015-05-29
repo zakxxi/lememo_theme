@@ -98,6 +98,13 @@ function lememo_fiche_ds_fields_info($entity_type) {
     'function' => 'lememo_fiche_btn_coord',
   );
 
+    $fields['node']['lememo_fiche_comment_counter'] = array(
+    'title' => t('Nombre de commentaires'),
+    'field_type' => DS_FIELD_TYPE_FUNCTION,
+    'function' => 'lememo_fiche_comment_counter',
+  );
+
+
     $fields['node']['lememo_fiche_add_this'] = array(
     'title' => t('Bloc Add this'),
     'field_type' => DS_FIELD_TYPE_FUNCTION,
@@ -150,6 +157,24 @@ function lememo_fiche_btn_coord($field) {
 
 return $output;
 }
+
+/**
+ * Render the field comment_counter
+ */
+function lememo_fiche_comment_counter($field) {
+  $nb_comments = $field['entity']->comment_count;
+  $output = NULL;
+  
+  if($nb_comments > 0){
+    $commentaire = " commentaire";
+      if ($nb_comments > 1) {
+      $commentaire = " commentaires";
+  }
+  $output = '<a href="#comments" class="comment_counter scrollto">' . $nb_comments . $commentaire . '</a>';
+}
+return $output;
+}
+
 
 /**
  * Render the field add_this.
