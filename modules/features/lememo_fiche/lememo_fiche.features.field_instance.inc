@@ -1098,7 +1098,7 @@ function lememo_fiche_field_default_field_instances() {
         'label' => 'hidden',
         'module' => 'fivestar',
         'settings' => array(
-          'expose' => 0,
+          'expose' => 1,
           'style' => 'average',
           'text' => 'none',
           'widget' => array(
@@ -1122,8 +1122,8 @@ function lememo_fiche_field_default_field_instances() {
     'required' => 0,
     'settings' => array(
       'allow_clear' => 1,
-      'allow_ownvote' => 0,
-      'allow_revote' => 0,
+      'allow_ownvote' => 1,
+      'allow_revote' => 1,
       'stars' => 5,
       'target' => 'none',
       'user_register_form' => FALSE,

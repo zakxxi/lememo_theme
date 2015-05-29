@@ -101,6 +101,11 @@ function lememo_fiche_ds_field_settings_info() {
         ),
       ),
     ),
+    'field_vote' => array(
+      'formatter_settings' => array(
+        'ft' => array(),
+      ),
+    ),
   );
   $export['node|fiche|full'] = $ds_fieldsetting;
 
@@ -205,6 +210,7 @@ function lememo_fiche_ds_layout_settings_info() {
       'right' => array(
         11 => 'contact_form',
         12 => 'lememo_fiche_legals',
+        15 => 'field_mail',
       ),
       'bottom' => array(
         13 => 'field_position',
@@ -226,7 +232,6 @@ function lememo_fiche_ds_layout_settings_info() {
       'contact_form' => 'right',
       'lememo_fiche_legals' => 'right',
       'field_position' => 'bottom',
-      'lememo_fiche_legals' => 'right',
       'lememo_fiche_block_coord' => 'bottom',
       'field_mail' => 'right',
     ),

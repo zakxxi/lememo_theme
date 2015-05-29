@@ -129,13 +129,19 @@ h2 .label-above,
 .field-name-field-vote.field-type-fivestar{
   margin-top: 30px;
 }
-div.fivestar-widget-static div.on a {
-  background-position: 0 -16px;
+div.fivestar-widget .star span.on,
+div.fivestar-widget-static .star span.on{
+  background:url(images/star.gif) no-repeat 0 -32px;
 }
-
-div.fivestar-widget-static .star, div.fivestar-widget-static .star a {
+div.fivestar-widget .star span.off,
+div.fivestar-widget-static .star span.off{
+background:url(images/star.gif) no-repeat 0 0;
+}
+div.fivestar-widget .star a,
+div.fivestar-widget .star,
+div.fivestar-widget-static .star a,
+div.fivestar-widget-static .star {
   background: url(images/star.gif) no-repeat 0 0;
-  text-decoration: none;
 }
 
 /*BOUTON COORDONNEES*/
@@ -167,11 +173,17 @@ div.fivestar-widget-static .star, div.fivestar-widget-static .star a {
 }
 
 /*GALERIE*/
+.field-name-lememo-fiche-block-gallery{
+  margin-top: 18px;
+}
 .field-name-lememo-fiche-block-gallery a{
   float: right;
   font-size: 12px;
   color: #c0c0c0;
   text-transform: uppercase;
+}
+.gallery_thumb1{
+  margin-bottom: 10px;
 }
 
 /*DEMANDE DE DEVIS*/
@@ -218,6 +230,14 @@ div.fivestar-widget-static .star, div.fivestar-widget-static .star a {
   font-weight: 400;
   padding-left: 10px;
 }
+/*A PROPOS*/
+.txt-apropos{
+  font-family: "aaux-next",sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  color: #797979;
+}
 
 /*COMMENTAIRES*/
 .comment{
@@ -246,6 +266,9 @@ div.fivestar-widget-static .star, div.fivestar-widget-static .star a {
 }
 
 /*Pagination*/
+.item-list .pager li{
+  padding:0;
+}
 .item-list ul li {
   margin: 0;
 }
@@ -277,11 +300,6 @@ border:none;
 .pager .pager-previous{
 margin-right:10px;
 width:80px;
-}
-.pager li.pager-next {
-position: absolute;
-right: 60px;
-top: 0;
 }
 .pager .pager-item a{
 background: #f1f1f1;

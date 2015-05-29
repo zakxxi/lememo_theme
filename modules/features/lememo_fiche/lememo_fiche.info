@@ -23,7 +23,6 @@ dependencies[] = jquery_update
 dependencies[] = link
 dependencies[] = menu
 dependencies[] = migrate_ui
-dependencies[] = node
 dependencies[] = number
 dependencies[] = path
 dependencies[] = recaptcha
