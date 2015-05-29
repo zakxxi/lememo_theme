@@ -11,7 +11,7 @@
 		});
 
     // Re-open the contact form if error
-    if('#email-mail-popin > .error') {
+    if($( "#email-mail-popin" ).find("input").hasClass( "error" )) {
         $('#email-mail-popin').foundation('reveal', 'open');
     }
 
