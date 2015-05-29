@@ -1,0 +1,217 @@
+diff --git a/email.module b/email.module
+index a33d85c..dbc11a5 100644
+--- a/email.module
++++ b/email.module
+@@ -77,9 +77,16 @@ function email_field_formatter_info() {
+       'field types' => array('email'),
+     ),
+     'email_contact' => array(
++      'label' => t('Email contact form link'),
++      'description' => t('Display a link to a contact form.'),
++      'field types' => array('email'),
++    ),
++    'email_contact_form' => array(
+       'label' => t('Email contact form'),
+       'description' => t('Display a contact form.'),
+       'field types' => array('email'),
++      'settings' => array('redirection_to' => 'front', 'custom_path' => ''),
++
+     ),
+     'email_plain' => array(
+       'label' => t('Email plain text'),
+@@ -99,10 +106,95 @@ function email_field_formatter_info() {
+ }
+ 
+ /**
++ * Implements hook_field_formatter_settings_form();
++ */
++function email_field_formatter_settings_form($field, $instance, $view_mode, $form, &$form_state) {
++  $display = $instance['display'][$view_mode];
++  $settings = $display['settings'];
++
++  if ($display['type'] == 'email_contact_form') {email_contact_form
++    $form['redirection_to'] = array(
++      '#title' => t('Redirection destination after the contact form submit'),
++      '#type' => 'radios',
++      '#options' => array(
++        'front' => t('To the frontpage'),
++        'current' => t('To the current page'),
++        'custom' => t('To a custom path'),
++      ),
++      '#default_value' => $settings['redirection_to'],
++      '#required' => TRUE,
++    );
++
++    $form['custom_path'] = array(
++      '#title' => t('Redirection path'),
++      '#type' => 'textfield',
++      '#states' => array(
++        'visible' => array(
++          ':input[name="fields[' . $field['field_name'] . '][settings_edit_form][settings][redirection_to]"]' => array('value' => 'custom'),
++        ),
++      ),
++      '#default_value' => $settings['custom_path'],
++      '#element_validate' => array('_email_field_formatter_settings_form_validate')
++    );
++  }
++  return $form;
++}
++
++/**
++ * Helper function: validates the custom path.
++ */
++function _email_field_formatter_settings_form_validate($element, &$element_state) {
++  $element_name = $element_state['triggering_element']['#field_name'];
++  $settings = $element_state['input']['fields'][$element_name]['settings_edit_form']['settings'];
++
++  if ('custom' == $settings['redirection_to']) {
++    if (empty($element['#value'])) {
++      //form_set_error($element['#name'], t('The custom path must given!'));
++      form_set_error('fields][' . $element_name . '][settings_edit_form][settings', t('The custom path must given!'));
++    }
++    if (!valid_url($element['#value'])) {
++      form_set_error('fields][' . $element_name . '][settings_edit_form][settings', t('The given url is not valid!'));
++    }
++  }
++}
++
++/**
++ * Implements hook_field_formatter_settings_summary()
++ */
++function email_field_formatter_settings_summary($field, $instance, $view_mode) {
++  $display = $instance['display'][$view_mode];
++  $settings = $display['settings'];
++
++  $summary = '';
++
++  if ($display['type'] == 'email_contact_form') {
++    $summary = t('Displays a contact form for this email.');
++    $redir = t('Redirection is not set');
++    if (!empty($settings['redirection_to'])) {
++      switch ($settings['redirection_to']) {
++        case 'front':
++          $redir = t('Redirection destination is the site front page after submit.');
++          break;
++        case 'current':
++          $redir = ('Redirection destination is the current page after submit.');
++          break;
++        case 'custom':
++          $redir = t('Redirection destination is a custom url (@url) after submit.', array('@url' => $settings['custom_path']));
++          break;
++      }
++    }
++    $summary .= '<br>' . $redir;
++  }
++
++  return $summary;
++}
++
++/**
+  * Implements hook_field_formatter_view().
+  */
+ function email_field_formatter_view($object_type, $object, $field, $instance, $langcode, $items, $display) {
+   $element = array();
++  $settings = $display['settings'];
+   switch ($display['type']) {
+     case 'email_default':
+       foreach ($items as $delta => $item) {
+@@ -120,6 +212,22 @@ function email_field_formatter_view($object_type, $object, $field, $instance, $l
+       }
+       break;
+ 
++    case 'email_contact_form':
++      $ids = entity_extract_ids($object_type, $object);
++
++      foreach ($items as $delta => $item) {
++        //verify that the email address is not empty
++        if (!empty($item['email'])) {
++          if (!flood_is_allowed('email', variable_get('email_hourly_threshold', 3))) {
++            $element[$delta]['#markup'] = t("You cannot send more than %number messages per hour. Please try again later.", array('%number' => variable_get('email_hourly_threshold', 3)));
++          }
++          else {
++            $element[$delta] = drupal_get_form('email_mail_page_form', $object_type, $ids[0], $instance['field_name'], $item['email'], $settings);
++          }
++        }
++      }
++      break;
++
+     case 'email_plain':
+       foreach ($items as $delta => $item) {
+         $element[$delta] = array('#markup' => check_plain($item['email']));
+@@ -275,7 +383,7 @@ function email_mail_page_access($entity_type, $entity, $field_info) {
+ /**
+  * The contact form page.
+  */
+-function email_mail_page($object_type, $object_id, $field_name) {
++function email_mail_page($object_type, $object_id, $field_name, $widget_settings = array()) {
+   if (!is_numeric($object_id)) {
+     return MENU_NOT_FOUND;
+   }
+@@ -320,7 +428,7 @@ function email_mail_page($object_type, $object_id, $field_name) {
+   $settings = field_info_instance($object_type, $field_name, $entity_info[2]);
+   $found = FALSE;
+   foreach ($settings['display'] as $display_name => $display_data) {
+-    if (isset($display_data['type']) && ($display_data['type'] === 'email_contact')) {
++    if (isset($display_data['type']) && ($display_data['type'] === 'email_contact' || $display_data['type'] === 'email_contact_form')) {
+       $found = TRUE;
+       break;
+     }
+@@ -333,13 +441,13 @@ function email_mail_page($object_type, $object_id, $field_name) {
+     return t("You cannot send more than %number messages per hour. Please try again later.", array('%number' => variable_get('email_hourly_threshold', 3)));
+   }
+ 
+-  return drupal_get_form('email_mail_page_form', $object_type, $object_id, $field_name, $email);
++  return drupal_get_form('email_mail_page_form', $object_type, $object_id, $field_name, $email, $widget_settings);
+ }
+ 
+ /**
+  * Contact form
+  */
+-function email_mail_page_form($form, $form_state, $object_type, $object_id, $field_name, $email) {
++function email_mail_page_form($form, $form_state, $object_type, $object_id, $field_name, $email, $widget_settings = array()) {
+   global $user;
+ 
+   $form['object_id'] = array(
+@@ -389,6 +497,11 @@ function email_mail_page_form($form, $form_state, $object_type, $object_id, $fie
+     '#validate' => array('email_mail_page_form_validate'),
+     '#submit' => array('email_mail_page_form_submit'),
+   );
++
++  if (!isset($form_state['widget_settings'])) {
++    $form_state['widget_settings'] = $widget_settings;
++  }
++
+   return $form;
+ }
+ 
+@@ -434,7 +547,6 @@ function email_mail_page_form_submit($form, &$form_state) {
+     $path = $object_info['path callback']($object);
+   }
+   $params['url'] = url($path, array('absolute' => TRUE));
+-
+   // Send the e-mail to the recipients:
+   drupal_mail('email', 'contact', $email, language_default(), $params, $from);
+ 
+@@ -443,7 +555,21 @@ function email_mail_page_form_submit($form, &$form_state) {
+   watchdog('mail', '%name-from sent an e-mail at %form.', array('%name-from' => $form_state['values']['name'], '%form' => url($_GET['q'], array('absolute' => TRUE))));
+ 
+   drupal_set_message(t('Your message has been sent.'));
+-  $form_state['redirect'] = $path;
++
++  $form_state['redirect'] = '<front>';
++  if (!empty($form_state['widget_settings']['redirection_to'])) {
++    switch ($form_state['widget_settings']['redirection_to']) {
++      case 'current':
++        $form_state['redirect'] = current_path();
++        break;
++      case 'custom':
++        $form_state['redirect'] = $form_state['widget_settings']['custom_path'];
++        break;
++      default:
++        $form_state['redirect'] = $path;
++        break;
++    }
++  }
+ }
+ 
+ /**
