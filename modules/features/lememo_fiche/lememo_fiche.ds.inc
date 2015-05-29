@@ -32,8 +32,20 @@ function lememo_fiche_ds_field_settings_info() {
   $ds_fieldsetting->bundle = 'fiche';
   $ds_fieldsetting->view_mode = 'full';
   $ds_fieldsetting->settings = array(
+    'vote_bis' => array(
+      'weight' => '12',
+      'label' => 'hidden',
+      'format' => 'default',
+      'formatter_settings' => array(
+        'show_title' => 1,
+        'title_wrapper' => 'h2',
+        'ctools' => 'a:3:{s:4:"conf";a:10:{s:5:"label";s:6:"hidden";s:9:"formatter";s:26:"fivestar_formatter_default";s:11:"delta_limit";i:0;s:12:"delta_offset";s:1:"0";s:14:"delta_reversed";b:0;s:18:"formatter_settings";a:4:{s:6:"widget";a:1:{s:15:"fivestar_widget";s:7:"default";}s:5:"style";s:7:"average";s:4:"text";s:7:"average";s:6:"expose";i:1;}s:7:"context";s:25:"argument_entity_id:node_1";s:14:"override_title";i:1;s:19:"override_title_text";s:18:"Attribuer une note";s:22:"override_title_heading";s:2:"h2";}s:4:"type";s:12:"entity_field";s:7:"subtype";s:15:"node:field_vote";}',
+        'load_terms' => 0,
+        'ft' => array(),
+      ),
+    ),
     'contact_form' => array(
-      'weight' => '11',
+      'weight' => '13',
       'label' => 'hidden',
       'format' => 'default',
       'formatter_settings' => array(
@@ -51,7 +63,7 @@ function lememo_fiche_ds_field_settings_info() {
       ),
     ),
     'comments' => array(
-      'weight' => '10',
+      'weight' => '11',
       'label' => 'hidden',
       'format' => 'default',
     ),
@@ -66,22 +78,22 @@ function lememo_fiche_ds_field_settings_info() {
       'format' => 'default',
     ),
     'lememo_fiche_add_this' => array(
-      'weight' => '6',
+      'weight' => '7',
       'label' => 'hidden',
       'format' => 'default',
     ),
     'lememo_fiche_legals' => array(
-      'weight' => '12',
+      'weight' => '14',
       'label' => 'hidden',
       'format' => 'default',
     ),
     'lememo_fiche_block_coord' => array(
-      'weight' => '15',
+      'weight' => '17',
       'label' => 'hidden',
       'format' => 'default',
     ),
     'lememo_fiche_block_gallery' => array(
-      'weight' => '8',
+      'weight' => '9',
       'label' => 'hidden',
       'format' => 'default',
     ),
@@ -128,6 +140,32 @@ function lememo_fiche_ds_custom_fields_info() {
     'block_render' => '3',
   );
   $export['contact_form'] = $ds_field;
+
+  $ds_field = new stdClass();
+  $ds_field->api_version = 1;
+  $ds_field->field = 'vote_bis';
+  $ds_field->label = 'vote-bis';
+  $ds_field->field_type = 7;
+  $ds_field->entities = array(
+    'node' => 'node',
+  );
+  $ds_field->ui_limit = '';
+  $ds_field->properties = array(
+    'default' => array(),
+    'settings' => array(
+      'show_title' => array(
+        'type' => 'checkbox',
+      ),
+      'title_wrapper' => array(
+        'type' => 'textfield',
+        'description' => 'Eg: h1, h2, p',
+      ),
+      'ctools' => array(
+        'type' => 'ctools',
+      ),
+    ),
+  );
+  $export['vote_bis'] = $ds_field;
 
   return $export;
 }
@@ -191,26 +229,28 @@ function lememo_fiche_ds_layout_settings_info() {
         3 => 'field_vote',
         4 => 'title',
         5 => 'field_city',
+        6 => 'field_phone_1',
       ),
       'header_addthis' => array(
-        6 => 'lememo_fiche_add_this',
+        7 => 'lememo_fiche_add_this',
       ),
       'header_resume' => array(
-        7 => 'field_description_short',
+        8 => 'field_description_short',
       ),
       'left' => array(
-        8 => 'lememo_fiche_block_gallery',
-        9 => 'field_description_long',
-        10 => 'comments',
+        9 => 'lememo_fiche_block_gallery',
+        10 => 'field_description_long',
+        11 => 'comments',
+        12 => 'vote_bis',
       ),
       'right' => array(
-        11 => 'contact_form',
-        13 => 'lememo_fiche_legals',
+        13 => 'contact_form',
+        14 => 'lememo_fiche_legals',
         15 => 'field_mail',
       ),
       'bottom' => array(
-        12 => 'field_position',
-        14 => 'lememo_fiche_block_coord',
+        16 => 'field_position',
+        17 => 'lememo_fiche_block_coord',
       ),
     ),
     'fields' => array(
@@ -220,16 +260,18 @@ function lememo_fiche_ds_layout_settings_info() {
       'field_vote' => 'header_society_right',
       'title' => 'header_society_right',
       'field_city' => 'header_society_right',
+      'field_phone_1' => 'header_society_right',
       'lememo_fiche_add_this' => 'header_addthis',
       'field_description_short' => 'header_resume',
       'lememo_fiche_block_gallery' => 'left',
       'field_description_long' => 'left',
       'comments' => 'left',
+      'vote_bis' => 'left',
       'contact_form' => 'right',
-      'field_position' => 'bottom',
       'lememo_fiche_legals' => 'right',
-      'lememo_fiche_block_coord' => 'bottom',
       'field_mail' => 'right',
+      'field_position' => 'bottom',
+      'lememo_fiche_block_coord' => 'bottom',
     ),
     'classes' => array(),
     'wrappers' => array(

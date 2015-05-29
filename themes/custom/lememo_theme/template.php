@@ -23,7 +23,7 @@ function lememo_theme_preprocess_comment(&$variables) {
  * Custom the mail contact form to open in popup
  */
 function lememo_theme_preprocess_field(&$variables) {
-	dpm($variables);
+	//dpm($variables);
 if (($variables['element']['#theme'] == "field") && ($variables['element']['#field_name'] == "field_mail")) {
 // Add some attributes
  $variables['attributes_array']['id'] = 'email-mail-popin';

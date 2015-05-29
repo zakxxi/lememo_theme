@@ -284,6 +284,19 @@ function lememo_fiche_form_comment_form_alter(&$form, &$form_state) {
 }
 
 /**
+ * Custom contact form buttons
+ */
+function lememo_fiche_mail_form_alter(&$form, &$form_state) {
+
+  $form['actions'] = array('#type' => 'actions');
+  $form['actions']['submit'] = array(
+    '#value' => t('Save'), 
+    '#attributes'=> array('class' => array('button small')),
+  );
+}
+
+
+/**
  * Function to concratenate adress
  */
 function lememo_fiche_make_adress($field) {
