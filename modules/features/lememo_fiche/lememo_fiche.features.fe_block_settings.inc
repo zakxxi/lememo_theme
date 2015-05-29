@@ -21,17 +21,11 @@ function lememo_fiche_default_fe_block_settings() {
     'pages' => '',
     'roles' => array(),
     'themes' => array(
-      'bartik' => array(
-        'region' => '',
-        'status' => 0,
-        'theme' => 'bartik',
-        'weight' => 0,
-      ),
       'lememo_theme' => array(
-        'region' => '',
-        'status' => 0,
+        'region' => 'footer_center',
+        'status' => 1,
         'theme' => 'lememo_theme',
-        'weight' => 0,
+        'weight' => -12,
       ),
       'seven' => array(
         'region' => '',
@@ -40,7 +34,7 @@ function lememo_fiche_default_fe_block_settings() {
         'weight' => 0,
       ),
     ),
-    'title' => '',
+    'title' => '<none>',
     'visibility' => 0,
   );
 
@@ -53,17 +47,11 @@ function lememo_fiche_default_fe_block_settings() {
     'pages' => '',
     'roles' => array(),
     'themes' => array(
-      'bartik' => array(
-        'region' => '',
-        'status' => 0,
-        'theme' => 'bartik',
-        'weight' => 0,
-      ),
       'lememo_theme' => array(
-        'region' => '',
-        'status' => 0,
+        'region' => 'footer_right',
+        'status' => 1,
         'theme' => 'lememo_theme',
-        'weight' => 0,
+        'weight' => -12,
       ),
       'seven' => array(
         'region' => '',
@@ -72,7 +60,7 @@ function lememo_fiche_default_fe_block_settings() {
         'weight' => 0,
       ),
     ),
-    'title' => '',
+    'title' => '<none>',
     'visibility' => 0,
   );
 
@@ -85,17 +73,11 @@ function lememo_fiche_default_fe_block_settings() {
     'pages' => '',
     'roles' => array(),
     'themes' => array(
-      'bartik' => array(
-        'region' => '',
-        'status' => 0,
-        'theme' => 'bartik',
-        'weight' => 0,
-      ),
       'lememo_theme' => array(
-        'region' => '',
-        'status' => 0,
+        'region' => 'footer_bottom',
+        'status' => 1,
         'theme' => 'lememo_theme',
-        'weight' => 0,
+        'weight' => -12,
       ),
       'seven' => array(
         'region' => '',
@@ -104,7 +86,7 @@ function lememo_fiche_default_fe_block_settings() {
         'weight' => 0,
       ),
     ),
-    'title' => '',
+    'title' => '<none>',
     'visibility' => 0,
   );
 
