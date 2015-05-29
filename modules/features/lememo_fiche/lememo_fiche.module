@@ -168,8 +168,7 @@ return $output;
  */
 function lememo_fiche_comment_counter($field) {
   $nb_comments = $field['entity']->comment_count;
-  $output = NULL;
-  
+  $output =  '<a href="#comments" class="comment_counter scrollto">Poster un avis</a>';
   if($nb_comments > 0){
     $commentaire = " commentaire";
       if ($nb_comments > 1) {
@@ -216,11 +215,10 @@ return $output;
  * Render the field block_coord.
  */
 function lememo_fiche_block_coord($field) {
-  $mail = $field['entity']->field_mail['und'][0]['value'];
   $company = $field['entity']->title;
   $adress = lememo_fiche_make_adress($field);
   $tel1 = $field['entity']->field_phone_1['und'][0]['value'];
-  $tel2 = $field['entity']->field_phone_1['und'][0]['value'];
+  $tel2 = $field['entity']->field_phone_2['und'][0]['value'];
   $output = '<div class="row"> <div id="fiche_coord" class="columns small-6 medium-3 medium-offset-1">
     <h2>' . $company . '</h2>
     <p>' . $adress . '</p>
@@ -239,6 +237,7 @@ function lememo_fiche_block_gallery($field) {
   $pictures = $field['entity']->field_pictures['und'];
   // compte le nombre d'images
   $pictures_nb = count($pictures);
+  $output = NULL;
   // rendu de la galerie si il y'a des images
   if ($pictures_nb != 0) {
     // on parcours les images
@@ -323,24 +322,31 @@ function lememo_fiche_form_comment_form_alter(&$form, &$form_state) {
   $form['actions']['submit'] = array(
     '#type' => 'submit', 
     '#value' => t('Save'), 
-    '#access' => ($comment->cid && user_access('administer comments')) || variable_get('comment_preview_' . $node->type, DRUPAL_OPTIONAL) != DRUPAL_REQUIRED || isset($form_state['comment_preview']), 
+   /* '#access' => ($comment->cid && user_access('administer comments')) || variable_get('comment_preview_' . $node->type, DRUPAL_OPTIONAL) != DRUPAL_REQUIRED || isset($form_state['comment_preview']), */
     '#weight' => 20,
     '#attributes'=> array('class' => array('button small')),
   );
 }
 
 /**
- * Custom contact form buttons /// WIP ///
+ * Custom contact form buttons and title /// WIP ///
  */
-function lememo_fiche_mail_form_alter(&$form, &$form_state) {
-
-  $form['actions'] = array('#type' => 'actions');
-  $form['actions']['submit'] = array(
-    '#value' => t('Save'), 
-    '#attributes'=> array('class' => array('button small')),
+function lememo_fiche_form_email_mail_page_form_alter(&$form, &$form_state, $form_id) { 
+  //dsm($form_id);  // print form ID to messages
+ // dsm($form);  // pretty print array using Krumo to messages
+ // $form['actions'] = array('#type' => 'actions');
+  $form['submit'] = array(
+    '#type' => 'submit',
+    '#value' => t('Envoyer'),
+    '#attributes'=> array('class' => array('button expand')),
   );
-}
 
+  $form['name'] = array(
+  '#type' => 'textfield',
+  '#title' => t('Your name'),
+  '#prefix' => '<h2>Formulaire de contact</h2>', // Add markup before form item
+);
+}
 
 /**
  * Function to concratenate adress

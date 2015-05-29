@@ -19,6 +19,7 @@
 
 <!-- PAGE FOOTER-->
 <div class="footer">
+   <?php print $messages ?>
             <div class="row">
 	                <div class="columns medium-offset-1 medium-2"> 
                         <div class = "footer_logo">
