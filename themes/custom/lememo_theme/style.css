@@ -225,6 +225,18 @@ div.fivestar-widget-static .star {
 .gallery_thumb2{
   width: 30.2%;
 }
+.gallery_link{
+  margin-right: 40px;
+  margin-top: 10px;
+}
+a.gallery_link:hover{
+  color: #797979;
+}
+.field-name-lememo-fiche-block-gallery a.clearing-close{
+  font-size: 40px;
+  font-weight: bold;
+}
+
 
 /*DEMANDE DE DEVIS*/
 .button.small,
@@ -361,6 +373,10 @@ color: #fff;
 .field-name-vote-bis h2{
   float: left;
 }
+.field-name-vote-bis .field-name-field-vote.field-type-fivestar{
+  margin-top: 8px;
+  margin-left: 10px;
+}
 
 /*COORDONNEES CARTE*/
 #fiche_coord h2{
@@ -380,6 +396,12 @@ color: #fff;
 }
 .fiche-bottom{
   min-height: 300px;
+}
+
+/*BACK TO TOP*/
+.field-name-lememo-fiche-backtop-btn a{
+  background:url(images/backtotop.jpg) no-repeat;
+  text-indent: -9999px;
 }
 
 /*FOOTER*/
