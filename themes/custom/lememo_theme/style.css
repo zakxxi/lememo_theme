@@ -10,12 +10,12 @@ LEMEMO CSS / DEV VERSION
 }
 
 .societe-block-info {
-    margin-top: -55px;
+    margin-top: -70px;
 }
 
 .add-this-block {
   margin-top: 100px;
-  margin-bottom: 70px;
+  margin-bottom: 80px;
 }
 
 .field-name-contact-form {
@@ -66,6 +66,7 @@ LEMEMO CSS / DEV VERSION
   font-weight: 700;
   margin-bottom: 0;
   line-height: 23px;
+  clear: left;
 }
 .field-name-field-city{
   text-transform: uppercase;
@@ -73,10 +74,20 @@ LEMEMO CSS / DEV VERSION
   font-family: "aaux-next",sans-serif;
   font-style: normal;
   font-weight: 400;
+  color: #000;
+}
+.field-name-field-phone-1{
+  font-size: 20px;
+  font-family: "aaux-next",sans-serif;
+  font-style: normal;
+  font-weight: 600;
+  color: #797979;
+  line-height: 15px;
 }
 .label-above{
   margin-top: 50px;
 }
+.field-name-vote-bis h2,
 h2 .label-above,
 #comments h2.title{
   text-transform: uppercase;
@@ -125,9 +136,31 @@ h2 .label-above,
   background: #797979;
 }
 
+/*AVIS COUNTER*/
+.field-name-lememo-fiche-comment-counter{
+    float: left;
+  line-height: 48px;
+  margin-left: 10px;
+}
+.field-name-lememo-fiche-comment-counter a{
+  color:#797979;
+  font-family: "aaux-next",sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+}
+.field-name-lememo-fiche-comment-counter a:hover{
+  color:#000;
+}
+
+.field-name-lememo-fiche-comment-counter a:before{
+  content: '• ';
+}
+
 /*FIVESTAR*/
 .field-name-field-vote.field-type-fivestar{
-  margin-top: 30px;
+  margin-top: 0;
+  float: left;
 }
 div.fivestar-widget .star span.on,
 div.fivestar-widget-static .star span.on{
@@ -145,6 +178,9 @@ div.fivestar-widget-static .star {
 }
 
 /*BOUTON COORDONNEES*/
+.field-name-lememo-fiche-btn-coord{
+  margin-top: 15px;
+}
 .button.small,
 .button.expand,
 .button.warning{
@@ -155,7 +191,7 @@ div.fivestar-widget-static .star {
   text-transform:uppercase;
   background: #ff8800;
   color: #fff;
-  padding: 10px 15px;
+  padding: 8px 15px;
   box-shadow: 0 3px 15px  rgba(0, 0, 0, 0.5);
 -moz-box-shadow: 0 3px 15px  rgba(0, 0, 0, 0.5);
 -webkit-box-shadow: 0 3px 15px  rgba(0, 0, 0, 0.5);
@@ -164,8 +200,8 @@ div.fivestar-widget-static .star {
 /*DESCRIPTION*/
 .field-name-field-description-short{
   color: #fff;
-  height: 154px;
-  padding: 20px 0;
+  min-height: 154px;
+  margin: 20px 0 10px 0;
   font-family: "aaux-next",sans-serif;
   font-style: normal;
   font-weight: 500;
@@ -242,10 +278,10 @@ div.fivestar-widget-static .star {
 /*COMMENTAIRES*/
 .comment{
   background: #fff;
-  box-shadow: 0 3px 15px  rgba(0, 0, 0, 0.3);
+  /*box-shadow: 0 3px 15px  rgba(0, 0, 0, 0.3);
 -moz-box-shadow: 0 3px 15px  rgba(0, 0, 0, 0.3);
--webkit-box-shadow: 0 3px 15px  rgba(0, 0, 0, 0.3);
-  border: none;
+-webkit-box-shadow: 0 3px 15px  rgba(0, 0, 0, 0.3);*/
+  border: 1px solid #797979;
   margin-bottom: 20px;
   padding: 15px;
 }
@@ -317,6 +353,10 @@ margin-right:5px;
 color: #fff;
 }
 
+/*ATTRIBUER UNE NOTE*/
+.field-name-vote-bis h2{
+  float: left;
+}
 
 /*COORDONNEES CARTE*/
 #fiche_coord h2{
