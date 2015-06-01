@@ -98,6 +98,12 @@ function lememo_fiche_ds_fields_info($entity_type) {
     'function' => 'lememo_fiche_btn_coord',
   );
 
+    $fields['node']['lememo_fiche_comment_counter'] = array(
+    'title' => t('Nombre de commentaires'),
+    'field_type' => DS_FIELD_TYPE_FUNCTION,
+    'function' => 'lememo_fiche_comment_counter',
+  );
+
     $fields['node']['lememo_fiche_add_this'] = array(
     'title' => t('Bloc Add this'),
     'field_type' => DS_FIELD_TYPE_FUNCTION,
@@ -120,6 +126,12 @@ function lememo_fiche_ds_fields_info($entity_type) {
     'title' => t('Bloc galerie'),
     'field_type' => DS_FIELD_TYPE_FUNCTION,
     'function' => 'lememo_fiche_block_gallery',
+  );
+
+    $fields['node']['lememo_fiche_backtop_btn'] = array(
+    'title' => t('Bouton retour haut'),
+    'field_type' => DS_FIELD_TYPE_FUNCTION,
+    'function' => 'lememo_fiche_backtop_btn',
   );
 
   if (isset($fields[$entity_type])) {
@@ -150,6 +162,19 @@ function lememo_fiche_btn_coord($field) {
 
 return $output;
 }
+
+/**
+ * Render the field comment_counter
+ */
+function lememo_fiche_comment_counter($field) {
+  $nb_comments = $field['entity']->comment_count;
+  $output =  '<a href="#comments" class="comment_counter scrollto">Poster un avis</a>';
+  if($nb_comments > 0){
+  $output = '<a href="#comments" class="comment_counter scrollto">' . $nb_comments . ' avis</a>';
+}
+return $output;
+}
+
 
 /**
  * Render the field add_this.
@@ -186,14 +211,16 @@ return $output;
  * Render the field block_coord.
  */
 function lememo_fiche_block_coord($field) {
-  $mail = $field['entity']->field_mail['und'][0]['value'];
   $company = $field['entity']->title;
   $adress = lememo_fiche_make_adress($field);
-  $output = '<div class="row"> <div id="fiche_coord" class="columns small-6 medium-3 medium-offset-1">
+  $tel1 = $field['entity']->field_phone_1['und'][0]['value'];
+  $tel2 = $field['entity']->field_phone_2['und'][0]['value'];
+  $output = '<div class="row"> <div id="fiche_coord" class="columns small-6 small-centered medium-3 medium-offset-1">
     <h2>' . $company . '</h2>
     <p>' . $adress . '</p>
-    <a data-reveal-id="email-mail-page-form" href="#email-mail-page-form" class="button warning">Contacter</a>
-  </div></div>' ;
+    <p>Tél : ' . $tel1 . '<br/>
+    Tél : ' . $tel2 . '</p>
+    <div class="text-center"><a data-reveal-id="email-mail-popin" href="#email-mail-page-form" class="button warning">Contacter</a></div></div></div>' ;
 
 return $output;
 }
@@ -205,17 +232,26 @@ function lememo_fiche_block_gallery($field) {
   $pictures = $field['entity']->field_pictures['und'];
   // compte le nombre d'images
   $pictures_nb = count($pictures);
+  $output = NULL;
   // rendu de la galerie si il y'a des images
   if ($pictures_nb != 0) {
     // on parcours les images
     // pour les 2 premières
       if ($pictures_nb > 1){
             $output = $output . '<div class="fiche_gallery"><ul data-clearing>'; // on ouvre la liste
-            for ($i = 0; $i < 2; $i++) {
+            for ($i = 0; $i < 1; $i++) {
               $img_uri = $pictures[$i]['uri'];
               $img_thumb1_url = image_style_url('gallery_thumb1', $img_uri);
               $img_original_url = file_create_url($img_uri);
               $output_thumb1 = '<li class = "gallery_thumb1"><a href="' . $img_original_url . '"><img src="' . $img_thumb1_url . '"></a></li>';
+              $output = $output . $output_thumb1;
+            }
+
+            for ($i = 1; $i < 2; $i++) {
+              $img_uri = $pictures[$i]['uri'];
+              $img_thumb1_url = image_style_url('gallery_thumb1', $img_uri);
+              $img_original_url = file_create_url($img_uri);
+              $output_thumb1 = '<li class = "gallery_thumb1B"><a href="' . $img_original_url . '"><img src="' . $img_thumb1_url . '"></a></li>';
               $output = $output . $output_thumb1;
             }
 
@@ -247,7 +283,7 @@ function lememo_fiche_block_gallery($field) {
             }
             $output = $output . '</ul></div>'; // on ferme la liste
             // affichage du lien pour toute la galerie
-            $output = $output . '<a class = "openclearing" href="#" data-thumb-index="0">Voir toutes les photos</a>';
+            $output = $output . '<a class = "openclearing gallery_link" href="#" data-thumb-index="0">Voir toutes les photos</a>';
         }
       } else {
       // dans le cas ou une seule image
@@ -268,19 +304,58 @@ return $output;
 }
 
 /**
- * Custom comments buttons
+ * Render the field backtop_btn
+ */
+function lememo_fiche_backtop_btn($field) {
+  $output = '<div class="row"> <a href="#top" class="right scrollto">^</a></div>';
+//    $output = '<a href="#fiche_coord" class="button warning scrollto">Coordonnées</a>';
+
+
+return $output;
+}
+
+
+/**
+ * Custom comments buttons & fields
  */
 function lememo_fiche_form_comment_form_alter(&$form, &$form_state) {
   // Only show the save button if comment previews are optional or if we are
   // already previewing the submission.
-  $form['actions'] = array('#type' => 'actions');
+ // $form['actions'] = array('#type' => 'actions');
   $form['actions']['submit'] = array(
     '#type' => 'submit', 
     '#value' => t('Save'), 
-    '#access' => ($comment->cid && user_access('administer comments')) || variable_get('comment_preview_' . $node->type, DRUPAL_OPTIONAL) != DRUPAL_REQUIRED || isset($form_state['comment_preview']), 
+   /* '#access' => ($comment->cid && user_access('administer comments')) || variable_get('comment_preview_' . $node->type, DRUPAL_OPTIONAL) != DRUPAL_REQUIRED || isset($form_state['comment_preview']), */
     '#weight' => 20,
     '#attributes'=> array('class' => array('button small')),
   );
+  $form['author']['homepage']['#access'] = FALSE;
+}
+
+/**
+ * Custom contact form buttons and title /// WIP ///
+ */
+function lememo_fiche_form_email_mail_page_form_alter(&$form, &$form_state, $form_id) { 
+  //dsm($form_id);  // print form ID to messages
+ // dsm($form);  // pretty print array using Krumo to messages
+ // $form['actions'] = array('#type' => 'actions');
+  $form['submit'] = array(
+    '#type' => 'submit',
+    '#value' => t('Envoyer'),
+    '#attributes'=> array('class' => array('button expand')),
+  );
+
+    $form['phone'] = array(
+  '#type' => 'textfield',
+  '#title' => t('Téléphone'),
+  '#weight' => -10,
+  '#prefix' => '<h2>Formulaire de contact</h2>', // Add markup before form item
+);
+  $form['name']['#required'] = FALSE;
+  $form['name']['#access'] = FALSE;
+  $form['subject']['#required'] = FALSE;
+  $form['subject']['#access'] = FALSE;
+
 }
 
 /**

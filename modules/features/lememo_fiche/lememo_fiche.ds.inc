@@ -32,8 +32,20 @@ function lememo_fiche_ds_field_settings_info() {
   $ds_fieldsetting->bundle = 'fiche';
   $ds_fieldsetting->view_mode = 'full';
   $ds_fieldsetting->settings = array(
+    'vote_bis' => array(
+      'weight' => '12',
+      'label' => 'hidden',
+      'format' => 'default',
+      'formatter_settings' => array(
+        'show_title' => 1,
+        'title_wrapper' => 'h2',
+        'ctools' => 'a:3:{s:4:"conf";a:10:{s:5:"label";s:6:"hidden";s:9:"formatter";s:26:"fivestar_formatter_default";s:11:"delta_limit";i:0;s:12:"delta_offset";s:1:"0";s:14:"delta_reversed";b:0;s:18:"formatter_settings";a:4:{s:6:"widget";a:1:{s:15:"fivestar_widget";s:7:"default";}s:5:"style";s:7:"average";s:4:"text";s:4:"none";s:6:"expose";i:1;}s:7:"context";s:25:"argument_entity_id:node_1";s:14:"override_title";i:1;s:19:"override_title_text";s:18:"Attribuer une note";s:22:"override_title_heading";s:2:"h2";}s:4:"type";s:12:"entity_field";s:7:"subtype";s:15:"node:field_vote";}',
+        'load_terms' => 0,
+        'ft' => array(),
+      ),
+    ),
     'contact_form' => array(
-      'weight' => '11',
+      'weight' => '14',
       'label' => 'hidden',
       'format' => 'default',
       'formatter_settings' => array(
@@ -41,7 +53,7 @@ function lememo_fiche_ds_field_settings_info() {
       ),
     ),
     'title' => array(
-      'weight' => '4',
+      'weight' => '5',
       'label' => 'hidden',
       'format' => 'default',
       'formatter_settings' => array(
@@ -51,7 +63,7 @@ function lememo_fiche_ds_field_settings_info() {
       ),
     ),
     'comments' => array(
-      'weight' => '10',
+      'weight' => '13',
       'label' => 'hidden',
       'format' => 'default',
     ),
@@ -65,23 +77,33 @@ function lememo_fiche_ds_field_settings_info() {
       'label' => 'hidden',
       'format' => 'default',
     ),
+    'lememo_fiche_comment_counter' => array(
+      'weight' => '4',
+      'label' => 'hidden',
+      'format' => 'default',
+    ),
     'lememo_fiche_add_this' => array(
-      'weight' => '6',
+      'weight' => '8',
       'label' => 'hidden',
       'format' => 'default',
     ),
     'lememo_fiche_legals' => array(
-      'weight' => '12',
+      'weight' => '15',
       'label' => 'hidden',
       'format' => 'default',
     ),
     'lememo_fiche_block_coord' => array(
-      'weight' => '14',
+      'weight' => '19',
       'label' => 'hidden',
       'format' => 'default',
     ),
     'lememo_fiche_block_gallery' => array(
-      'weight' => '8',
+      'weight' => '10',
+      'label' => 'hidden',
+      'format' => 'default',
+    ),
+    'lememo_fiche_backtop_btn' => array(
+      'weight' => '17',
       'label' => 'hidden',
       'format' => 'default',
     ),
@@ -92,18 +114,12 @@ function lememo_fiche_ds_field_settings_info() {
           'lb-col' => TRUE,
           'lbw' => 1,
           'lbw-el' => 'h2',
-          'fi' => TRUE,
-          'fi-el' => 'p',
-          'fi-cl' => 'txt-apropos',
-          'fi-at' => '',
-          'fi-def-at' => FALSE,
-          'fi-odd-even' => FALSE,
+          'fis' => TRUE,
+          'fis-el' => 'div',
+          'fis-cl' => 'txt-apropos',
+          'fis-at' => '',
+          'fis-def-at' => FALSE,
         ),
-      ),
-    ),
-    'field_vote' => array(
-      'formatter_settings' => array(
-        'ft' => array(),
       ),
     ),
   );
@@ -132,6 +148,32 @@ function lememo_fiche_ds_custom_fields_info() {
     'block_render' => '3',
   );
   $export['contact_form'] = $ds_field;
+
+  $ds_field = new stdClass();
+  $ds_field->api_version = 1;
+  $ds_field->field = 'vote_bis';
+  $ds_field->label = 'vote-bis';
+  $ds_field->field_type = 7;
+  $ds_field->entities = array(
+    'node' => 'node',
+  );
+  $ds_field->ui_limit = '';
+  $ds_field->properties = array(
+    'default' => array(),
+    'settings' => array(
+      'show_title' => array(
+        'type' => 'checkbox',
+      ),
+      'title_wrapper' => array(
+        'type' => 'textfield',
+        'description' => 'Eg: h1, h2, p',
+      ),
+      'ctools' => array(
+        'type' => 'ctools',
+      ),
+    ),
+  );
+  $export['vote_bis'] = $ds_field;
 
   return $export;
 }
@@ -193,28 +235,32 @@ function lememo_fiche_ds_layout_settings_info() {
       'header_society_right' => array(
         2 => 'lememo_fiche_btn_coord',
         3 => 'field_vote',
-        4 => 'title',
-        5 => 'field_city',
+        4 => 'lememo_fiche_comment_counter',
+        5 => 'title',
+        6 => 'field_city',
+        7 => 'field_phone_1',
       ),
       'header_addthis' => array(
-        6 => 'lememo_fiche_add_this',
+        8 => 'lememo_fiche_add_this',
       ),
       'header_resume' => array(
-        7 => 'field_description_short',
+        9 => 'field_description_short',
       ),
       'left' => array(
-        8 => 'lememo_fiche_block_gallery',
-        9 => 'field_description_long',
-        10 => 'comments',
+        10 => 'lememo_fiche_block_gallery',
+        11 => 'field_description_long',
+        12 => 'vote_bis',
+        13 => 'comments',
       ),
       'right' => array(
-        11 => 'contact_form',
-        12 => 'lememo_fiche_legals',
-        15 => 'field_mail',
+        14 => 'contact_form',
+        15 => 'lememo_fiche_legals',
+        16 => 'field_mail',
       ),
       'bottom' => array(
-        13 => 'field_position',
-        14 => 'lememo_fiche_block_coord',
+        17 => 'lememo_fiche_backtop_btn',
+        18 => 'field_position',
+        19 => 'lememo_fiche_block_coord',
       ),
     ),
     'fields' => array(
@@ -222,18 +268,22 @@ function lememo_fiche_ds_layout_settings_info() {
       'field_logo' => 'header_society_left',
       'lememo_fiche_btn_coord' => 'header_society_right',
       'field_vote' => 'header_society_right',
+      'lememo_fiche_comment_counter' => 'header_society_right',
       'title' => 'header_society_right',
       'field_city' => 'header_society_right',
+      'field_phone_1' => 'header_society_right',
       'lememo_fiche_add_this' => 'header_addthis',
       'field_description_short' => 'header_resume',
       'lememo_fiche_block_gallery' => 'left',
       'field_description_long' => 'left',
+      'vote_bis' => 'left',
       'comments' => 'left',
       'contact_form' => 'right',
       'lememo_fiche_legals' => 'right',
+      'field_mail' => 'right',
+      'lememo_fiche_backtop_btn' => 'bottom',
       'field_position' => 'bottom',
       'lememo_fiche_block_coord' => 'bottom',
-      'field_mail' => 'right',
     ),
     'classes' => array(),
     'wrappers' => array(

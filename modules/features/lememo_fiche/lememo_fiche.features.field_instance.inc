@@ -29,7 +29,7 @@ function lememo_fiche_field_default_field_instances() {
         'module' => 'text',
         'settings' => array(),
         'type' => 'text_default',
-        'weight' => 5,
+        'weight' => 6,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -75,7 +75,7 @@ function lememo_fiche_field_default_field_instances() {
         'label' => 'hidden',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 26,
+        'weight' => 32,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -121,7 +121,7 @@ function lememo_fiche_field_default_field_instances() {
         'label' => 'hidden',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 28,
+        'weight' => 34,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -167,7 +167,7 @@ function lememo_fiche_field_default_field_instances() {
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 31,
+        'weight' => 37,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -213,7 +213,7 @@ function lememo_fiche_field_default_field_instances() {
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 33,
+        'weight' => 38,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -259,7 +259,7 @@ function lememo_fiche_field_default_field_instances() {
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 35,
+        'weight' => 40,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -307,7 +307,7 @@ function lememo_fiche_field_default_field_instances() {
         'label' => 'hidden',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 27,
+        'weight' => 33,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -383,7 +383,7 @@ function lememo_fiche_field_default_field_instances() {
         'module' => 'text',
         'settings' => array(),
         'type' => 'text_default',
-        'weight' => 9,
+        'weight' => 11,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -430,7 +430,7 @@ function lememo_fiche_field_default_field_instances() {
         'module' => 'text',
         'settings' => array(),
         'type' => 'text_plain',
-        'weight' => 7,
+        'weight' => 9,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -476,7 +476,7 @@ function lememo_fiche_field_default_field_instances() {
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 34,
+        'weight' => 39,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -527,7 +527,7 @@ function lememo_fiche_field_default_field_instances() {
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 30,
+        'weight' => 36,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -662,7 +662,7 @@ function lememo_fiche_field_default_field_instances() {
           'redirection_to' => 'current',
         ),
         'type' => 'email_contact_form',
-        'weight' => 30,
+        'weight' => 16,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -705,10 +705,11 @@ function lememo_fiche_field_default_field_instances() {
         'weight' => 19,
       ),
       'full' => array(
-        'label' => 'above',
+        'label' => 'hidden',
+        'module' => 'text',
         'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 32,
+        'type' => 'text_default',
+        'weight' => 7,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -755,7 +756,7 @@ function lememo_fiche_field_default_field_instances() {
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 0,
+        'weight' => 27,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -804,7 +805,7 @@ function lememo_fiche_field_default_field_instances() {
         'label' => 'hidden',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 23,
+        'weight' => 29,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -907,7 +908,7 @@ function lememo_fiche_field_default_field_instances() {
           'geofield_map_zoom' => 18,
         ),
         'type' => 'geofield_map_map',
-        'weight' => 13,
+        'weight' => 18,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -953,7 +954,7 @@ function lememo_fiche_field_default_field_instances() {
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 29,
+        'weight' => 35,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -999,7 +1000,7 @@ function lememo_fiche_field_default_field_instances() {
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 25,
+        'weight' => 31,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -1045,7 +1046,7 @@ function lememo_fiche_field_default_field_instances() {
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 24,
+        'weight' => 30,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -1098,7 +1099,7 @@ function lememo_fiche_field_default_field_instances() {
         'label' => 'hidden',
         'module' => 'fivestar',
         'settings' => array(
-          'expose' => 1,
+          'expose' => 0,
           'style' => 'average',
           'text' => 'none',
           'widget' => array(
@@ -1155,7 +1156,7 @@ function lememo_fiche_field_default_field_instances() {
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 0,
+        'weight' => 28,
       ),
       'teaser' => array(
         'label' => 'above',
