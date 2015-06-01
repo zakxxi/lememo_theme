@@ -17,8 +17,12 @@ LEMEMO CSS / DEV VERSION
   text-align: right;
 }
 
+.grippie{
+  display: none;
+}
+
 .field-name-contact-form {
-    margin-top: -100px;
+    margin-top: -160px;
     background-color: white;
     padding: 5px 20px;
     box-shadow: 0 3px 15px  rgba(0, 0, 0, 0.5);
@@ -27,11 +31,27 @@ LEMEMO CSS / DEV VERSION
     z-index: 150;
 }
 .field-name-contact-form textarea,
-.field-name-contact-form input#edit-name,
-.field-name-contact-form input#edit-mail{
+.field-name-contact-form input{
   background-color: #fff3e5;
   border: none;
   box-shadow: none;
+}
+.field-name-contact-form input:focus,
+.field-name-contact-form input:active,
+.field-name-contact-form textarea:focus,
+.field-name-contact-form textarea:active{
+  border: 1px solid #ff8800;
+  background: #fff;
+}
+.field-name-contact-form .form-actions .button,
+.field-name-contact-form .form-actions{
+  margin-bottom: 0;
+}
+.field-name-contact-form label{
+  font-family: "aaux-next",sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  color: #969696;
 }
 
 .footer {
@@ -54,6 +74,7 @@ LEMEMO CSS / DEV VERSION
   height: 250px;
   margin-top: -250px;
   background-color: white;
+  padding-top: 10px;
 }
 
 /*CSS SOGRAPHIK*/
@@ -86,6 +107,7 @@ LEMEMO CSS / DEV VERSION
 .label-above{
   margin-top: 50px;
 }
+.field-name-field-mail h2,
 .field-name-vote-bis h2,
 h2 .label-above,
 #comments h2.title{
@@ -101,14 +123,16 @@ h2 .label-above,
 .logo-block{
   margin-top: 18px;
 }
-
+.logo-block img{
+  vertical-align: bottom;
+}
 .logo-block span{
   color: #797979;
   font-size: 27px;
   font-family: "aaux-next",sans-serif;
   font-style: normal;
   font-weight: 700;
-  vertical-align: middle;
+  line-height: 20px;
   padding-left: 10px;
 }
 
@@ -219,13 +243,13 @@ div.fivestar-widget-static .star {
 }
 .gallery_thumb1{
   margin-bottom: 10px;
-  width: 46%;
+  width: 48%;
 }
 .gallery_thumb2{
-  width: 30.2%;
+  width: 31.5%;
 }
 .gallery_link{
-  margin-right: 40px;
+  margin-right: 15px;
   margin-top: 10px;
 }
 a.gallery_link:hover{
@@ -287,7 +311,7 @@ a.gallery_link:hover{
   font-style: normal;
   font-weight: 500;
   font-size: 16px;
-  color: #797979;
+  color: #787878;
 }
 
 /*COMMENTAIRES*/
@@ -296,7 +320,7 @@ a.gallery_link:hover{
   /*box-shadow: 0 3px 15px  rgba(0, 0, 0, 0.3);
 -moz-box-shadow: 0 3px 15px  rgba(0, 0, 0, 0.3);
 -webkit-box-shadow: 0 3px 15px  rgba(0, 0, 0, 0.3);*/
-  border: 1px solid #797979;
+  border: 1px solid #787878;
   margin-bottom: 20px;
   padding: 15px;
 }
@@ -385,6 +409,7 @@ color: #fff;
 .comment-form .field-name-comment-body {
   clear: left;
 }
+.field-name-field-mail label,
 .comment-form label{
   font-family: "aaux-next",sans-serif;
   font-style: normal;
@@ -392,9 +417,30 @@ color: #fff;
   font-size:14px;
   text-transform: uppercase;
 }
+.field-name-field-mail textarea,
+.field-name-field-mail input,
+.comment-form textarea,
+.comment-form input{
+  background:#e7e6e7;
+  box-shadow: none;
+}
 
+
+/*CAPTCHA*/
+.captcha{
+  margin-top: 15px;
+}
+.rc-anchor-light {
+  background: none;
+  border: none;
+  color: #000;
+}
 
 /*ATTRIBUER UNE NOTE*/
+.field-name-vote-bis{
+  height: 50px;
+  margin-top: 15px;
+}
 .field-name-vote-bis h2{
   float: left;
 }
@@ -417,7 +463,7 @@ color: #fff;
   font-style: normal;
   font-weight: 500;
   font-size:14px;
-  color:#000; 
+  color:#565656; 
 }
 .fiche-bottom{
   min-height: 300px;
@@ -428,8 +474,11 @@ color: #fff;
   background:url(images/backtotop.jpg) no-repeat;
   text-indent: -9999px;
   width: 46px;
-  height: 46px;
+  height: 45px;
   margin-bottom: 10px;
+  box-shadow: 0 3px 15px rgba(0, 0, 0, 0.5);
+  -moz-box-shadow: 0 3px 15px rgba(0, 0, 0, 0.5);
+  -webkit-box-shadow: 0 3px 15px rgba(0, 0, 0, 0.5);
 }
 
 /*FOOTER*/
@@ -461,6 +510,18 @@ color: #fff;
 #block-menu-menu-menu-footer-3 ul li{
   display: inline;
 }
+#block-menu-menu-menu-footer-3 ul li.last{
+  margin: 0;
+}
+#block-menu-menu-menu-footer-3 ul li.last:before{
+  content: '• ';
+  padding-right: 10px;
+  color: #fff;
+  font-family: "aaux-next",sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+}
 .footer ul li a,
 #block-menu-menu-menu-footer-3 ul li a{
   color: #fff;
@@ -483,9 +544,58 @@ color: #fff;
   font-size: 20px;
 }
 
+.societe-cover-image {
+min-height: 230px;
+}
+
+.field-name-field-logo {
+  margin-top: 100px;
+}
+
 .add-this-block {
   margin-top: 20px;
   margin-bottom: 10px;
+  text-align: center;
+}
+
+.gallery_link {
+margin-right: 15px;
+}
+
+.gallery_thumb1 {
+width: 47%;
+}
+
+.gallery_thumb2 {
+width: 30.5%;
+}
+
+#fiche_coord {
+margin-left: 20px;
+}
+
+.field-name-lememo-fiche-block-gallery a.clearing-close{
+  z-index: 1000;
+position: relative;
+margin-right: 20px;
+margin-top: 10px;
+}
+
+.field-name-contact-form{
+  margin-top: 10px;
+}
+
+.field-name-lememo-fiche-backtop-btn a{
+  margin-top: 10px;
+  margin-right: 15px;
+}
+
+.footer_logo{
+  text-align: center;
+}
+
+#block-menu-menu-footer-2 ul.menu,
+#block-menu-menu-footer ul.menu{
   text-align: center;
 }
 
