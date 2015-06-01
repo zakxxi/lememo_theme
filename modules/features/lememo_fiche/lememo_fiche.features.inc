@@ -47,8 +47,8 @@ function lememo_fiche_image_default_styles() {
       1 => array(
         'name' => 'image_scale_and_crop',
         'data' => array(
-          'width' => 300,
-          'height' => 200,
+          'width' => 315,
+          'height' => 210,
         ),
         'weight' => 1,
       ),
@@ -62,8 +62,8 @@ function lememo_fiche_image_default_styles() {
       2 => array(
         'name' => 'image_scale_and_crop',
         'data' => array(
-          'width' => 200,
-          'height' => 132,
+          'width' => 205,
+          'height' => 135,
         ),
         'weight' => 1,
       ),

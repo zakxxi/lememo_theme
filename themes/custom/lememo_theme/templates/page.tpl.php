@@ -11,17 +11,15 @@
             </div>
             <div class="columns medium-3">
             	<!-- LOADING BACKLINK-->
-                <a href="<?php print theme_get_setting('lememo_theme_backlink')?>" class="button expand secondary">Retour Annuaire</a> 
+                <a href="<?php print theme_get_setting('lememo_theme_backlink')?>" class="button expand secondary">Accès à l’annuaire</a> 
             </div>
         </div>
-
     <?php print render($page['content']); ?>
-
 <!-- PAGE FOOTER-->
 <div class="footer">
    <?php print $messages ?>
             <div class="row">
-	                <div class="columns medium-offset-1 medium-2"> 
+	                <div class="columns medium-2"> 
                         <div class = "footer_logo">
                             <?php if ($logo): ?>
                                 <img src="<?php print $logo ?>"/>
@@ -38,13 +36,13 @@
                 <?php endif; ?>
 
             	<?php if ($page['footer_right']): ?>                
-	                <div class="columns medium-2"> 
+	                <div class="columns medium-2 medium-offset-1"> 
 					<?php print render($page['footer_right']); ?>
 	                </div>
                 <?php endif; ?>
 
                     <div class="columns medium-3"> 
-                    <a href="<?php print theme_get_setting('lememo_theme_backlink')?>" class="button expand secondary">Retour Annuaire</a> 
+                    <a href="<?php print theme_get_setting('lememo_theme_backlink')?>" class="button expand secondary">Accès à l’annuaire</a> 
                     </div>
             </div>
 

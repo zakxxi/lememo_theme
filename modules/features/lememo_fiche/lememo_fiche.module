@@ -170,11 +170,7 @@ function lememo_fiche_comment_counter($field) {
   $nb_comments = $field['entity']->comment_count;
   $output =  '<a href="#comments" class="comment_counter scrollto">Poster un avis</a>';
   if($nb_comments > 0){
-    $commentaire = " commentaire";
-      if ($nb_comments > 1) {
-      $commentaire = " commentaires";
-  }
-  $output = '<a href="#comments" class="comment_counter scrollto">' . $nb_comments . $commentaire . '</a>';
+  $output = '<a href="#comments" class="comment_counter scrollto">' . $nb_comments . ' avis</a>';
 }
 return $output;
 }
@@ -341,11 +337,15 @@ function lememo_fiche_form_email_mail_page_form_alter(&$form, &$form_state, $for
     '#value' => t('Envoyer'),
     '#attributes'=> array('class' => array('button expand')),
   );
-  $form['name'] = array(
+
+    $form['phone'] = array(
   '#type' => 'textfield',
-  '#title' => t('Your name'),
+  '#title' => t('Téléphone'),
+  '#weight' => -10,
   '#prefix' => '<h2>Formulaire de contact</h2>', // Add markup before form item
 );
+  $form['name']['#required'] = FALSE;
+  $form['name']['#access'] = FALSE;
   $form['subject']['#required'] = FALSE;
   $form['subject']['#access'] = FALSE;
 

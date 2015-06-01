@@ -32,7 +32,7 @@ if (($variables['element']['#theme'] == "field") && ($variables['element']['#fie
  $variables['attributes_array']['role']='dialog';
 
  // Add some classes
- $variables['classes_array'][] = 'reveal-modal small';
+ $variables['classes_array'][] = 'reveal-modal tiny';
  }
 }
 
