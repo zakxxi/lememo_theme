@@ -220,6 +220,10 @@ div.fivestar-widget-static .star {
 }
 .gallery_thumb1{
   margin-bottom: 10px;
+  width: 46%;
+}
+.gallery_thumb2{
+  width: 30.2%;
 }
 
 /*DEMANDE DE DEVIS*/

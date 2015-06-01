@@ -276,7 +276,7 @@ function lememo_fiche_block_gallery($field) {
             }
             $output = $output . '</ul></div>'; // on ferme la liste
             // affichage du lien pour toute la galerie
-            $output = $output . '<a class = "openclearing" href="#" data-thumb-index="0">Voir toutes les photos</a>';
+            $output = $output . '<a class = "openclearing gallery_link" href="#" data-thumb-index="0">Voir toutes les photos</a>';
         }
       } else {
       // dans le cas ou une seule image
