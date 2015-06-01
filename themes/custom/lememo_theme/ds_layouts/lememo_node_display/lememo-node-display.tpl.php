@@ -28,7 +28,7 @@
       </div>
     
 
-    <<?php print $header_addthis_wrapper; ?> class="add-this-block columns medium-4 right text-right <?php print $header_addthis_classes; ?>">
+    <<?php print $header_addthis_wrapper; ?> class="add-this-block columns medium-4 right <?php print $header_addthis_classes; ?>">
         <?php print $header_addthis; ?>
     </<?php print $header_addthis_wrapper; ?>>
 
