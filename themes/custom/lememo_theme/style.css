@@ -567,11 +567,12 @@ width: 47%;
 }
 
 .gallery_thumb2 {
-width: 30.5%;
+/*width: 30.5%;*/
+display: none;
 }
 
 #fiche_coord {
-margin-left: 20px;
+/*margin-left: 20px;*/
 }
 
 .field-name-lememo-fiche-block-gallery a.clearing-close{

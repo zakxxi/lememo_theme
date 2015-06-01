@@ -20,7 +20,7 @@
     if (window.matchMedia("(min-width: 641px)").matches) {
       /* La largeur minimum de l'affichage est 600 px inclus */
           // Sticky contact form
-        $(".field-name-contact-form").sticky({topSpacing:100});
+        $(".field-name-contact-form").sticky({topSpacing:160});
     }
 
     // Smooth scroll

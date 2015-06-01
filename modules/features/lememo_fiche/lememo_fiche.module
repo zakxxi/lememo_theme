@@ -215,7 +215,7 @@ function lememo_fiche_block_coord($field) {
   $adress = lememo_fiche_make_adress($field);
   $tel1 = $field['entity']->field_phone_1['und'][0]['value'];
   $tel2 = $field['entity']->field_phone_2['und'][0]['value'];
-  $output = '<div class="row"> <div id="fiche_coord" class="columns small-6 medium-3 medium-offset-1">
+  $output = '<div class="row"> <div id="fiche_coord" class="columns small-6 small-centered medium-3 medium-offset-1">
     <h2>' . $company . '</h2>
     <p>' . $adress . '</p>
     <p>Tél : ' . $tel1 . '<br/>
