@@ -32,23 +32,23 @@ function lememo_fiche_ds_field_settings_info() {
   $ds_fieldsetting->bundle = 'fiche';
   $ds_fieldsetting->view_mode = 'full';
   $ds_fieldsetting->settings = array(
-    'contact_form' => array(
-      'weight' => '14',
-      'label' => 'hidden',
-      'format' => 'default',
-      'formatter_settings' => array(
-        'ft' => array(),
-      ),
-    ),
     'vote_bis' => array(
-      'weight' => '13',
+      'weight' => '12',
       'label' => 'hidden',
       'format' => 'default',
       'formatter_settings' => array(
         'show_title' => 1,
         'title_wrapper' => 'h2',
-        'ctools' => 'a:3:{s:4:"conf";a:10:{s:5:"label";s:6:"hidden";s:9:"formatter";s:26:"fivestar_formatter_default";s:11:"delta_limit";i:0;s:12:"delta_offset";s:1:"0";s:14:"delta_reversed";b:0;s:18:"formatter_settings";a:4:{s:6:"widget";a:1:{s:15:"fivestar_widget";s:7:"default";}s:5:"style";s:7:"average";s:4:"text";s:7:"average";s:6:"expose";i:1;}s:7:"context";s:25:"argument_entity_id:node_1";s:14:"override_title";i:1;s:19:"override_title_text";s:18:"Attribuer une note";s:22:"override_title_heading";s:2:"h2";}s:4:"type";s:12:"entity_field";s:7:"subtype";s:15:"node:field_vote";}',
+        'ctools' => 'a:3:{s:4:"conf";a:10:{s:5:"label";s:6:"hidden";s:9:"formatter";s:26:"fivestar_formatter_default";s:11:"delta_limit";i:0;s:12:"delta_offset";s:1:"0";s:14:"delta_reversed";b:0;s:18:"formatter_settings";a:4:{s:6:"widget";a:1:{s:15:"fivestar_widget";s:7:"default";}s:5:"style";s:7:"average";s:4:"text";s:4:"none";s:6:"expose";i:1;}s:7:"context";s:25:"argument_entity_id:node_1";s:14:"override_title";i:1;s:19:"override_title_text";s:18:"Attribuer une note";s:22:"override_title_heading";s:2:"h2";}s:4:"type";s:12:"entity_field";s:7:"subtype";s:15:"node:field_vote";}',
         'load_terms' => 0,
+        'ft' => array(),
+      ),
+    ),
+    'contact_form' => array(
+      'weight' => '14',
+      'label' => 'hidden',
+      'format' => 'default',
+      'formatter_settings' => array(
         'ft' => array(),
       ),
     ),
@@ -63,7 +63,7 @@ function lememo_fiche_ds_field_settings_info() {
       ),
     ),
     'comments' => array(
-      'weight' => '12',
+      'weight' => '13',
       'label' => 'hidden',
       'format' => 'default',
     ),
@@ -114,13 +114,11 @@ function lememo_fiche_ds_field_settings_info() {
           'lb-col' => TRUE,
           'lbw' => 1,
           'lbw-el' => 'h2',
-        ),
-      ),
-    ),
-    'field_mail' => array(
-      'formatter_settings' => array(
-        'ft' => array(
-          'func' => 'theme_field',
+          'fis' => TRUE,
+          'fis-el' => 'div',
+          'fis-cl' => 'txt-apropos',
+          'fis-at' => '',
+          'fis-def-at' => FALSE,
         ),
       ),
     ),
@@ -251,8 +249,8 @@ function lememo_fiche_ds_layout_settings_info() {
       'left' => array(
         10 => 'lememo_fiche_block_gallery',
         11 => 'field_description_long',
-        12 => 'comments',
-        13 => 'vote_bis',
+        12 => 'vote_bis',
+        13 => 'comments',
       ),
       'right' => array(
         14 => 'contact_form',
@@ -278,8 +276,8 @@ function lememo_fiche_ds_layout_settings_info() {
       'field_description_short' => 'header_resume',
       'lememo_fiche_block_gallery' => 'left',
       'field_description_long' => 'left',
-      'comments' => 'left',
       'vote_bis' => 'left',
+      'comments' => 'left',
       'contact_form' => 'right',
       'lememo_fiche_legals' => 'right',
       'field_mail' => 'right',

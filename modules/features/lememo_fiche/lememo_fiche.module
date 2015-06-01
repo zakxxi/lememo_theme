@@ -220,8 +220,7 @@ function lememo_fiche_block_coord($field) {
     <p>' . $adress . '</p>
     <p>Tél : ' . $tel1 . '<br/>
     Tél : ' . $tel2 . '</p>
-    <a data-reveal-id="email-mail-popin" href="#email-mail-page-form" class="button warning">Contacter</a></div></div>' ;
-
+    <div class="text-center"><a data-reveal-id="email-mail-popin" href="#email-mail-page-form" class="button warning">Contacter</a></div></div></div>' ;
 
 return $output;
 }
@@ -240,7 +239,15 @@ function lememo_fiche_block_gallery($field) {
     // pour les 2 premières
       if ($pictures_nb > 1){
             $output = $output . '<div class="fiche_gallery"><ul data-clearing>'; // on ouvre la liste
-            for ($i = 0; $i < 2; $i++) {
+            for ($i = 0; $i < 1; $i++) {
+              $img_uri = $pictures[$i]['uri'];
+              $img_thumb1_url = image_style_url('gallery_thumb1', $img_uri);
+              $img_original_url = file_create_url($img_uri);
+              $output_thumb1 = '<li class = "gallery_thumb1 gallery_first"><a href="' . $img_original_url . '"><img src="' . $img_thumb1_url . '"></a></li>';
+              $output = $output . $output_thumb1;
+            }
+
+            for ($i = 1; $i < 2; $i++) {
               $img_uri = $pictures[$i]['uri'];
               $img_thumb1_url = image_style_url('gallery_thumb1', $img_uri);
               $img_original_url = file_create_url($img_uri);
@@ -282,7 +289,7 @@ function lememo_fiche_block_gallery($field) {
       // dans le cas ou une seule image
             $output = $output . '<ul data-clearing>';  // on ouvre la liste
             $img_uri = $pictures[0]['uri'];
-            $img_thumb_url = image_style_url('gallery_thumb1', $img_uri);
+            $img_thumb_url = image_style_url('gallery_thumb1 gallery_first', $img_uri);
             $img_original_url = file_create_url($img_uri);
             $output_thumb = '<li class = "gallery_thumb1"><a href="' . $img_original_url . '"><img src="' . $img_thumb_url . '"></a></li>';
             $output = $output . $output_thumb;

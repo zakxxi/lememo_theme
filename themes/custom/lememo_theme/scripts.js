@@ -14,7 +14,7 @@
     if($( "#email-mail-popin" ).find("input").hasClass( "error" )) {
         $('#email-mail-popin').foundation('reveal', 'open');
     }
-
+//$(".field-name-contact-form").css("margin-top", "-160px");
 
     // Détecte la taille d'écran
     if (window.matchMedia("(min-width: 641px)").matches) {

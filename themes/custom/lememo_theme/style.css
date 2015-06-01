@@ -312,6 +312,7 @@ a.gallery_link:hover{
   font-weight: 500;
   font-size: 16px;
   color: #787878;
+  margin-right: 10px;
 }
 
 /*COMMENTAIRES*/
@@ -558,12 +559,23 @@ min-height: 230px;
   text-align: center;
 }
 
-.gallery_link {
-margin-right: 15px;
+.field-name-lememo-fiche-block-gallery a.gallery_link {
+margin-right: 20px;
+float: right;
+}
+
+[data-clearing] li{
+  float: none;
+  margin-right: 0;
+  margin-left: 20px;
+}
+
+.field-name-lememo-fiche-block-gallery a {
+float: none;
 }
 
 .gallery_thumb1 {
-width: 47%;
+width: 100%;
 }
 
 .gallery_thumb2 {
