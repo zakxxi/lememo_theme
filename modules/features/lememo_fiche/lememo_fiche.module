@@ -300,7 +300,7 @@ return $output;
  * Render the field backtop_btn
  */
 function lememo_fiche_backtop_btn($field) {
-  $output = '<div class="row"> <a href="#top" class="button big secondary right scrollto">^</a></div>';
+  $output = '<div class="row"> <a href="#top" class="right scrollto">^</a></div>';
 //    $output = '<a href="#fiche_coord" class="button warning scrollto">Coordonnées</a>';
 
 
