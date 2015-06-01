@@ -313,12 +313,12 @@ return $output;
 
 
 /**
- * Custom comments buttons
+ * Custom comments buttons & fields
  */
 function lememo_fiche_form_comment_form_alter(&$form, &$form_state) {
   // Only show the save button if comment previews are optional or if we are
   // already previewing the submission.
-  $form['actions'] = array('#type' => 'actions');
+ // $form['actions'] = array('#type' => 'actions');
   $form['actions']['submit'] = array(
     '#type' => 'submit', 
     '#value' => t('Save'), 
@@ -326,6 +326,7 @@ function lememo_fiche_form_comment_form_alter(&$form, &$form_state) {
     '#weight' => 20,
     '#attributes'=> array('class' => array('button small')),
   );
+  $form['author']['homepage']['#access'] = FALSE;
 }
 
 /**
@@ -340,12 +341,14 @@ function lememo_fiche_form_email_mail_page_form_alter(&$form, &$form_state, $for
     '#value' => t('Envoyer'),
     '#attributes'=> array('class' => array('button expand')),
   );
-
   $form['name'] = array(
   '#type' => 'textfield',
   '#title' => t('Your name'),
   '#prefix' => '<h2>Formulaire de contact</h2>', // Add markup before form item
 );
+  $form['subject']['#required'] = FALSE;
+  $form['subject']['#access'] = FALSE;
+
 }
 
 /**
