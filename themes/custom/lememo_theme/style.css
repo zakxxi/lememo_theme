@@ -20,7 +20,9 @@ LEMEMO CSS / DEV VERSION
 .grippie{
   display: none;
 }
-
+#sticky-wrapper{
+  margin-top: -160px;
+}
 .field-name-contact-form {
     margin-top: -160px;
     background-color: white;
@@ -241,6 +243,7 @@ div.fivestar-widget-static .star {
   color: #c0c0c0;
   text-transform: uppercase;
 }
+.gallery_thumb1B,
 .gallery_thumb1{
   margin-bottom: 10px;
   width: 48%;
@@ -573,7 +576,9 @@ float: right;
 .field-name-lememo-fiche-block-gallery a {
 float: none;
 }
-
+.gallery_thumb1B{
+  display: none;
+}
 .gallery_thumb1 {
 width: 100%;
 }
