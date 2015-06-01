@@ -21,17 +21,17 @@ function lememo_fiche_default_fe_block_settings() {
     'pages' => '',
     'roles' => array(),
     'themes' => array(
-      'bartik' => array(
-        'region' => 'footer',
-        'status' => 1,
-        'theme' => 'bartik',
-        'weight' => 0,
-      ),
       'lememo_theme' => array(
         'region' => 'footer_center',
         'status' => 1,
         'theme' => 'lememo_theme',
-        'weight' => -6,
+        'weight' => -12,
+      ),
+      'seven' => array(
+        'region' => '',
+        'status' => 0,
+        'theme' => 'seven',
+        'weight' => 0,
       ),
     ),
     'title' => '<none>',
@@ -47,17 +47,17 @@ function lememo_fiche_default_fe_block_settings() {
     'pages' => '',
     'roles' => array(),
     'themes' => array(
-      'bartik' => array(
-        'region' => 'footer',
-        'status' => 1,
-        'theme' => 'bartik',
-        'weight' => 0,
-      ),
       'lememo_theme' => array(
         'region' => 'footer_right',
         'status' => 1,
         'theme' => 'lememo_theme',
-        'weight' => -5,
+        'weight' => -12,
+      ),
+      'seven' => array(
+        'region' => '',
+        'status' => 0,
+        'theme' => 'seven',
+        'weight' => 0,
       ),
     ),
     'title' => '<none>',
@@ -73,16 +73,16 @@ function lememo_fiche_default_fe_block_settings() {
     'pages' => '',
     'roles' => array(),
     'themes' => array(
-      'bartik' => array(
-        'region' => '',
-        'status' => 0,
-        'theme' => 'bartik',
-        'weight' => 0,
-      ),
       'lememo_theme' => array(
         'region' => 'footer_bottom',
         'status' => 1,
         'theme' => 'lememo_theme',
+        'weight' => -12,
+      ),
+      'seven' => array(
+        'region' => '',
+        'status' => 0,
+        'theme' => 'seven',
         'weight' => 0,
       ),
     ),

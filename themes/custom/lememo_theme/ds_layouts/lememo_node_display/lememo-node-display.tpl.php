@@ -22,13 +22,13 @@
         <<?php print $header_society_left_wrapper; ?> class="columns small-6 medium-3 medium-offset-1 <?php print $header_society_left_classes; ?>">
           <?php print $header_society_left; ?>
         </<?php print $header_society_left_wrapper; ?>>
-        <<?php print $header_society_right_wrapper; ?> class="columns small-6 medium-4 end<?php print $header_society_right_classes; ?>">
+        <<?php print $header_society_right_wrapper; ?> style="padding-left:0;" class="columns small-6 medium-4 end <?php print $header_society_right_classes; ?>">
           <?php print $header_society_right; ?>
         </<?php print $header_society_right_wrapper; ?>>    
       </div>
     
 
-    <<?php print $header_addthis_wrapper; ?> class="add-this-block columns medium-4 right text-right <?php print $header_addthis_classes; ?>">
+    <<?php print $header_addthis_wrapper; ?> class="add-this-block columns medium-4 right <?php print $header_addthis_classes; ?>">
         <?php print $header_addthis; ?>
     </<?php print $header_addthis_wrapper; ?>>
 
