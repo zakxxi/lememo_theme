@@ -5,8 +5,6 @@ LEMEMO CSS / DEV VERSION
     display: block;
     min-height: 330px;
     background-size: cover !important;
-    -webkit-background-size: cover !important;
-      background-position: 50% 50% !important;
 }
 
 .societe-block-info {
@@ -16,6 +14,7 @@ LEMEMO CSS / DEV VERSION
 .add-this-block {
   margin-top: 100px;
   margin-bottom: 80px;
+  text-align: right;
 }
 
 .field-name-contact-form {
@@ -369,6 +368,32 @@ margin-right:5px;
 color: #fff;
 }
 
+/*POSTER UN AVIS*/
+.comment-form .form-item-name{
+  width: 48%;
+  float:left;
+  margin-top: 0;
+}
+.comment-form .form-item-mail{
+  width: 48%;
+  float: right;
+  margin-top: 0;
+}
+.comment-form .form-item-mail .description{
+  font-size: 12px;
+}
+.comment-form .field-name-comment-body {
+  clear: left;
+}
+.comment-form label{
+  font-family: "aaux-next",sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size:14px;
+  text-transform: uppercase;
+}
+
+
 /*ATTRIBUER UNE NOTE*/
 .field-name-vote-bis h2{
   float: left;
@@ -402,6 +427,9 @@ color: #fff;
 .field-name-lememo-fiche-backtop-btn a{
   background:url(images/backtotop.jpg) no-repeat;
   text-indent: -9999px;
+  width: 46px;
+  height: 46px;
+  margin-bottom: 10px;
 }
 
 /*FOOTER*/
@@ -417,6 +445,7 @@ color: #fff;
   font-weight: 400;
   font-size: 10px;
   text-transform:uppercase;
+  margin-top: 5px;
 }
 .footer ul li{
   list-style: none;
@@ -426,6 +455,8 @@ color: #fff;
 }
 #block-menu-menu-menu-footer-3 ul{
   text-align: center;
+  margin-top: 5px;
+  margin-bottom: 5px;
 }
 #block-menu-menu-menu-footer-3 ul li{
   display: inline;
@@ -441,4 +472,21 @@ color: #fff;
 .footer ul li a:hover,
 #block-menu-menu-menu-footer-3 ul li a:hover{
   color:#ccc;
+}
+
+
+/*MOBILE*/
+@media only screen and (max-width: 40em) { 
+
+.logo-block span {
+  color: #797979;
+  font-size: 20px;
+}
+
+.add-this-block {
+  margin-top: 20px;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
 }
