@@ -542,6 +542,7 @@ color: #fff;
   font-weight: 400;
   font-size: 12px;
 }
+#block-block-1 p,
 .footer ul li a,
 #block-menu-menu-menu-footer-3 ul li a{
   color: #fff;
@@ -554,7 +555,17 @@ color: #fff;
 #block-menu-menu-menu-footer-3 ul li a:hover{
   color:#ccc;
 }
+#block-block-1{
+  float:left;
+  width: 85px;
+}
+#block-block-1 p{
+  line-height: 25px;
+}
 
+.reveal-modal .button.expand{
+  margin-bottom: 0;
+}
 
 /*MOBILE*/
 @media only screen and (max-width: 40em) { 

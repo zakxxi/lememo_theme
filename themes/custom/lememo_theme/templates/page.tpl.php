@@ -52,7 +52,7 @@
              	<?php if ($page['footer_bottom']): ?>
                 <div class="footer_bottom">
                     <div class="row">               
-    	                <div class="columns left medium-12"> 
+    	                <div class="columns medium-centered medium-3 small-centered small-9"> 
     					<?php print render($page['footer_bottom']); ?>
     	                </div>
                     </div>
