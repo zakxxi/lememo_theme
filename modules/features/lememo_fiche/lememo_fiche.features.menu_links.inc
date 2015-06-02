@@ -110,6 +110,26 @@ function lememo_fiche_menu_default_menu_links() {
     'weight' => 0,
     'customized' => 1,
   );
+  // Exported menu link: menu-menu-footer-3_-lememo-2015:http://www.lememo.com/
+  $menu_links['menu-menu-footer-3_-lememo-2015:http://www.lememo.com/'] = array(
+    'menu_name' => 'menu-menu-footer-3',
+    'link_path' => 'http://www.lememo.com/',
+    'router_path' => '',
+    'link_title' => '© LeMemo 2015',
+    'options' => array(
+      'attributes' => array(
+        'title' => '',
+      ),
+      'identifier' => 'menu-menu-footer-3_-lememo-2015:http://www.lememo.com/',
+    ),
+    'module' => 'menu',
+    'hidden' => 0,
+    'external' => 1,
+    'has_children' => 0,
+    'expanded' => 0,
+    'weight' => -50,
+    'customized' => 1,
+  );
   // Exported menu link: menu-menu-footer-3_mentions-lgales:http://www.lememo.com/MentionsLegales
   $menu_links['menu-menu-footer-3_mentions-lgales:http://www.lememo.com/MentionsLegales'] = array(
     'menu_name' => 'menu-menu-footer-3',
@@ -137,6 +157,7 @@ function lememo_fiche_menu_default_menu_links() {
   t('FAQ');
   t('Mentions légales');
   t('Qui sommes-nous ?');
+  t('© LeMemo 2015');
 
 
   return $menu_links;
