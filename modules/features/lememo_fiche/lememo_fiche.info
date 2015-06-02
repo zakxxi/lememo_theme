@@ -49,7 +49,6 @@ features[ds_fields][] = vote_bis
 features[ds_layout_settings][] = comment|comment_node_fiche|full
 features[ds_layout_settings][] = node|fiche|full
 features[fe_block_boxes][] = copyright
-features[fe_block_settings][] = block-copyright
 features[fe_block_settings][] = menu-menu-footer
 features[fe_block_settings][] = menu-menu-footer-2
 features[fe_block_settings][] = menu-menu-menu-footer-3
