@@ -1122,9 +1122,9 @@ function lememo_fiche_field_default_field_instances() {
     'label' => 'Vote',
     'required' => 0,
     'settings' => array(
-      'allow_clear' => 1,
+      'allow_clear' => 0,
       'allow_ownvote' => 1,
-      'allow_revote' => 1,
+      'allow_revote' => 0,
       'stars' => 5,
       'target' => 'none',
       'user_register_form' => FALSE,
