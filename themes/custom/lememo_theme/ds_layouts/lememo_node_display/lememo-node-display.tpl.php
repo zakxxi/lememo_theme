@@ -19,10 +19,16 @@
     <div class ="row">
 
       <div class ="societe-block-info">
-        <<?php print $header_society_left_wrapper; ?> class="columns small-6 medium-3 medium-offset-1 <?php print $header_society_left_classes; ?>">
+
+        <<?php print $header_society_top_wrapper; ?> class="columns small-8 small-centered medium-4 medium-offset-4 large-3 <?php print $header_society_top_classes; ?>">
+          <?php print $header_society_top; ?>
+        </<?php print $header_society_top_wrapper; ?>>
+
+        <<?php print $header_society_left_wrapper; ?> class="no-padding columns small-6 medium-3 medium-offset-1 <?php print $header_society_left_classes; ?>">
           <?php print $header_society_left; ?>
         </<?php print $header_society_left_wrapper; ?>>
-        <<?php print $header_society_right_wrapper; ?> style="padding-left:0;" class="columns small-6 medium-4 end <?php print $header_society_right_classes; ?>">
+
+        <<?php print $header_society_right_wrapper; ?> class="columns small-6 medium-4 end <?php print $header_society_right_classes; ?>">
           <?php print $header_society_right; ?>
         </<?php print $header_society_right_wrapper; ?>>    
       </div>

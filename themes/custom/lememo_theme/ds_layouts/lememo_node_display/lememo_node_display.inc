@@ -10,6 +10,7 @@ function ds_lememo_node_display() {
     'label' => t('Lememo node display'),
     'regions' => array(
       'top' => t('Top'),
+      'header_society_top' => t('Header Bloc Info Top'),
       'header_society_left' => t('Header Bloc Info Left'),
       'header_society_right' => t('Header Bloc Info Right'),
       'header_addthis' => t('Header Add This'),

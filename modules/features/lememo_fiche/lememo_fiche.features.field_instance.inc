@@ -580,7 +580,7 @@ function lememo_fiche_field_default_field_instances() {
           'image_style' => 'logo',
         ),
         'type' => 'image',
-        'weight' => 1,
+        'weight' => 2,
       ),
       'teaser' => array(
         'label' => 'above',
