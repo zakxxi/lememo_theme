@@ -11,7 +11,7 @@
             </div>
             <div class="columns medium-3">
             	<!-- LOADING BACKLINK-->
-                <a href="<?php print theme_get_setting('lememo_theme_backlink')?>" class="button expand secondary">Accès à l’annuaire</a> 
+                <a href="<?php print theme_get_setting('lememo_theme_backlink')?>" target="_blank" class="button expand secondary">Accès à l’annuaire</a> 
             </div>
         </div>
     <?php print render($page['content']); ?>
@@ -42,7 +42,7 @@
                 <?php endif; ?>
 
                     <div class="columns medium-3"> 
-                    <a href="<?php print theme_get_setting('lememo_theme_backlink')?>" class="button expand secondary">Accès à l’annuaire</a> 
+                    <a href="<?php print theme_get_setting('lememo_theme_backlink')?>" target="_blank" class="button expand secondary">Accès à l’annuaire</a> 
                     </div>
             </div>
 

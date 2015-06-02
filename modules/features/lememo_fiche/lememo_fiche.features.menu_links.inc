@@ -110,26 +110,6 @@ function lememo_fiche_menu_default_menu_links() {
     'weight' => 0,
     'customized' => 1,
   );
-  // Exported menu link: menu-menu-footer-3_crdits:http://www.lememo.com/Credits?lieuSite=internet&siteId=1
-  $menu_links['menu-menu-footer-3_crdits:http://www.lememo.com/Credits?lieuSite=internet&siteId=1'] = array(
-    'menu_name' => 'menu-menu-footer-3',
-    'link_path' => 'http://www.lememo.com/Credits?lieuSite=internet&siteId=1',
-    'router_path' => '',
-    'link_title' => 'Crédits',
-    'options' => array(
-      'attributes' => array(
-        'title' => '',
-      ),
-      'identifier' => 'menu-menu-footer-3_crdits:http://www.lememo.com/Credits?lieuSite=internet&siteId=1',
-    ),
-    'module' => 'menu',
-    'hidden' => 0,
-    'external' => 1,
-    'has_children' => 0,
-    'expanded' => 0,
-    'weight' => 0,
-    'customized' => 1,
-  );
   // Exported menu link: menu-menu-footer-3_mentions-lgales:http://www.lememo.com/MentionsLegales
   $menu_links['menu-menu-footer-3_mentions-lgales:http://www.lememo.com/MentionsLegales'] = array(
     'menu_name' => 'menu-menu-footer-3',
@@ -154,7 +134,6 @@ function lememo_fiche_menu_default_menu_links() {
   // Included for use with string extractors like potx.
   t('Annuaire');
   t('Conditions générales de Services / Ventes');
-  t('Crédits');
   t('FAQ');
   t('Mentions légales');
   t('Qui sommes-nous ?');

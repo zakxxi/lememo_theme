@@ -324,7 +324,7 @@ function lememo_fiche_form_comment_form_alter(&$form, &$form_state) {
  // $form['actions'] = array('#type' => 'actions');
   $form['actions']['submit'] = array(
     '#type' => 'submit', 
-    '#value' => t('Save'), 
+    '#value' => t('Soumettre'), 
    /* '#access' => ($comment->cid && user_access('administer comments')) || variable_get('comment_preview_' . $node->type, DRUPAL_OPTIONAL) != DRUPAL_REQUIRED || isset($form_state['comment_preview']), */
     '#weight' => 20,
     '#attributes'=> array('class' => array('button small')),
@@ -349,7 +349,7 @@ function lememo_fiche_form_email_mail_page_form_alter(&$form, &$form_state, $for
   '#type' => 'textfield',
   '#title' => t('Téléphone'),
   '#weight' => -10,
-  '#prefix' => '<h2>Formulaire de contact</h2>', // Add markup before form item
+  '#prefix' => '<a class="close-reveal-modal" aria-label="Close">&#215;</a><h2>Formulaire de contact</h2>', // Add markup before form item
 );
   $form['name']['#required'] = FALSE;
   $form['name']['#access'] = FALSE;
