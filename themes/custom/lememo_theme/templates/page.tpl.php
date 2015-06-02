@@ -11,13 +11,13 @@
             </div>
             <div class="columns medium-3">
             	<!-- LOADING BACKLINK-->
-                <a href="<?php print theme_get_setting('lememo_theme_backlink')?>" class="button expand secondary">Accès à l’annuaire</a> 
+                <a href="<?php print theme_get_setting('lememo_theme_backlink')?>" target="_blank" class="button expand secondary">Accès à l’annuaire</a> 
             </div>
         </div>
+    <?php print $messages ?>
     <?php print render($page['content']); ?>
 <!-- PAGE FOOTER-->
 <div class="footer">
-   <?php print $messages ?>
             <div class="row">
 	                <div class="columns medium-2"> 
                         <div class = "footer_logo">
@@ -42,7 +42,7 @@
                 <?php endif; ?>
 
                     <div class="columns medium-3"> 
-                    <a href="<?php print theme_get_setting('lememo_theme_backlink')?>" class="button expand secondary">Accès à l’annuaire</a> 
+                    <a href="<?php print theme_get_setting('lememo_theme_backlink')?>" target="_blank" class="button expand secondary">Accès à l’annuaire</a> 
                     </div>
             </div>
 
@@ -52,7 +52,7 @@
              	<?php if ($page['footer_bottom']): ?>
                 <div class="footer_bottom">
                     <div class="row">               
-    	                <div class="columns left medium-12"> 
+    	                <div class="small-12"> 
     					<?php print render($page['footer_bottom']); ?>
     	                </div>
                     </div>

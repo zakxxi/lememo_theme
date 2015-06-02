@@ -158,7 +158,7 @@ return $output;
  * Render the field btn_coord.
  */
 function lememo_fiche_btn_coord($field) {
-  $output = '<a href="#fiche_coord" class="button warning scrollto">Coordonnées</a>';
+  $output = '<a href="#fiche_coord" class="button warning expand scrollto">Coordonnées</a>';
 
 return $output;
 }
@@ -215,7 +215,7 @@ function lememo_fiche_block_coord($field) {
   $adress = lememo_fiche_make_adress($field);
   $tel1 = $field['entity']->field_phone_1['und'][0]['value'];
   $tel2 = $field['entity']->field_phone_2['und'][0]['value'];
-  $output = '<div class="row"> <div id="fiche_coord" class="columns small-6 small-centered medium-3 medium-offset-1">
+  $output = '<div class="row"> <div id="fiche_coord" class="columns small-8 small-centered medium-3 medium-offset-1">
     <h2>' . $company . '</h2>
     <p>' . $adress . '</p>
     <p>Tél : ' . $tel1 . '<br/>
@@ -324,7 +324,7 @@ function lememo_fiche_form_comment_form_alter(&$form, &$form_state) {
  // $form['actions'] = array('#type' => 'actions');
   $form['actions']['submit'] = array(
     '#type' => 'submit', 
-    '#value' => t('Save'), 
+    '#value' => t('Poster un avis'), 
    /* '#access' => ($comment->cid && user_access('administer comments')) || variable_get('comment_preview_' . $node->type, DRUPAL_OPTIONAL) != DRUPAL_REQUIRED || isset($form_state['comment_preview']), */
     '#weight' => 20,
     '#attributes'=> array('class' => array('button small')),
@@ -349,7 +349,7 @@ function lememo_fiche_form_email_mail_page_form_alter(&$form, &$form_state, $for
   '#type' => 'textfield',
   '#title' => t('Téléphone'),
   '#weight' => -10,
-  '#prefix' => '<h2>Formulaire de contact</h2>', // Add markup before form item
+  '#prefix' => '<a class="close-reveal-modal" aria-label="Close">&#215;</a><h2>Formulaire de contact</h2>', // Add markup before form item
 );
   $form['name']['#required'] = FALSE;
   $form['name']['#access'] = FALSE;
