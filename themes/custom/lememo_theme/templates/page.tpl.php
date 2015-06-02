@@ -14,10 +14,10 @@
                 <a href="<?php print theme_get_setting('lememo_theme_backlink')?>" target="_blank" class="button expand secondary">Accès à l’annuaire</a> 
             </div>
         </div>
+    <?php print $messages ?>
     <?php print render($page['content']); ?>
 <!-- PAGE FOOTER-->
 <div class="footer">
-   <?php print $messages ?>
             <div class="row">
 	                <div class="columns medium-2"> 
                         <div class = "footer_logo">

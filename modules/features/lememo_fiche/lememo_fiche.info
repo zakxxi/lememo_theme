@@ -3,7 +3,6 @@ core = 7.x
 package = Features
 version = 7.x-1.0
 project = lememo_fiche
-dependencies[] = boxes
 dependencies[] = captcha
 dependencies[] = comment
 dependencies[] = contact
