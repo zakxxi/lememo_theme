@@ -251,16 +251,16 @@ div.fivestar-widget-static .star {
 [data-clearing] li.gallery_thumb1B {
   margin-right: 0;
 }
-/*
-[data-clearing] li.gallery_thumb2:nth-last-of-type(0) {
+
+[data-clearing] li.gallery_thumb2:nth-last-of-type(2) {
   margin-right: 0;
+}
+
+/*
+li.gallery_thumb2:last-child {
+  margin-right: 0!important;
 }
 */
-
-li.gallery_thumb2:last-child {
-  margin-right: 0;
-}
-
 .gallery_thumb1B,
 .gallery_thumb1{
   margin-bottom: 10px;
