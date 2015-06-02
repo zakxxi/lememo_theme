@@ -251,8 +251,8 @@ div.fivestar-widget-static .star {
 [data-clearing] li.gallery_thumb1B {
   margin-right: 0;
 }
-
-[data-clearing] .gallery_thumb2:nth-last-of-type(2) {
+[data-clearing] li.gallery_thumb2:nth-child(5)
+/*[data-clearing] .gallery_thumb2:nth-last-of-type(2)*/ {
   margin-right: 0;
 }
 
@@ -644,6 +644,10 @@ margin-top: 10px;
 
 .field-name-contact-form{
   margin-top: 10px;
+}
+
+#comments{
+  clear: left;
 }
 
 .comment-form .form-item-mail {
