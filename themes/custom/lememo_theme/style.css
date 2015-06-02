@@ -7,14 +7,18 @@ LEMEMO CSS / DEV VERSION
     background-size: cover !important;
 }
 
-.societe-block-info {
+.field-name-field-logo {
     margin-top: -70px;
 }
 
 .add-this-block {
-  margin-top: 100px;
-  margin-bottom: 80px;
+  margin-top: 50px;
+  margin-bottom: 60px;
   text-align: right;
+}
+
+.no-padding{
+  padding-right: 0;
 }
 
 .grippie{
@@ -24,7 +28,7 @@ LEMEMO CSS / DEV VERSION
   margin-top: -160px;
 }
 .field-name-contact-form {
-    margin-top: -160px;
+    /*margin-top: -160px;*/
     background-color: white;
     padding: 5px 20px;
     box-shadow: 0 3px 15px  rgba(0, 0, 0, 0.5);
@@ -204,7 +208,7 @@ div.fivestar-widget-static .star {
 
 /*BOUTON COORDONNEES*/
 .field-name-lememo-fiche-btn-coord{
-  margin-top: 15px;
+  margin-top: -60px;
 }
 .button.small,
 .button.expand,
@@ -243,13 +247,22 @@ div.fivestar-widget-static .star {
   color: #c0c0c0;
   text-transform: uppercase;
 }
+
+[data-clearing] li.gallery_thumb1B {
+  margin-right: 0;
+}
+
+[data-clearing] li.gallery_thumb2:nth-last-child(3){
+  margin-right: 0;
+}
+
 .gallery_thumb1B,
 .gallery_thumb1{
   margin-bottom: 10px;
-  width: 48%;
+  width: 49%;
 }
 .gallery_thumb2{
-  width: 31.5%;
+  width: 32.1%;
 }
 .gallery_link{
   margin-right: 15px;
@@ -315,7 +328,6 @@ a.gallery_link:hover{
   font-weight: 500;
   font-size: 16px;
   color: #787878;
-  margin-right: 10px;
 }
 
 /*COMMENTAIRES*/
@@ -406,6 +418,10 @@ color: #fff;
   width: 48%;
   float: right;
   margin-top: 0;
+  margin-bottom: 0;
+}
+.comment-form .form-item-mail input{
+  margin-bottom: 0;
 }
 .comment-form .form-item-mail .description{
   font-size: 12px;
@@ -442,8 +458,8 @@ color: #fff;
 
 /*ATTRIBUER UNE NOTE*/
 .field-name-vote-bis{
-  height: 50px;
-  margin-top: 15px;
+  height: 40px;
+  margin-top: 25px;
 }
 .field-name-vote-bis h2{
   float: left;
@@ -543,9 +559,15 @@ color: #fff;
 /*MOBILE*/
 @media only screen and (max-width: 40em) { 
 
+.logo-block img {
+  float: left;
+}
 .logo-block span {
   color: #797979;
   font-size: 20px;
+  float: left;
+  padding: 0 0 0 10px;
+  line-height: 45px;
 }
 
 .societe-cover-image {
@@ -553,7 +575,7 @@ min-height: 230px;
 }
 
 .field-name-field-logo {
-  margin-top: 100px;
+  margin-top: 20px;
 }
 
 .add-this-block {
@@ -563,14 +585,16 @@ min-height: 230px;
 }
 
 .field-name-lememo-fiche-block-gallery a.gallery_link {
-margin-right: 20px;
-float: right;
+  margin-right: 0;
+  margin-top: 0;
+  float: right;
 }
 
 [data-clearing] li{
   float: none;
   margin-right: 0;
-  margin-left: 20px;
+  /*margin-left: 20px;*/
+    width: 100%;
 }
 
 .field-name-lememo-fiche-block-gallery a {
@@ -581,6 +605,9 @@ float: none;
 }
 .gallery_thumb1 {
 width: 100%;
+}
+.gallery_thumb1 img{
+  width: 100%;
 }
 
 .gallery_thumb2 {
@@ -603,6 +630,15 @@ margin-top: 10px;
   margin-top: 10px;
 }
 
+.comment-form .form-item-mail {
+  width: auto;
+  float: none;
+}
+.comment-form .form-item-name {
+  width: auto;
+  float: none;
+}
+
 .field-name-lememo-fiche-backtop-btn a{
   margin-top: 10px;
   margin-right: 15px;
@@ -615,6 +651,19 @@ margin-top: 10px;
 #block-menu-menu-footer-2 ul.menu,
 #block-menu-menu-footer ul.menu{
   text-align: center;
+}
+
+}
+
+
+/*TABLETTE PORTRAIT*/
+@media only screen and (min-width: 40.063em) and (max-width: 64em) { 
+
+.gallery_thumb1B, .gallery_thumb1 {
+  width: 46%;
+}
+.gallery_thumb2 {
+  width: 30%;
 }
 
 }
