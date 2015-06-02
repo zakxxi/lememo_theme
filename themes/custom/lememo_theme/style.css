@@ -270,7 +270,7 @@ li.gallery_thumb2:last-child {
   width: 32.1%;
 }
 .gallery_link{
-  margin-right: 15px;
+  margin-right: 5px;
   margin-top: 10px;
 }
 a.gallery_link:hover{
@@ -684,6 +684,9 @@ margin-top: 10px;
 }
 .gallery_thumb2 {
   width: 30%;
+}
+.gallery_link {
+  margin-right: 30px;
 }
 
 }
