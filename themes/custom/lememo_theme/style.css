@@ -251,6 +251,11 @@ div.fivestar-widget-static .star {
 [data-clearing] li.gallery_thumb1B {
   margin-right: 0;
 }
+/*
+[data-clearing] li.gallery_thumb2:nth-last-of-type(0) {
+  margin-right: 0;
+}
+*/
 
 li.gallery_thumb2:last-child {
   margin-right: 0;
