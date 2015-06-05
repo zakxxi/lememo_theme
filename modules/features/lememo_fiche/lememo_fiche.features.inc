@@ -73,16 +73,7 @@ function lememo_fiche_image_default_styles() {
   // Exported image style: logo.
   $styles['logo'] = array(
     'label' => 'logo',
-    'effects' => array(
-      2 => array(
-        'name' => 'image_scale_and_crop',
-        'data' => array(
-          'width' => 240,
-          'height' => 150,
-        ),
-        'weight' => 1,
-      ),
-    ),
+    'effects' => array(),
   );
 
   return $styles;
