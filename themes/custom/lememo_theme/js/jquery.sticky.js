@@ -32,7 +32,7 @@
       var scrollTop = $window.scrollTop(),
         documentHeight = $document.height(),
         dwh = documentHeight - windowHeight,
-        extra = (scrollTop > dwh) ? dwh - scrollTop : 0;
+        extra = (scrollTop > dwh) ? dwh - scrollTop : -160; // pour la margin-top dans style.css de -160px
 
       for (var i = 0; i < sticked.length; i++) {
         var s = sticked[i],

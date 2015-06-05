@@ -20,6 +20,17 @@ function lememo_fiche_user_default_permissions() {
     'module' => 'comment',
   );
 
+  // Exported permission: 'access site-wide contact form'.
+  $permissions['access site-wide contact form'] = array(
+    'name' => 'access site-wide contact form',
+    'roles' => array(
+      'administrator' => 'administrator',
+      'anonymous user' => 'anonymous user',
+      'authenticated user' => 'authenticated user',
+    ),
+    'module' => 'contact',
+  );
+
   // Exported permission: 'post comments'.
   $permissions['post comments'] = array(
     'name' => 'post comments',
