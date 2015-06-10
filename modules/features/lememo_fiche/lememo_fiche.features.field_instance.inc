@@ -1153,9 +1153,10 @@ function lememo_fiche_field_default_field_instances() {
         'weight' => 22,
       ),
       'full' => array(
-        'label' => 'above',
+        'label' => 'hidden',
+        'module' => 'link',
         'settings' => array(),
-        'type' => 'hidden',
+        'type' => 'link_label',
         'weight' => 28,
       ),
       'teaser' => array(
@@ -1168,7 +1169,7 @@ function lememo_fiche_field_default_field_instances() {
     'ds_extras_field_template' => '',
     'entity_type' => 'node',
     'field_name' => 'field_website',
-    'label' => 'Site internet',
+    'label' => 'Site web',
     'required' => 0,
     'settings' => array(
       'absolute_url' => 1,
@@ -1177,7 +1178,7 @@ function lememo_fiche_field_default_field_instances() {
         'configurable_class' => 0,
         'configurable_title' => 0,
         'rel' => '',
-        'target' => 'default',
+        'target' => '_blank',
         'title' => '',
       ),
       'display' => array(
@@ -1215,7 +1216,7 @@ function lememo_fiche_field_default_field_instances() {
   t('Pays');
   t('Rue');
   t('Région');
-  t('Site internet');
+  t('Site web');
   t('Téléphone 1');
   t('Téléphone 2');
   t('Ville');

@@ -28,12 +28,12 @@
 
 <div class = "row">
 
-    <<?php print $left_wrapper; ?> class="ds-left columns small-3 <?php print $left_classes; ?>">
+    <<?php print $left_wrapper; ?> class="ds-left columns large-3 <?php print $left_classes; ?>">
       <?php print $left; ?>
     </<?php print $left_wrapper; ?>>
 
 
-    <<?php print $right_wrapper; ?> class="ds-right columns small-9 <?php print $right_classes; ?>">
+    <<?php print $right_wrapper; ?> class="ds-right columns large-9 <?php print $right_classes; ?>">
       <?php print $right; ?>
     </<?php print $right_wrapper; ?>>
 
