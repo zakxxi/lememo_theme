@@ -1,7 +1,7 @@
 name = lememo_fiche
 core = 7.x
 package = Features
-version = 7.x-1.0-rev1
+version = 7.x-1.0-rev2
 project = lememo_fiche
 dependencies[] = captcha
 dependencies[] = comment
