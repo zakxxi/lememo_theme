@@ -9,6 +9,7 @@ LEMEMO CSS / DEV VERSION
 
 .field-name-field-logo {
     margin-top: -70px;
+      text-align: right;
 }
 
 .add-this-block {
@@ -143,7 +144,7 @@ h2 .label-above,
   padding-left: 10px;
 }
 
-.field-name-field-logo{
+.field-name-field-logo img{
   box-shadow: 0 3px 15px  rgba(0, 0, 0, 0.5);
   -moz-box-shadow: 0 3px 15px  rgba(0, 0, 0, 0.5);
   -webkit-box-shadow: 0 3px 15px  rgba(0, 0, 0, 0.5);
