@@ -334,6 +334,8 @@ function lememo_fiche_form_comment_form_alter(&$form, &$form_state) {
     '#attributes'=> array('class' => array('button small')),
   );
   $form['author']['homepage']['#access'] = FALSE;
+
+  $form['#action'] = "";
 }
 
 /**
