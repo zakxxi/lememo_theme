@@ -176,6 +176,27 @@ function lememo_fiche_strongarm() {
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
+  $strongarm->name = 'fitvids_customselectors';
+  $strongarm->value = 'http://www.dailymotion.com';
+  $export['fitvids_customselectors'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'fitvids_selectors';
+  $strongarm->value = '.field-name-field-video';
+  $export['fitvids_selectors'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'fitvids_simplifymarkup';
+  $strongarm->value = 1;
+  $export['fitvids_simplifymarkup'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
   $strongarm->name = 'form_placeholder_exclude';
   $strongarm->value = '';
   $export['form_placeholder_exclude'] = $strongarm;
