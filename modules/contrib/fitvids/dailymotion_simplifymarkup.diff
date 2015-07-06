@@ -1,0 +1,43 @@
+From 9ca0f986cccfdeef4f39545dba2cab6a5909e951 Mon Sep 17 00:00:00 2001
+From: Adrien Revel <adrien@abrege.net>
+Date: Mon, 6 Jul 2015 18:22:02 +0200
+Subject: [PATCH] Adding simplify markup support for dailymotion.
+
+---
+ modules/contrib/fitvids/fitvids.js     | 6 ++++++
+ modules/contrib/fitvids/fitvids.module | 2 +-
+ 2 files changed, 7 insertions(+), 1 deletion(-)
+
+diff --git a/modules/contrib/fitvids/fitvids.js b/modules/contrib/fitvids/fitvids.js
+index 14d10b5..37f375e 100644
+--- a/modules/contrib/fitvids/fitvids.js
++++ b/modules/contrib/fitvids/fitvids.js
+@@ -39,6 +39,12 @@
+                 $(".media-vimeo-outer-wrapper").removeClass("media-vimeo-outer-wrapper");
+                 $(".media-vimeo-preview-wrapper").removeClass("media-vimeo-preview-wrapper");
+               }
++              if ($(".media-dailymotion-outer-wrapper").length) {
++                $(".media-dailymotion-outer-wrapper").removeAttr("style");
++                $(".media-dailymotion-preview-wrapper").removeAttr("style");
++                $(".media-dailymotion-outer-wrapper").removeClass("media-dailymotion-outer-wrapper");
++                $(".media-dailymotion-preview-wrapper").removeClass("media-dailymotion-preview-wrapper");
++              }
+             }
+             
+             // Fitvids!
+diff --git a/modules/contrib/fitvids/fitvids.module b/modules/contrib/fitvids/fitvids.module
+index 205284a..a85f03b 100644
+--- a/modules/contrib/fitvids/fitvids.module
++++ b/modules/contrib/fitvids/fitvids.module
+@@ -109,7 +109,7 @@ function fitvids_form($form, &$form_state) {
+ 
+   $form['fitvids_simplifymarkup'] = array(
+     '#type' => 'checkbox',
+-    '#title' => t('Simplify media_youtube and media_vimeo markup'),
++    '#title' => t('Simplify media_youtube, media_dailymotion and media_vimeo markup'),
+     '#default_value' => variable_get('fitvids_simplifymarkup', TRUE),
+     '#description' => t('Older versions of the media_youtube and media_vimeo modules wrap videos in HTML which may stop FitVids working properly. Enable this to remove the unneccesary markup.'),
+   );
+-- 
+2.2.1
+
