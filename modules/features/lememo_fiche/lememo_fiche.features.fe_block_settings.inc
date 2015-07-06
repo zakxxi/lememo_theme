@@ -25,7 +25,7 @@ function lememo_fiche_default_fe_block_settings() {
         'region' => 'footer_center',
         'status' => 1,
         'theme' => 'lememo_theme',
-        'weight' => -12,
+        'weight' => 0,
       ),
       'seven' => array(
         'region' => '',
@@ -51,7 +51,7 @@ function lememo_fiche_default_fe_block_settings() {
         'region' => 'footer_right',
         'status' => 1,
         'theme' => 'lememo_theme',
-        'weight' => -12,
+        'weight' => 0,
       ),
       'seven' => array(
         'region' => '',
@@ -77,7 +77,7 @@ function lememo_fiche_default_fe_block_settings() {
         'region' => 'footer_bottom',
         'status' => 1,
         'theme' => 'lememo_theme',
-        'weight' => -12,
+        'weight' => 0,
       ),
       'seven' => array(
         'region' => '',

@@ -62,7 +62,7 @@ ICONS
   content: '\e800'; 
   font-size: 20px;
   margin-right: 10px;
-  } /* '' */
+  } /* 'î ' */
 
 
 /*
@@ -76,7 +76,8 @@ LEMEMO CSS / DEV VERSION
 
 .field-name-field-logo {
     margin-top: -70px;
-      text-align: center;
+    text-align: right;
+    max-width: 235px;
 }
 
 .add-this-block {
@@ -216,6 +217,9 @@ h2 .label-above,
   box-shadow: 0 3px 15px  rgba(0, 0, 0, 0.5);
   -moz-box-shadow: 0 3px 15px  rgba(0, 0, 0, 0.5);
   -webkit-box-shadow: 0 3px 15px  rgba(0, 0, 0, 0.5);
+  max-width: 100%;
+  max-height: 177px;
+  min-height: 75px;
 }
 
 /*RETOUR ANNUAIRE*/
@@ -239,7 +243,7 @@ h2 .label-above,
 .field-name-lememo-fiche-comment-counter{
     float: left;
   line-height: 48px;
-  margin-left: 10px;
+  margin-left: 5px;
 }
 .field-name-lememo-fiche-comment-counter a{
   color:#797979;
@@ -419,6 +423,9 @@ a.gallery_link:hover{
   color: #505050;
 }
 
+.field-name-field-video {
+  margin-top: 30px;  
+}
 
 
 /*A PROPOS*/
@@ -634,7 +641,7 @@ color: #fff;
   margin: 0;
 }
 #block-menu-menu-menu-footer-3 ul li.last:before{
-  content: '• ';
+  content: '•';
   padding-right: 10px;
   color: #fff;
   font-family: "aaux-next",sans-serif;

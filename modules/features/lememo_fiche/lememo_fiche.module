@@ -30,8 +30,8 @@ function lememo_fiche_form_contact_site_form_submit(&$form, &$form_state) {
  */
 function lememo_fiche_mail_alter(&$message) {
   if (($message['module'] == 'email') && ($message['id'] == 'email_contact')) {
-    $site_mail = variable_get('site_mail', 'info@lememo.fr');
-    $message['to'] .= '; ' . $site_mail;
+    $site_mail = variable_get('site_mail', 'info@lememo.net');
+    $message['to'] .= ', ' . $site_mail;
   }
 }
 
