@@ -16,6 +16,7 @@ function lememo_fiche_user_default_permissions() {
     'roles' => array(
       'anonymous user' => 'anonymous user',
       'authenticated user' => 'authenticated user',
+      'menfin' => 'menfin',
     ),
     'module' => 'comment',
   );
@@ -24,9 +25,9 @@ function lememo_fiche_user_default_permissions() {
   $permissions['access site-wide contact form'] = array(
     'name' => 'access site-wide contact form',
     'roles' => array(
-      'administrator' => 'administrator',
       'anonymous user' => 'anonymous user',
       'authenticated user' => 'authenticated user',
+      'menfin' => 'menfin',
     ),
     'module' => 'contact',
   );
@@ -37,6 +38,7 @@ function lememo_fiche_user_default_permissions() {
     'roles' => array(
       'anonymous user' => 'anonymous user',
       'authenticated user' => 'authenticated user',
+      'menfin' => 'menfin',
     ),
     'module' => 'comment',
   );
@@ -47,6 +49,7 @@ function lememo_fiche_user_default_permissions() {
     'roles' => array(
       'anonymous user' => 'anonymous user',
       'authenticated user' => 'authenticated user',
+      'menfin' => 'menfin',
     ),
     'module' => 'fivestar',
   );

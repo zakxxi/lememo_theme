@@ -70,26 +70,6 @@ function lememo_fiche_menu_default_menu_links() {
     'weight' => 0,
     'customized' => 1,
   );
-  // Exported menu link: menu-footer_conditions-gnrales-de-services--ventes:http://www.lememo.com/Cgv
-  $menu_links['menu-footer_conditions-gnrales-de-services--ventes:http://www.lememo.com/Cgv'] = array(
-    'menu_name' => 'menu-footer',
-    'link_path' => 'http://www.lememo.com/Cgv',
-    'router_path' => '',
-    'link_title' => 'Conditions générales de Services / Ventes',
-    'options' => array(
-      'attributes' => array(
-        'title' => '',
-      ),
-      'identifier' => 'menu-footer_conditions-gnrales-de-services--ventes:http://www.lememo.com/Cgv',
-    ),
-    'module' => 'menu',
-    'hidden' => 0,
-    'external' => 1,
-    'has_children' => 0,
-    'expanded' => 0,
-    'weight' => 0,
-    'customized' => 1,
-  );
   // Exported menu link: menu-footer_qui-sommes-nous-:http://www.lememo.com/CharteQualite
   $menu_links['menu-footer_qui-sommes-nous-:http://www.lememo.com/CharteQualite'] = array(
     'menu_name' => 'menu-footer',
@@ -153,7 +133,6 @@ function lememo_fiche_menu_default_menu_links() {
   // Translatables
   // Included for use with string extractors like potx.
   t('Annuaire');
-  t('Conditions générales de Services / Ventes');
   t('FAQ');
   t('Mentions légales');
   t('Qui sommes-nous ?');
