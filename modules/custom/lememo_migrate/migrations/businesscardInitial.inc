@@ -27,10 +27,12 @@ abstract class lememoBusinesscardMigration extends Migration {
       array('description.long', t('Long descriptions')),
       array('address', t('Address')),
       array('resources.cover', t('Ressource cover')),
+	  array('resources.video', t('Ressource video')),
       array('resources.logo', t('Ressource logo')),
       array('resources.pictures', t('Ressource logo')),
       array('address.city.latitude', t('Latitude')),
       array('address.city.longitude', t('Longitude')),
+      array('address.rows', t('Streets')),
       array('address.country.name', t('Country')),
       array('address.district.name', t('District')),
       array('address.county.name', t('County')),
@@ -61,7 +63,10 @@ abstract class lememoBusinesscardMigration extends Migration {
     $this->addFieldMapping('field_companycleaned', 'companyCleaned');
     $this->addFieldMapping('field_siret', 'siret');
     $this->addFieldMapping('field_tva', 'tva');
-    $this->addFieldMapping('field_mail', 'mail');
+    $this->addFieldMapping('field_mail', 'email');
+    $this->addFieldMapping('field_phone_1', 'phone1');
+    $this->addFieldMapping('field_phone_2', 'phone2');
+    $this->addFieldMapping('field_website', 'website');
     $this->addFieldMapping('field_description_short', 'description.short');
     $this->addFieldMapping('field_description_long', 'description.long');
 
@@ -77,6 +82,13 @@ abstract class lememoBusinesscardMigration extends Migration {
     $this->addFieldMapping('field_pictures:file_class')->defaultValue('lememoMigrateFileUriAsIs');
     $this->addFieldMapping('field_pictures:file_replace')->defaultValue(MigrateFile::FILE_EXISTS_REUSE);
 
+	//$this->addFieldMapping('field_pictures', 'resources.video')->callbacks(array($this, 'switchDomain'));
+    //$this->addFieldMapping('field_pictures:file_class')->defaultValue('lememoMigrateFileUriAsIs');
+    //$this->addFieldMapping('field_pictures:file_replace')->defaultValue(MigrateFile::FILE_EXISTS_REUSE);
+	$this->addFieldMapping('field_video', 'resources.video');
+	$this->addFieldMapping('field_video:file_class')->defaultValue('lememoMigrateFileUriAsIs');
+    $this->addFieldMapping('field_video:file_replace')->defaultValue(MigrateFile::FILE_EXISTS_REUSE);
+	
     $this->addFieldMapping('field_position')->defaultValue('point');
     $this->addFieldMapping('field_position:input_format')->defaultValue('lat/lon');
     $this->addFieldMapping('field_position:geo_type')->defaultValue('point');
@@ -99,6 +111,12 @@ abstract class lememoBusinesscardMigration extends Migration {
   public function prepareRow($row) {
     parent::prepareRow($row);
     $this->flatten($row);
+    // Propose a non-flatten version for the address rows that need to be
+    // multivalued on the Drupal side.
+    $name = "address.rows";
+    $value = (array) $row->address->rows;
+    $row->$name = $value;
+    // Set others default values.
     $row->status = 1;
     $row->uid = 1;
     // Disable pathauto, just in case.
