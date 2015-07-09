@@ -75,7 +75,7 @@ function lememo_fiche_field_default_field_instances() {
         'label' => 'hidden',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 33,
+        'weight' => 34,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -121,7 +121,7 @@ function lememo_fiche_field_default_field_instances() {
         'label' => 'hidden',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 35,
+        'weight' => 36,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -167,7 +167,7 @@ function lememo_fiche_field_default_field_instances() {
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 38,
+        'weight' => 39,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -213,7 +213,7 @@ function lememo_fiche_field_default_field_instances() {
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 39,
+        'weight' => 40,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -259,7 +259,7 @@ function lememo_fiche_field_default_field_instances() {
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 41,
+        'weight' => 42,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -307,7 +307,7 @@ function lememo_fiche_field_default_field_instances() {
         'label' => 'hidden',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 34,
+        'weight' => 35,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -477,7 +477,7 @@ function lememo_fiche_field_default_field_instances() {
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 40,
+        'weight' => 41,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -528,7 +528,7 @@ function lememo_fiche_field_default_field_instances() {
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 37,
+        'weight' => 38,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -757,7 +757,7 @@ function lememo_fiche_field_default_field_instances() {
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 29,
+        'weight' => 30,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -806,7 +806,7 @@ function lememo_fiche_field_default_field_instances() {
         'label' => 'hidden',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 30,
+        'weight' => 31,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -909,7 +909,7 @@ function lememo_fiche_field_default_field_instances() {
           'geofield_map_zoom' => 18,
         ),
         'type' => 'geofield_map_map',
-        'weight' => 20,
+        'weight' => 21,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -955,7 +955,7 @@ function lememo_fiche_field_default_field_instances() {
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 36,
+        'weight' => 37,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -1001,7 +1001,7 @@ function lememo_fiche_field_default_field_instances() {
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 32,
+        'weight' => 33,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -1047,7 +1047,7 @@ function lememo_fiche_field_default_field_instances() {
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 31,
+        'weight' => 32,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -1075,8 +1075,8 @@ function lememo_fiche_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-fiche-field_video'
-  $field_instances['node-fiche-field_video'] = array(
+  // Exported field_instance: 'node-fiche-field_video_embed'
+  $field_instances['node-fiche-field_video_embed'] = array(
     'bundle' => 'fiche',
     'default_value' => NULL,
     'deleted' => 0,
@@ -1084,19 +1084,25 @@ function lememo_fiche_field_default_field_instances() {
     'display' => array(
       'default' => array(
         'label' => 'above',
-        'module' => 'file',
-        'settings' => array(),
-        'type' => 'file_default',
-        'weight' => 23,
+        'module' => 'video_embed_field',
+        'settings' => array(
+          'description' => 1,
+          'description_position' => 'bottom',
+          'video_style' => 'normal',
+        ),
+        'type' => 'video_embed_field',
+        'weight' => 24,
       ),
       'full' => array(
         'label' => 'hidden',
-        'module' => 'file_entity',
+        'module' => 'video_embed_field',
         'settings' => array(
-          'file_view_mode' => 'default',
+          'description' => 1,
+          'description_position' => 'bottom',
+          'video_style' => 'normal',
         ),
-        'type' => 'file_rendered',
-        'weight' => 18,
+        'type' => 'video_embed_field',
+        'weight' => 19,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -1107,24 +1113,24 @@ function lememo_fiche_field_default_field_instances() {
     ),
     'ds_extras_field_template' => '',
     'entity_type' => 'node',
-    'field_name' => 'field_video',
-    'label' => 'Video',
+    'field_name' => 'field_video_embed',
+    'label' => 'Video Embed',
     'required' => 0,
     'settings' => array(
+      'allowed_providers' => array(
+        'vimeo' => 'vimeo',
+        'youtube' => 'youtube',
+      ),
       'description_field' => 0,
-      'file_directory' => '',
-      'file_extensions' => 'mp4',
-      'max_filesize' => '',
+      'description_length' => 128,
       'user_register_form' => FALSE,
     ),
     'widget' => array(
-      'active' => 1,
-      'module' => 'emfield',
-      'settings' => array(
-        'size' => 60,
-      ),
-      'type' => 'enfield_widget',
-      'weight' => 19,
+      'active' => 0,
+      'module' => 'video_embed_field',
+      'settings' => array(),
+      'type' => 'video_embed_field_video',
+      'weight' => 20,
     ),
   );
 
@@ -1273,7 +1279,7 @@ function lememo_fiche_field_default_field_instances() {
   t('Site web');
   t('Téléphone 1');
   t('Téléphone 2');
-  t('Video');
+  t('Video Embed');
   t('Ville');
   t('Vote');
   t('companyCleaned');

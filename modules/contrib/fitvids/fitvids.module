@@ -109,7 +109,7 @@ function fitvids_form($form, &$form_state) {
 
   $form['fitvids_simplifymarkup'] = array(
     '#type' => 'checkbox',
-    '#title' => t('Simplify media_youtube, media_dailymotion and media_vimeo markup'),
+    '#title' => t('Simplify media_youtube and media_vimeo markup'),
     '#default_value' => variable_get('fitvids_simplifymarkup', TRUE),
     '#description' => t('Older versions of the media_youtube and media_vimeo modules wrap videos in HTML which may stop FitVids working properly. Enable this to remove the unneccesary markup.'),
   );

@@ -177,21 +177,21 @@ function lememo_fiche_strongarm() {
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'fitvids_customselectors';
-  $strongarm->value = 'http://www.dailymotion.com';
+  $strongarm->value = '';
   $export['fitvids_customselectors'] = $strongarm;
 
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'fitvids_selectors';
-  $strongarm->value = '.field-name-field-video';
+  $strongarm->value = '.embedded-video';
   $export['fitvids_selectors'] = $strongarm;
 
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'fitvids_simplifymarkup';
-  $strongarm->value = 1;
+  $strongarm->value = 0;
   $export['fitvids_simplifymarkup'] = $strongarm;
 
   $strongarm = new stdClass();
