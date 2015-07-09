@@ -93,7 +93,7 @@ function lememo_fiche_ds_field_settings_info() {
       'format' => 'default',
     ),
     'lememo_fiche_block_coord' => array(
-      'weight' => '21',
+      'weight' => '22',
       'label' => 'hidden',
       'format' => 'default',
     ),
@@ -103,7 +103,7 @@ function lememo_fiche_ds_field_settings_info() {
       'format' => 'default',
     ),
     'lememo_fiche_backtop_btn' => array(
-      'weight' => '19',
+      'weight' => '20',
       'label' => 'hidden',
       'format' => 'default',
     ),
@@ -133,11 +133,6 @@ function lememo_fiche_ds_field_settings_info() {
           'ow-at' => '',
           'ow-def-at' => FALSE,
         ),
-      ),
-    ),
-    'field_video' => array(
-      'formatter_settings' => array(
-        'ft' => array(),
       ),
     ),
   );
@@ -278,11 +273,12 @@ function lememo_fiche_ds_layout_settings_info() {
         16 => 'field_mail',
         17 => 'field_website',
         18 => 'field_video',
+        19 => 'field_video_embed',
       ),
       'bottom' => array(
-        19 => 'lememo_fiche_backtop_btn',
-        20 => 'field_position',
-        21 => 'lememo_fiche_block_coord',
+        20 => 'lememo_fiche_backtop_btn',
+        21 => 'field_position',
+        22 => 'lememo_fiche_block_coord',
       ),
     ),
     'fields' => array(
@@ -305,6 +301,7 @@ function lememo_fiche_ds_layout_settings_info() {
       'field_mail' => 'right',
       'field_website' => 'right',
       'field_video' => 'right',
+      'field_video_embed' => 'right',
       'lememo_fiche_backtop_btn' => 'bottom',
       'field_position' => 'bottom',
       'lememo_fiche_block_coord' => 'bottom',
