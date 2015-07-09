@@ -27,7 +27,7 @@ abstract class lememoBusinesscardMigration extends Migration {
       array('description.long', t('Long descriptions')),
       array('address', t('Address')),
       array('resources.cover', t('Ressource cover')),
-	  array('resources.video', t('Ressource video')),
+	    array('resources.video', t('Ressource video')),
       array('resources.logo', t('Ressource logo')),
       array('resources.pictures', t('Ressource logo')),
       array('address.city.latitude', t('Latitude')),
@@ -82,12 +82,13 @@ abstract class lememoBusinesscardMigration extends Migration {
     $this->addFieldMapping('field_pictures:file_class')->defaultValue('lememoMigrateFileUriAsIs');
     $this->addFieldMapping('field_pictures:file_replace')->defaultValue(MigrateFile::FILE_EXISTS_REUSE);
 
-	//$this->addFieldMapping('field_pictures', 'resources.video')->callbacks(array($this, 'switchDomain'));
+	  //$this->addFieldMapping('field_pictures', 'resources.video')->callbacks(array($this, 'switchDomain'));
     //$this->addFieldMapping('field_pictures:file_class')->defaultValue('lememoMigrateFileUriAsIs');
     //$this->addFieldMapping('field_pictures:file_replace')->defaultValue(MigrateFile::FILE_EXISTS_REUSE);
-	$this->addFieldMapping('field_video', 'resources.video');
-	$this->addFieldMapping('field_video:file_class')->defaultValue('lememoMigrateFileUriAsIs');
-    $this->addFieldMapping('field_video:file_replace')->defaultValue(MigrateFile::FILE_EXISTS_REUSE);
+
+	  $this->addFieldMapping('field_video_embed', 'resources.video');
+	  $this->addFieldMapping('field_video_embed:file_class')->defaultValue('lememoMigrateFileUriAsIs');
+    $this->addFieldMapping('field_video_embed:file_replace')->defaultValue(MigrateFile::FILE_EXISTS_REUSE);
 	
     $this->addFieldMapping('field_position')->defaultValue('point');
     $this->addFieldMapping('field_position:input_format')->defaultValue('lat/lon');

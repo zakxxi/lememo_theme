@@ -39,12 +39,6 @@
                 $(".media-vimeo-outer-wrapper").removeClass("media-vimeo-outer-wrapper");
                 $(".media-vimeo-preview-wrapper").removeClass("media-vimeo-preview-wrapper");
               }
-              if ($(".media-dailymotion-outer-wrapper").length) {
-                $(".media-dailymotion-outer-wrapper").removeAttr("style");
-                $(".media-dailymotion-preview-wrapper").removeAttr("style");
-                $(".media-dailymotion-outer-wrapper").removeClass("media-dailymotion-outer-wrapper");
-                $(".media-dailymotion-preview-wrapper").removeClass("media-dailymotion-preview-wrapper");
-              }
             }
             
             // Fitvids!
