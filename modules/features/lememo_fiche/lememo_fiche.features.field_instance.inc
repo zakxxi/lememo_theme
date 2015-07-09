@@ -1075,6 +1075,56 @@ function lememo_fiche_field_default_field_instances() {
     ),
   );
 
+  // Exported field_instance: 'node-fiche-field_video'
+  $field_instances['node-fiche-field_video'] = array(
+    'bundle' => 'fiche',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'file',
+        'settings' => array(),
+        'type' => 'file_default',
+        'weight' => 23,
+      ),
+      'full' => array(
+        'label' => 'hidden',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 18,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'ds_extras_field_template' => '',
+    'entity_type' => 'node',
+    'field_name' => 'field_video',
+    'label' => 'Video',
+    'required' => 0,
+    'settings' => array(
+      'description_field' => 0,
+      'file_directory' => '',
+      'file_extensions' => 'mp4',
+      'max_filesize' => '',
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'emfield',
+      'settings' => array(
+        'size' => 60,
+      ),
+      'type' => 'enfield_widget',
+      'weight' => 19,
+    ),
+  );
+
   // Exported field_instance: 'node-fiche-field_video_embed'
   $field_instances['node-fiche-field_video_embed'] = array(
     'bundle' => 'fiche',
@@ -1279,6 +1329,7 @@ function lememo_fiche_field_default_field_instances() {
   t('Site web');
   t('Téléphone 1');
   t('Téléphone 2');
+  t('Video');
   t('Video Embed');
   t('Ville');
   t('Vote');
